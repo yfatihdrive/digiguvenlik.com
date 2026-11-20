@@ -7,8 +7,6 @@ import {
   Search,
   ShoppingCart,
   User,
-  Truck,
-  ShieldCheck,
   Menu,
   X,
   ChevronDown,
@@ -351,23 +349,6 @@ export default function Header({ settings, categories }: HeaderProps) {
           ))}
         </div>
       </nav>
-
-      {/* Cash on Delivery & Free Shipping Strip */}
-      <div className="bg-gradient-to-r from-[#212121] via-[#2c2c2c] to-[#212121] text-white">
-        <div className="hb-container flex flex-wrap items-center justify-center gap-x-6 gap-y-1 py-1.5 text-center text-[15px]">
-          <span className="flex items-center gap-1.5 font-bold text-amber-400">
-            <ShieldCheck className="h-4 w-4" />
-            {settings.codBannerTitle}
-          </span>
-          <span className="hidden text-gray-500 sm:inline">•</span>
-          <span className="font-medium text-gray-100">{settings.codBannerSub}</span>
-          <span className="hidden text-gray-500 md:inline">•</span>
-          <span className="hidden items-center gap-1 font-bold text-emerald-400 md:flex">
-            <Truck className="h-4 w-4" />
-            {settings.freeShippingText}
-          </span>
-        </div>
-      </div>
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
