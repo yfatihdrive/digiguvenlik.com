@@ -83,11 +83,10 @@ export default function HomePage() {
                 </h1>
 
                 <p className="text-[16px] leading-[1.5] font-normal text-orange-50 sm:text-[16px]">
-                  Mesafe sınırı olmayan SIM kartlı ortam duyma cihazları, 30 güne varan ses kayıt teknolojileri ve kablosuz Wi-Fi kameralarda{" "}
+                  Mesafe sınırı olmaksızın kesintisiz erişim sunan SIM kartlı ses takip sistemleri, 30 güne kadar uzun pil ömürlü ses kayıt çözümleri ve kablosuz Wi-Fi güvenlik kameralarında{" "}
                   <strong className="font-semibold underline decoration-amber-300 decoration-2">
-                    kapıda nakit veya kredi kartı ile ödeme
-                  </strong>{" "}
-                  kolaylığı!
+                    kapıda nakit veya kredi kartı ile güvenli ödeme ayrıcalığı.
+                  </strong>
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-1.5">
