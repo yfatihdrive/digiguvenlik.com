@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { OrderItem, SiteSettings, Order } from "@/lib/types";
 import { useShop } from "@/context/ShopContext";
+import { calculateSecondItemDiscount } from "@/lib/promo";
 
 interface QuickOrderFormProps {
   items: OrderItem[];
@@ -110,8 +111,9 @@ export default function QuickOrderForm({
     0
   );
 
+  const secondItemDiscount = calculateSecondItemDiscount(effectiveItems);
   const couponDiscount = appliedCoupon ? appliedCoupon.discount : 0;
-  const afterCoupon = Math.max(0, subtotal - couponDiscount);
+  const afterCoupon = Math.max(0, subtotal - secondItemDiscount - couponDiscount);
   const havaleRate = Number(settings.havaleDiscountRate || 10);
   const havaleDiscount =
     paymentMethod === "Havale - EFT"
@@ -441,6 +443,38 @@ export default function QuickOrderForm({
           </div>
         </div>
 
+        {/* 2. Üründe %30 İndirim Upsell / Applied Strip inside Order Form */}
+        {allowQuantityChange && effectiveItems.length === 1 && quantity === 1 ? (
+          <button
+            type="button"
+            onClick={() => setQuantity(2)}
+            className="flex w-full cursor-pointer items-center justify-between gap-2 rounded-xl border-2 border-dashed border-[#FF6000] bg-orange-50 px-3.5 py-2.5 text-left transition hover:bg-orange-100"
+          >
+            <div>
+              <p className="text-[14px] font-extrabold text-[#FF6000]">
+                🔥 2. Üründe %30 İndirim Fırsatı!
+              </p>
+              <p className="text-[13px] font-medium text-[#484848]">
+                2 adet almak için tıklayın, 2. üründe{" "}
+                <strong className="text-[#2E7D32]">
+                  {formatTL(Math.round(effectiveItems[0].price * 0.3))} TL
+                </strong>{" "}
+                anında indirim kazanın!
+              </p>
+            </div>
+            <span className="shrink-0 rounded-lg bg-[#FF6000] px-3 py-1.5 text-[13px] font-extrabold text-white">
+              +1 Ekle
+            </span>
+          </button>
+        ) : secondItemDiscount > 0 ? (
+          <div className="flex items-center justify-between rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2.5 text-[14px] font-bold text-emerald-800">
+            <span>🎉 2. Üründe %30 İndirim Uygulandı!</span>
+            <span className="rounded-lg bg-emerald-600 px-2.5 py-0.5 text-white">
+              −{formatTL(secondItemDiscount)} TL
+            </span>
+          </div>
+        ) : null}
+
         {/* Active Wheel Coupon Auto-Applied Banner */}
         {appliedCoupon && (
           <div className="flex items-center justify-between rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2.5 text-[14px] font-bold text-emerald-800">
@@ -586,6 +620,12 @@ export default function QuickOrderForm({
             <span>Ürünler Toplamı:</span>
             <span className="font-semibold text-white">{formatTL(subtotal)} TL</span>
           </div>
+          {secondItemDiscount > 0 && (
+            <div className="flex justify-between text-emerald-400">
+              <span>2. Üründe %30 İndirim:</span>
+              <span className="font-bold">−{formatTL(secondItemDiscount)} TL</span>
+            </div>
+          )}
           {couponDiscount > 0 && (
             <div className="flex justify-between text-emerald-400">
               <span>Kupon İndirimi ({appliedCoupon?.code}):</span>

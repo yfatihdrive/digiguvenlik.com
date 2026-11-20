@@ -3,6 +3,7 @@ import { readDb, writeDb } from "@/lib/db";
 import { sendOrderEmail } from "@/lib/mailer";
 import { getCurrentUser } from "@/lib/auth";
 import { Order, OrderItem } from "@/lib/types";
+import { calculateSecondItemDiscount } from "@/lib/promo";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -103,7 +104,9 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    const afterCoupon = Math.max(0, subtotal - couponDiscount);
+    const secondItemDiscount = calculateSecondItemDiscount(validatedItems);
+    const totalPromoAndCoupon = couponDiscount + secondItemDiscount;
+    const afterCoupon = Math.max(0, subtotal - totalPromoAndCoupon);
     const havaleRate = Number(db.settings.havaleDiscountRate || 10);
     const havaleDiscount =
       paymentMethod === "Havale - EFT"
@@ -127,8 +130,10 @@ export async function POST(req: NextRequest) {
       customerAddress: address,
       items: validatedItems,
       subtotal,
-      couponCode: appliedCoupon,
-      couponDiscount,
+      couponCode: secondItemDiscount > 0
+        ? (appliedCoupon ? `${appliedCoupon} + 2.URUN%30` : "2.URUN%30")
+        : appliedCoupon,
+      couponDiscount: totalPromoAndCoupon,
       havaleDiscount,
       totalAmount,
       paymentMethod,

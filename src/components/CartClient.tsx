@@ -12,12 +12,16 @@ import {
 import { SiteSettings } from "@/lib/types";
 import { useShop } from "@/context/ShopContext";
 import QuickOrderForm from "./QuickOrderForm";
+import { calculateSecondItemDiscount } from "@/lib/promo";
 
 export default function CartClient({ settings }: { settings: SiteSettings }) {
   const { cart, updateQuantity, removeFromCart, clearCart } = useShop();
 
   const formatTL = (n: number) =>
     new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 }).format(Math.round(n));
+
+  const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
+  const secondItemDiscount = calculateSecondItemDiscount(cart);
 
   if (cart.length === 0) {
     return (
@@ -68,6 +72,58 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
         {/* Left: Cart Items */}
         <div className="space-y-4 lg:col-span-6">
+          {/* 2. Üründe %30 İndirim Kampanya Bannerı */}
+          {totalQty === 1 && cart[0] ? (
+            <div className="rounded-2xl border-2 border-dashed border-[#FF6000] bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 p-4 shadow-2xs">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <span className="inline-block rounded-full bg-[#FF6000] px-2.5 py-0.5 text-[12px] font-extrabold text-white uppercase">
+                    🔥 2. ÜRÜNDE %30 İNDİRİM
+                  </span>
+                  <h2 className="mt-1 text-[17px] font-extrabold text-[#212121]">
+                    1 Ürün Daha Ekle, 2. Üründe %30 İndirim Kazan!
+                  </h2>
+                  <p className="text-[14px] text-[#555555]">
+                    Bu üründen 1 adet daha ekleyerek hemen{" "}
+                    <strong className="text-[#2E7D32]">
+                      {formatTL(Math.round(cart[0].price * 0.3))} TL
+                    </strong>{" "}
+                    tasarruf edebilir veya mağazadan farklı bir 2. ürün seçebilirsiniz.
+                  </p>
+                </div>
+                <div className="flex shrink-0 flex-wrap gap-2">
+                  <button
+                    type="button"
+                    onClick={() => updateQuantity(cart[0].productId, cart[0].quantity + 1)}
+                    className="cursor-pointer rounded-xl bg-[#FF6000] px-4 py-2.5 text-[14px] font-extrabold text-white shadow-sm transition hover:bg-[#e55500]"
+                  >
+                    +1 Adet Daha Ekle (−{formatTL(Math.round(cart[0].price * 0.3))} TL)
+                  </button>
+                  <Link
+                    href="/urunler"
+                    className="inline-flex items-center gap-1 rounded-xl border border-gray-300 bg-white px-3.5 py-2.5 text-[14px] font-bold text-[#212121] hover:border-[#FF6000] hover:text-[#FF6000]"
+                  >
+                    <span>Başka Ürün Seç</span>
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ) : secondItemDiscount > 0 ? (
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border-2 border-emerald-400 bg-emerald-50 px-4 py-3.5 text-emerald-900 shadow-2xs">
+              <div>
+                <p className="text-[16px] font-extrabold text-emerald-800">
+                  🎉 2. Üründe %30 İndirim Uygulandı!
+                </p>
+                <p className="text-[14px] font-medium text-emerald-700">
+                  Sepetinizde {totalQty} ürün bulunduğu için 2. üründe %30 indirim tutardan otomatik düşüldü.
+                </p>
+              </div>
+              <span className="rounded-xl bg-emerald-600 px-3.5 py-1.5 text-[16px] font-black text-white shadow-xs">
+                −{formatTL(secondItemDiscount)} TL
+              </span>
+            </div>
+          ) : null}
           <div className="divide-y divide-gray-100 rounded-2xl border border-[#E5E5E5] bg-white p-4 shadow-2xs sm:p-6">
             {cart.map((item) => (
               <div
