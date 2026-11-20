@@ -274,16 +274,16 @@ export default async function ProductDetailPage({
                 </span>
               </summary>
               <div className="border-t border-[#E5E5E5] bg-white p-5">
-                <div className="flex flex-col gap-5 md:flex-row md:items-center">
-                  <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-xl border border-gray-100 bg-white p-2">
+                <div className="flex flex-col items-center gap-6">
+                  <div className="mx-auto w-full max-w-[340px] overflow-hidden rounded-2xl border border-gray-200 bg-[#FAFAFA] shadow-md sm:max-w-[380px]">
                     <img
                       src={(product.images && product.images[idx % product.images.length]) || product.image}
                       alt={(product.imageAlts && product.imageAlts[idx % product.imageAlts.length]) || `${product.name} — ${sec.title}`}
                       loading="lazy"
-                      className="h-full w-full object-contain"
+                      className="aspect-[9/16] w-full object-contain"
                     />
                   </div>
-                  <p className="text-[16px] leading-[1.6] font-normal text-[#484848]">
+                  <p className="w-full text-[16px] leading-[1.65] font-normal text-[#484848]">
                     {sec.content}
                   </p>
                 </div>
