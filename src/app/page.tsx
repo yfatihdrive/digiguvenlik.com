@@ -11,7 +11,6 @@ import {
   Phone,
   MessageCircle,
   CheckCircle2,
-  Tag,
   Mic,
   Radio,
   Wifi,
@@ -90,17 +89,6 @@ export default function HomePage() {
                   </strong>{" "}
                   kolaylığı!
                 </p>
-
-                {/* Coupon Promo Box */}
-                <div className="inline-flex flex-wrap items-center gap-3 rounded-xl border border-white/25 bg-white/15 p-2.5 backdrop-blur-xs">
-                  <div className="flex items-center gap-1.5 text-[15px] font-bold text-amber-300">
-                    <Tag className="h-4 w-4" />
-                    <span>SANA ÖZEL ANINDA 200 TL İNDİRİM KODU:</span>
-                  </div>
-                  <span className="rounded-md bg-white px-2.5 py-0.5 font-mono text-[16px] font-bold tracking-wider text-[#212121] shadow-2xs">
-                    4Q4CGNLR
-                  </span>
-                </div>
 
                 <div className="flex flex-wrap items-center gap-3 pt-1.5">
                   <Link
