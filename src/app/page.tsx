@@ -79,7 +79,7 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="text-[24px] font-bold leading-[1.22] tracking-[-0.02em] text-white sm:text-[34px]">
-                  Profesyonel Güvenlik Kameraları &amp; Uzaktan Ses Duyma Sistemleri
+                  Yeni Nesil Akıllı Güvenlik Kameraları &amp; Profesyonel Ses Kayıt Çözümleri
                 </h1>
 
                 <p className="text-[16px] leading-[1.5] font-normal text-orange-50 sm:text-[16px]">
