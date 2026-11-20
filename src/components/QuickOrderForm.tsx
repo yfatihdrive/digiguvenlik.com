@@ -431,51 +431,6 @@ export default function QuickOrderForm({
           </div>
         </div>
 
-        {/* Discount Coupon */}
-        <div className="rounded-xl border border-dashed border-orange-300 bg-orange-50/40 p-3">
-          <div className="flex items-center justify-between">
-            <label className="flex items-center gap-1.5 text-[15px] font-bold text-[#212121]">
-              <Tag className="h-3.5 w-3.5 text-[#FF6000]" />
-              İndirim Kuponu <span className="font-normal text-[#7B7B7B]">(İsteğe Bağlı)</span>
-            </label>
-            {!appliedCoupon && (
-              <button
-                type="button"
-                onClick={() => handleApplyCoupon("4Q4CGNLR")}
-                className="inline-flex items-center gap-1 text-[14px] font-bold text-[#FF6000] hover:underline"
-              >
-                <Sparkles className="h-3 w-3" />
-                200 TL Kuponu Kullan (4Q4CGNLR)
-              </button>
-            )}
-          </div>
-          <div className="mt-1.5 flex gap-2">
-            <input
-              type="text"
-              value={couponInput}
-              onChange={(e) => setCouponInput(e.target.value)}
-              placeholder="Kupon kodunuz varsa girin"
-              className="flex-1 rounded-lg border border-gray-300 bg-white px-3 py-2 text-[15px] font-bold tracking-wider uppercase text-[#212121] focus:border-[#FF6000] focus:outline-none"
-            />
-            <button
-              type="button"
-              onClick={() => handleApplyCoupon()}
-              className="rounded-lg bg-[#212121] px-4 py-2 text-[15px] font-bold text-white transition hover:bg-black"
-            >
-              Uygula
-            </button>
-          </div>
-          {couponMsg && (
-            <p
-              className={`mt-1.5 text-[15px] font-semibold ${
-                couponMsg.ok ? "text-[#2E7D32]" : "text-red-600"
-              }`}
-            >
-              {couponMsg.text}
-            </p>
-          )}
-        </div>
-
         {/* Payment Method Selection */}
         <div>
           <label className="mb-2 block text-[15px] font-bold text-[#212121]">
