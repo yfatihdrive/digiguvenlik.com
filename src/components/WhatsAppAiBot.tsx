@@ -387,39 +387,39 @@ export default function WhatsAppAiBot() {
             setOpen((prev) => !prev);
             setUnread(0);
           }}
-          className="wa-3d-btn group relative flex cursor-pointer items-center gap-3 rounded-full border border-white/45 px-5 py-3 text-white transition-all duration-200"
+          className="wa-3d-btn group relative flex cursor-pointer items-center gap-2 rounded-full border border-white/45 px-3 py-1.5 text-white transition-all duration-200 sm:px-3.5 sm:py-2"
         >
           {/* Upper Glossy 3D Glass Highlight + Diagonal Sweeping Light Beam */}
           <span
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
           >
-            <span className="absolute inset-x-3 top-0.5 h-[44%] rounded-full bg-gradient-to-b from-white/45 via-white/15 to-transparent" />
-            <span className="wa-shimmer-beam absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/75 to-transparent blur-[1px]" />
+            <span className="absolute inset-x-2.5 top-0.5 h-[44%] rounded-full bg-gradient-to-b from-white/45 via-white/15 to-transparent" />
+            <span className="wa-shimmer-beam absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-transparent via-white/75 to-transparent blur-[1px]" />
           </span>
 
           {/* Unread Notification Badge */}
           {unread > 0 && !open && (
-            <span className="absolute -top-2 -right-1 z-20 flex h-6 w-6 animate-bounce items-center justify-center rounded-full border-2 border-white bg-[#FF6000] text-[12px] font-extrabold text-white shadow-lg">
+            <span className="absolute -top-1.5 -right-1 z-20 flex h-5 w-5 animate-bounce items-center justify-center rounded-full border-[1.5px] border-white bg-[#FF6000] text-[10px] font-extrabold text-white shadow-md">
               {unread}
             </span>
           )}
 
           {/* 3D Glowing WhatsApp Icon Orb */}
-          <span className="wa-icon-wiggle relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/25 shadow-[inset_0_2px_4px_rgba(255,255,255,0.75),0_4px_10px_rgba(0,0,0,0.22)] ring-1 ring-white/50">
-            <MessageCircle className="h-6 w-6 fill-white text-[#128C7E] drop-shadow-xs" />
-            <span className="absolute right-0 bottom-0 flex h-3 w-3">
+          <span className="wa-icon-wiggle relative z-10 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-white/25 shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.75),0_3px_8px_rgba(0,0,0,0.2)] ring-1 ring-white/50 sm:h-8 sm:w-8">
+            <MessageCircle className="h-4 w-4 fill-white text-[#128C7E] drop-shadow-xs sm:h-4.5 sm:w-4.5" />
+            <span className="absolute right-0 bottom-0 flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-200 opacity-85" />
-              <span className="relative inline-flex h-3 w-3 rounded-full border border-white bg-[#a3ff33]" />
+              <span className="relative inline-flex h-2 w-2 rounded-full border border-white bg-[#a3ff33]" />
             </span>
           </span>
 
           {/* Crisp 3D Embossed Typography */}
-          <div className="relative z-10 text-left leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
-            <p className="flex items-center gap-1.5 text-[12px] font-extrabold tracking-wide uppercase text-emerald-50">
-              <span>WhatsApp Canlı Asistan</span>
+          <div className="relative z-10 text-left leading-tight drop-shadow-[0_1px_1.5px_rgba(0,0,0,0.35)]">
+            <p className="text-[9.5px] font-extrabold tracking-wide uppercase text-emerald-50 sm:text-[10.5px]">
+              WhatsApp Canlı Asistan
             </p>
-            <p className="text-[16px] font-black tracking-tight text-white">
+            <p className="text-[12.5px] font-black tracking-tight text-white sm:text-[13.5px]">
               {BOT_WA_DISPLAY}
             </p>
           </div>
