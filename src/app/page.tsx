@@ -67,42 +67,90 @@ export default function HomePage() {
         <div className="hb-container">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
             {/* Main Campaign Banner */}
-            <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl bg-gradient-to-br from-[#FF6000] via-[#f25600] to-[#c93b00] p-6 text-white shadow-lg sm:p-9 lg:col-span-8 xl:col-span-9">
-              <div className="relative z-10 max-w-2xl space-y-3.5">
+            <div className="relative flex flex-col justify-between gap-6 overflow-hidden rounded-2xl bg-gradient-to-br from-[#FF6000] via-[#f25600] to-[#c93b00] p-6 text-white shadow-lg sm:p-8 lg:col-span-8 xl:col-span-9">
+              <div className="relative z-10 space-y-3.5">
                 <div className="inline-flex flex-wrap items-center gap-2">
-                  <span className="rounded-full bg-white px-3 py-1 text-[14px] font-bold tracking-wide text-[#FF6000] uppercase shadow-2xs">
+                  <span className="rounded-full bg-white px-3.5 py-1 text-[13px] font-extrabold tracking-wide text-[#FF6000] uppercase shadow-2xs sm:text-[14px]">
                     ÖNCE TESLİM AL SONRA ÖDEME YAP KAPIDA ÖDEME KOLAYLIĞI
                   </span>
-                  <span className="rounded-full bg-black/25 px-3 py-1 text-[14px] font-semibold text-white backdrop-blur-xs">
+                  <span className="rounded-full bg-black/25 px-3 py-1 text-[13px] font-semibold text-white backdrop-blur-xs sm:text-[14px]">
                     81 İle Ücretsiz &amp; Güvenli Kargo
                   </span>
                 </div>
 
-                <h1 className="text-[24px] font-bold leading-[1.22] tracking-[-0.02em] text-white sm:text-[34px]">
+                <h1 className="max-w-3xl text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-white sm:text-[34px] lg:text-[38px]">
                   Yeni Nesil Akıllı Güvenlik Kameraları &amp; Profesyonel Ses Kayıt Çözümleri
                 </h1>
 
-                <p className="text-[16px] leading-[1.5] font-normal text-orange-50 sm:text-[16px]">
+                <p className="max-w-3xl text-[16px] leading-[1.55] font-normal text-orange-50">
                   Mesafe sınırı olmaksızın kesintisiz erişim sunan SIM kartlı ses takip sistemleri, 30 güne kadar uzun pil ömürlü ses kayıt çözümleri ve kablosuz Wi-Fi güvenlik kameralarında{" "}
                   <strong className="font-semibold underline decoration-amber-300 decoration-2">
                     kapıda nakit veya kredi kartı ile güvenli ödeme ayrıcalığı.
                   </strong>
                 </p>
 
-              </div>
-
-              {/* Decorative Right Visual on Desktop */}
-              {heroDeal && (
-                <div className="mt-6 hidden items-center justify-end xl:absolute xl:top-1/2 xl:right-6 xl:mt-0 xl:flex xl:-translate-y-1/2">
-                  <div className="flex h-60 w-60 items-center justify-center rounded-full bg-white/95 p-6 shadow-2xl">
-                    <img
-                      src={heroDeal.image}
-                      alt={heroDeal.name}
-                      className="h-full w-full object-contain drop-shadow-md"
-                    />
+                {/* Desktop & Tablet Trust Feature Strip inside Hero */}
+                <div className="hidden grid-cols-2 gap-3 pt-2 sm:grid lg:grid-cols-4">
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/12 px-3.5 py-2.5 backdrop-blur-xs">
+                    <ShieldCheck className="h-5 w-5 shrink-0 text-amber-300" />
+                    <div className="leading-tight">
+                      <p className="text-[14px] font-bold text-white">Kapıda Ödeme</p>
+                      <p className="text-[12px] text-orange-100">Nakit veya Kart</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/12 px-3.5 py-2.5 backdrop-blur-xs">
+                    <Truck className="h-5 w-5 shrink-0 text-amber-300" />
+                    <div className="leading-tight">
+                      <p className="text-[14px] font-bold text-white">Aynı Gün Kargo</p>
+                      <p className="text-[12px] text-orange-100">81 İle Ücretsiz</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/12 px-3.5 py-2.5 backdrop-blur-xs">
+                    <Award className="h-5 w-5 shrink-0 text-amber-300" />
+                    <div className="leading-tight">
+                      <p className="text-[14px] font-bold text-white">24 Ay Garanti</p>
+                      <p className="text-[12px] text-orange-100">Resmi Faturalı</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2.5 rounded-xl border border-white/20 bg-white/12 px-3.5 py-2.5 backdrop-blur-xs">
+                    <PackageCheck className="h-5 w-5 shrink-0 text-amber-300" />
+                    <div className="leading-tight">
+                      <p className="text-[14px] font-bold text-white">Özenli Paket</p>
+                      <p className="text-[12px] text-orange-100">İçerik Görünmez</p>
+                    </div>
                   </div>
                 </div>
-              )}
+              </div>
+
+              {/* Desktop Featured Top-3 Showcase Cards (Eliminates Empty Space!) */}
+              <div className="relative z-10 hidden grid-cols-3 gap-3.5 lg:grid">
+                {bestsellers.slice(0, 3).map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/urun/${item.slug}`}
+                    className="group flex items-center gap-3 rounded-2xl border border-white/25 bg-white p-3 text-[#212121] shadow-md transition hover:-translate-y-0.5 hover:shadow-xl"
+                  >
+                    <div className="h-24 w-16 shrink-0 overflow-hidden rounded-xl bg-gray-100">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <span className="inline-block rounded bg-orange-100 px-1.5 py-0.5 text-[11px] font-extrabold text-[#FF6000]">
+                        %{item.discountPercent} İndirim
+                      </span>
+                      <p className="mt-1 line-clamp-2 text-[14px] leading-snug font-bold text-[#212121] group-hover:text-[#FF6000]">
+                        {item.name}
+                      </p>
+                      <p className="mt-1 text-[16px] font-black text-[#FF6000]">
+                        {formatPrice(item.price)}
+                      </p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             {/* Right Spotlight Card: Günün Süper Teklifi */}
@@ -125,7 +173,7 @@ export default function HomePage() {
                     <img
                       src={heroDeal.image}
                       alt={heroDeal.name}
-                      className="aspect-[9/14] w-full object-cover object-center transition-transform duration-300 hover:scale-[1.03]"
+                      className="aspect-[9/14] w-full object-cover object-center transition-transform duration-300 hover:scale-[1.03] lg:aspect-[4/5] lg:max-h-[340px]"
                     />
                   </Link>
 
