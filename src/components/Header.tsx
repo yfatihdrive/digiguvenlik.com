@@ -7,8 +7,6 @@ import {
   Search,
   ShoppingCart,
   User,
-  Phone,
-  MessageCircle,
   Truck,
   ShieldCheck,
   Menu,
@@ -18,7 +16,6 @@ import {
   PackageSearch,
   Heart,
   LayoutDashboard,
-  Sparkles,
 } from "lucide-react";
 import { Category, SiteSettings } from "@/lib/types";
 import { useShop } from "@/context/ShopContext";
@@ -93,52 +90,6 @@ export default function Header({ settings, categories }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 bg-white shadow-xs">
-      {/* Top Utility Bar (Hepsiburada style) */}
-      <div className="border-b border-gray-100 bg-white text-[14px] font-medium text-[#7B7B7B]">
-        <div className="hb-container flex flex-wrap items-center justify-between gap-2 py-1.5">
-          <div className="flex items-center gap-5">
-            <Link
-              href="/siparis-takip"
-              className="flex items-center gap-1 font-semibold text-[#484848] hover:text-[#FF6000]"
-            >
-              <PackageSearch className="h-3.5 w-3.5 text-[#FF6000]" />
-              <span>Siparişlerim</span>
-            </Link>
-            <Link
-              href="/urunler?filter=super"
-              className="hidden items-center gap-1 font-bold text-[#FF6000] sm:flex hover:underline"
-            >
-              <Sparkles className="h-3.5 w-3.5" />
-              <span>Süper Fiyat, Süper Teklif</span>
-            </Link>
-            <Link href="/iletisim" className="hidden hover:text-[#FF6000] md:inline">
-              Müşteri Hizmetleri
-            </Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <a
-              href={`tel:${settings.phone.replace(/\s+/g, "")}`}
-              className="flex items-center gap-1 font-semibold text-[#484848] hover:text-[#FF6000]"
-            >
-              <Phone className="h-3.5 w-3.5 text-[#FF6000]" />
-              <span>Çağrı Merkezi: {settings.phone}</span>
-            </a>
-            <a
-              href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(
-                "Merhaba, ürünleriniz hakkında bilgi almak ve sipariş vermek istiyorum."
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-1 rounded-full bg-[#25D366]/15 px-2.5 py-0.5 font-bold text-emerald-700 hover:bg-[#25D366]/25"
-            >
-              <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-              <span>WhatsApp: {settings.whatsappDisplay}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Header Row */}
       <div className="hb-container py-3">
         <div className="flex items-center justify-between gap-3 lg:gap-6">
