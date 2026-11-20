@@ -89,19 +89,6 @@ export default function HomePage() {
                   </strong>
                 </p>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1.5">
-                  <a
-                    href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(
-                      "Merhaba, ürünleriniz hakkında bilgi almak ve sipariş vermek istiyorum."
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#25D366] px-5 py-3 text-[16px] font-bold text-white shadow-md transition hover:bg-[#1ebe5d]"
-                  >
-                    <MessageCircle className="h-4 w-4 fill-white text-[#25D366]" />
-                    <span>WhatsApp Sipariş: {settings.whatsappDisplay}</span>
-                  </a>
-                </div>
               </div>
 
               {/* Decorative Right Visual on Desktop */}
