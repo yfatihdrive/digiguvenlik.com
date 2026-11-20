@@ -369,30 +369,62 @@ export default function WhatsAppAiBot() {
         </div>
       )}
 
-      {/* Floating WhatsApp AI Launcher Button */}
-      <button
-        type="button"
-        onClick={() => {
-          setOpen((prev) => !prev);
-          setUnread(0);
-        }}
-        className="group relative flex cursor-pointer items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-xl shadow-emerald-600/35 transition-all hover:scale-105 hover:bg-[#1ebe5d]"
-      >
-        {unread > 0 && !open && (
-          <span className="absolute -top-1.5 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6000] text-[12px] font-extrabold text-white shadow-md">
-            {unread}
+      {/* 3D Luminous & Animated Floating WhatsApp AI Launcher Button */}
+      <div className="relative inline-flex items-center justify-center">
+        {/* Expanding Luminous Neon Emerald Pulse Waves */}
+        <span
+          aria-hidden="true"
+          className="wa-pulse-ring pointer-events-none absolute inset-0 rounded-full border-2 border-[#4dff91] bg-[#25D366]/35"
+        />
+        <span
+          aria-hidden="true"
+          className="wa-pulse-ring-delay pointer-events-none absolute inset-0 rounded-full border-2 border-[#80ffb0] bg-[#25D366]/20"
+        />
+
+        <button
+          type="button"
+          onClick={() => {
+            setOpen((prev) => !prev);
+            setUnread(0);
+          }}
+          className="wa-3d-btn group relative flex cursor-pointer items-center gap-3 rounded-full border border-white/45 px-5 py-3 text-white transition-all duration-200"
+        >
+          {/* Upper Glossy 3D Glass Highlight + Diagonal Sweeping Light Beam */}
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 overflow-hidden rounded-full"
+          >
+            <span className="absolute inset-x-3 top-0.5 h-[44%] rounded-full bg-gradient-to-b from-white/45 via-white/15 to-transparent" />
+            <span className="wa-shimmer-beam absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-transparent via-white/75 to-transparent blur-[1px]" />
           </span>
-        )}
-        <MessageCircle className="h-6 w-6 fill-white text-[#25D366]" />
-        <div className="text-left leading-tight">
-          <p className="flex items-center gap-1 text-[12px] font-bold uppercase opacity-95">
-            <span>WhatsApp Canlı Asistan</span>
-          </p>
-          <p className="text-[15px] font-black tracking-tight">
-            {BOT_WA_DISPLAY}
-          </p>
-        </div>
-      </button>
+
+          {/* Unread Notification Badge */}
+          {unread > 0 && !open && (
+            <span className="absolute -top-2 -right-1 z-20 flex h-6 w-6 animate-bounce items-center justify-center rounded-full border-2 border-white bg-[#FF6000] text-[12px] font-extrabold text-white shadow-lg">
+              {unread}
+            </span>
+          )}
+
+          {/* 3D Glowing WhatsApp Icon Orb */}
+          <span className="wa-icon-wiggle relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/25 shadow-[inset_0_2px_4px_rgba(255,255,255,0.75),0_4px_10px_rgba(0,0,0,0.22)] ring-1 ring-white/50">
+            <MessageCircle className="h-6 w-6 fill-white text-[#128C7E] drop-shadow-xs" />
+            <span className="absolute right-0 bottom-0 flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-200 opacity-85" />
+              <span className="relative inline-flex h-3 w-3 rounded-full border border-white bg-[#a3ff33]" />
+            </span>
+          </span>
+
+          {/* Crisp 3D Embossed Typography */}
+          <div className="relative z-10 text-left leading-tight drop-shadow-[0_1px_2px_rgba(0,0,0,0.35)]">
+            <p className="flex items-center gap-1.5 text-[12px] font-extrabold tracking-wide uppercase text-emerald-50">
+              <span>WhatsApp Canlı Asistan</span>
+            </p>
+            <p className="text-[16px] font-black tracking-tight text-white">
+              {BOT_WA_DISPLAY}
+            </p>
+          </div>
+        </button>
+      </div>
     </div>
   );
 }
