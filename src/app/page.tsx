@@ -120,12 +120,12 @@ export default function HomePage() {
 
                   <Link
                     href={`/urun/${heroDeal.slug}`}
-                    className="my-3 flex h-40 items-center justify-center rounded-xl bg-white p-2"
+                    className="my-3 block w-full overflow-hidden rounded-xl bg-[#050b16] shadow-xs"
                   >
                     <img
                       src={heroDeal.image}
                       alt={heroDeal.name}
-                      className="h-full w-full object-contain"
+                      className="aspect-[9/14] w-full object-cover object-center transition-transform duration-300 hover:scale-[1.03]"
                     />
                   </Link>
 
