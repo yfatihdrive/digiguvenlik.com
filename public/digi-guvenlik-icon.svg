@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Digi Güvenlik Icon">
+  <defs>
+    <linearGradient id="dgIconOrange" x1="4" y1="2" x2="60" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF7A1A"/>
+      <stop offset="100%" stop-color="#E54D00"/>
+    </linearGradient>
+    <linearGradient id="dgIconDark" x1="0" y1="8" x2="0" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B2F36"/>
+      <stop offset="100%" stop-color="#14171C"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 3L58 12.2V31.5C58 47.4 46.8 59.4 32 64C17.2 59.4 6 47.4 6 31.5V12.2L32 3Z" fill="url(#dgIconOrange)"/>
+  <path d="M32 10L51.5 17V31.2C51.5 43.2 43 52.6 32 56.5C21 52.6 12.5 43.2 12.5 31.2V17L32 10Z" fill="url(#dgIconDark)"/>
+  <circle cx="32" cy="32" r="12.5" stroke="#FF6000" stroke-width="2.8"/>
+  <circle cx="32" cy="32" r="7" fill="#FF6000"/>
+  <circle cx="32" cy="32" r="2.8" fill="#FFFFFF"/>
+  <path d="M23.5 21.5C25.8 19.4 28.8 18.2 32 18.2C35.2 18.2 38.2 19.4 40.5 21.5" stroke="#49C7ED" stroke-width="2.2" stroke-linecap="round"/>
+</svg>

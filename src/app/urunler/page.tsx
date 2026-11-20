@@ -1,0 +1,34 @@
+import React from "react";
+import { Metadata } from "next";
+import { getCategories, getProducts } from "@/lib/db";
+import CatalogBrowser from "@/components/CatalogBrowser";
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Tüm Ürünler — Güvenlik Kameraları, Ses Kayıt ve Duyma Cihazları",
+  description:
+    "Digi Güvenlik güvenlik kameraları, uzaktan ses duyma cihazları ve ses kayıt cihazları. 291 farklı model, ücretsiz kargo ve kapıda ödeme kolaylığıyla.",
+};
+
+export default async function UrunlerPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string; filter?: string }>;
+}) {
+  const sp = await searchParams;
+  const products = getProducts();
+  const categories = getCategories();
+
+  return (
+    <CatalogBrowser
+      products={products}
+      categories={categories}
+      activeCategorySlug="all"
+      initialQuery={sp.q || ""}
+      initialFilter={sp.filter || ""}
+      pageTitle="Tüm Ürünler"
+      pageDescription="İhtiyacınız olan modeli seçin; sepete ekleyin veya Hızlı Sipariş formu ile kapıda ödemeli olarak anında sipariş oluşturun."
+    />
+  );
+}

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 68" fill="none" role="img" aria-label="Digi Güvenlik Logo">
+  <defs>
+    <linearGradient id="dgOrangeGrad" x1="0" y1="0" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FF7A1A"/>
+      <stop offset="100%" stop-color="#E54D00"/>
+    </linearGradient>
+    <linearGradient id="dgDarkGrad" x1="0" y1="0" x2="0" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B2F36"/>
+      <stop offset="100%" stop-color="#14171C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Modern Security Shield Emblem -->
+  <g transform="translate(4, 4)">
+    <!-- Outer Shield -->
+    <path d="M28 2L52 10.5V28.5C52 43.2 41.7 54.4 28 59C14.3 54.4 4 43.2 4 28.5V10.5L28 2Z" fill="url(#dgOrangeGrad)"/>
+    <!-- Inner Dark Tech Core -->
+    <path d="M28 8.5L46 15V28.2C46 39.4 38.2 48.2 28 52C17.8 48.2 10 39.4 10 28.2V15L28 8.5Z" fill="url(#dgDarkGrad)"/>
+    <!-- Smart Lens / Acoustic Radar Rings -->
+    <circle cx="28" cy="29" r="11.5" stroke="#FF6000" stroke-width="2.5" stroke-opacity="0.9"/>
+    <circle cx="28" cy="29" r="6.5" fill="#FF6000"/>
+    <circle cx="28" cy="29" r="2.6" fill="#FFFFFF"/>
+    <!-- Subtle Lens Specular Dot -->
+    <circle cx="30.5" cy="26.5" r="1.2" fill="#FFFFFF" fill-opacity="0.85"/>
+    <!-- Top Signal Arc -->
+    <path d="M20.5 19.5C22.6 17.6 25.2 16.5 28 16.5C30.8 16.5 33.4 17.6 35.5 19.5" stroke="#49C7ED" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Brand Typography -->
+  <g transform="translate(70, 0)">
+    <text x="0" y="37" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="31" font-weight="800" letter-spacing="-0.8">
+      <tspan fill="#FF6000">Digi</tspan><tspan fill="#212121"> Güvenlik</tspan>
+    </text>
+    <!-- PRO pill -->
+    <rect x="204" y="13" width="38" height="19" rx="5" fill="#FF6000"/>
+    <text x="223" y="26.5" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">PRO</text>
+    <!-- Tagline -->
+    <text x="1" y="56" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#666666" letter-spacing="0.2">Güvenlik &amp; Ses Teknolojileri • digiguvenlik.com</text>
+  </g>
+</svg>
