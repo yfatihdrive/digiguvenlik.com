@@ -90,14 +90,6 @@ export default function HomePage() {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-3 pt-1.5">
-                  <Link
-                    href="/urunler"
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#212121] px-5 py-3 text-[16px] font-bold text-white shadow-md transition hover:bg-black"
-                  >
-                    <span>Tüm Ürünleri İncele ({allProducts.length})</span>
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-
                   <a
                     href={`https://wa.me/${settings.whatsapp}?text=${encodeURIComponent(
                       "Merhaba, ürünleriniz hakkında bilgi almak ve sipariş vermek istiyorum."
