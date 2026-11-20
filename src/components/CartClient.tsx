@@ -74,7 +74,12 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
         <div className="space-y-4 lg:col-span-6">
           {/* 2. Üründe %30 İndirim Kampanya Bannerı */}
           {totalQty === 1 && cart[0] ? (
-            <div className="rounded-2xl border-2 border-dashed border-[#FF6000] bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 p-4 shadow-2xs">
+            <div className="promo-glow-wrap">
+              <span aria-hidden="true" className="promo-glow-beam" />
+              <svg aria-hidden="true" className="promo-dash-svg">
+                <rect x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)" rx="14" ry="14" className="promo-dash-rect" />
+              </svg>
+              <div className="relative z-10 rounded-[13px] bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 p-4">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-[#FF6000] px-2.5 py-0.5 text-[12px] font-extrabold text-white uppercase">
@@ -107,6 +112,7 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
+              </div>
               </div>
             </div>
           ) : secondItemDiscount > 0 ? (

@@ -445,27 +445,33 @@ export default function QuickOrderForm({
 
         {/* 2. Üründe %30 İndirim Upsell / Applied Strip inside Order Form */}
         {allowQuantityChange && effectiveItems.length === 1 && quantity === 1 ? (
-          <button
-            type="button"
-            onClick={() => setQuantity(2)}
-            className="flex w-full cursor-pointer items-center justify-between gap-2 rounded-xl border-2 border-dashed border-[#FF6000] bg-orange-50 px-3.5 py-2.5 text-left transition hover:bg-orange-100"
-          >
-            <div>
-              <p className="text-[14px] font-extrabold text-[#FF6000]">
-                🔥 2. Üründe %30 İndirim Fırsatı!
-              </p>
-              <p className="text-[13px] font-medium text-[#484848]">
-                2 adet almak için tıklayın, 2. üründe{" "}
-                <strong className="text-[#2E7D32]">
-                  {formatTL(Math.round(effectiveItems[0].price * 0.3))} TL
-                </strong>{" "}
-                anında indirim kazanın!
-              </p>
-            </div>
-            <span className="shrink-0 rounded-lg bg-[#FF6000] px-3 py-1.5 text-[13px] font-extrabold text-white">
-              +1 Ekle
-            </span>
-          </button>
+          <div className="promo-glow-wrap">
+            <span aria-hidden="true" className="promo-glow-beam" />
+            <svg aria-hidden="true" className="promo-dash-svg">
+              <rect x="2" y="2" width="calc(100% - 4px)" height="calc(100% - 4px)" rx="14" ry="14" className="promo-dash-rect" />
+            </svg>
+            <button
+              type="button"
+              onClick={() => setQuantity(2)}
+              className="relative z-10 flex w-full cursor-pointer items-center justify-between gap-2 rounded-[13px] bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 px-3.5 py-2.5 text-left transition hover:brightness-98"
+            >
+              <div>
+                <p className="text-[14px] font-extrabold text-[#FF6000]">
+                  🔥 2. Üründe %30 İndirim Fırsatı!
+                </p>
+                <p className="text-[13px] font-medium text-[#484848]">
+                  2 adet almak için tıklayın, 2. üründe{" "}
+                  <strong className="text-[#2E7D32]">
+                    {formatTL(Math.round(effectiveItems[0].price * 0.3))} TL
+                  </strong>{" "}
+                  anında indirim kazanın!
+                </p>
+              </div>
+              <span className="shrink-0 rounded-lg bg-[#FF6000] px-3 py-1.5 text-[13px] font-extrabold text-white shadow-sm">
+                +1 Ekle
+              </span>
+            </button>
+          </div>
         ) : secondItemDiscount > 0 ? (
           <div className="flex items-center justify-between rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2.5 text-[14px] font-bold text-emerald-800">
             <span>🎉 2. Üründe %30 İndirim Uygulandı!</span>
