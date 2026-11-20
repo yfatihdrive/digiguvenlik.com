@@ -12,6 +12,7 @@ import { SiteSettings } from "@/lib/types";
 import { useShop } from "@/context/ShopContext";
 import QuickOrderForm from "./QuickOrderForm";
 import WhatsAppAiBot from "./WhatsAppAiBot";
+import SpinWheelCoupon from "./SpinWheelCoupon";
 
 export default function GlobalWidgets({ settings }: { settings: SiteSettings }) {
   const {
@@ -201,6 +202,9 @@ export default function GlobalWidgets({ settings }: { settings: SiteSettings }) 
           </div>
         </div>
       )}
+
+      {/* 10-Second Sound-Enabled Spin Wheel Coupon System */}
+      <SpinWheelCoupon />
 
       {/* Interactive WhatsApp AI Assistant (0 216 825 10 57) */}
       <WhatsAppAiBot />

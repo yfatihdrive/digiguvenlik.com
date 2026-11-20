@@ -55,6 +55,9 @@ interface ShopContextValue {
   setUser: (user: AuthUser | null) => void;
   refreshUser: () => Promise<void>;
   logout: () => Promise<void>;
+  activeCoupon: { code: string; discount: number } | null;
+  applyWheelCoupon: (code: string, discount: number) => void;
+  clearWheelCoupon: () => void;
   toast: { message: string; type: "success" | "info" } | null;
   showToast: (message: string, type?: "success" | "info") => void;
 }
@@ -67,6 +70,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
   const [quickOrderProduct, setQuickOrderProduct] = useState<Product | null>(null);
   const [lightbox, setLightbox] = useState<LightboxState | null>(null);
   const [user, setUser] = useState<AuthUser | null>(null);
+  const [activeCoupon, setActiveCoupon] = useState<{ code: string; discount: number } | null>(null);
   const [toast, setToast] = useState<{ message: string; type: "success" | "info" } | null>(null);
 
   const showToast = useCallback((message: string, type: "success" | "info" = "success") => {
@@ -94,6 +98,8 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
       if (savedCart) setCart(JSON.parse(savedCart));
       const savedFavs = localStorage.getItem("digi güvenlik_favs");
       if (savedFavs) setFavorites(JSON.parse(savedFavs));
+      const savedCoupon = localStorage.getItem("digiguvenlik_wheel_coupon_v1");
+      if (savedCoupon) setActiveCoupon(JSON.parse(savedCoupon));
     } catch {
       // ignore
     }
@@ -200,6 +206,25 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
     setLightbox((prev) => (prev ? { ...prev, index } : null));
   }, []);
 
+  const applyWheelCoupon = useCallback((code: string, discount: number) => {
+    const clean = { code: code.trim().toUpperCase(), discount };
+    setActiveCoupon(clean);
+    try {
+      localStorage.setItem("digiguvenlik_wheel_coupon_v1", JSON.stringify(clean));
+    } catch {
+      // ignore
+    }
+  }, []);
+
+  const clearWheelCoupon = useCallback(() => {
+    setActiveCoupon(null);
+    try {
+      localStorage.removeItem("digiguvenlik_wheel_coupon_v1");
+    } catch {
+      // ignore
+    }
+  }, []);
+
   const logout = useCallback(async () => {
     await fetch("/api/auth", {
       method: "POST",
@@ -236,6 +261,9 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
         setUser,
         refreshUser,
         logout,
+        activeCoupon,
+        applyWheelCoupon,
+        clearWheelCoupon,
         toast,
         showToast,
       }}

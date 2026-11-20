@@ -35,7 +35,7 @@ export default function QuickOrderForm({
   onSuccessOrder,
   title = "HIZLI SİPARİŞ FORMU — KAPIDA ÖDEME KOLAYLIĞI",
 }: QuickOrderFormProps) {
-  const { user, clearCart } = useShop();
+  const { user, clearCart, activeCoupon } = useShop();
 
   const [quantity, setQuantity] = useState<number>(initialItems[0]?.quantity || 1);
   const [firstName, setFirstName] = useState("");
@@ -77,6 +77,16 @@ export default function QuickOrderForm({
       })
       .catch(() => {});
   }, []);
+
+  useEffect(() => {
+    if (activeCoupon) {
+      setAppliedCoupon({
+        code: activeCoupon.code,
+        discount: activeCoupon.discount,
+        description: `Çark Hediyesi ${activeCoupon.discount} TL İndirim`,
+      });
+    }
+  }, [activeCoupon]);
 
   useEffect(() => {
     if (user) {
@@ -430,6 +440,19 @@ export default function QuickOrderForm({
             />
           </div>
         </div>
+
+        {/* Active Wheel Coupon Auto-Applied Banner */}
+        {appliedCoupon && (
+          <div className="flex items-center justify-between rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2.5 text-[14px] font-bold text-emerald-800">
+            <span>
+              🎉 Çark Kuponunuz Uygulandı:{" "}
+              <strong className="font-mono">{appliedCoupon.code}</strong>
+            </span>
+            <span className="rounded-lg bg-emerald-600 px-2.5 py-0.5 text-white">
+              -{formatTL(appliedCoupon.discount)} TL
+            </span>
+          </div>
+        )}
 
         {/* Payment Method Selection */}
         <div>

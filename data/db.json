@@ -44996,6 +44996,30 @@
       "minOrder": 1500,
       "active": true,
       "description": "Sepette %10 Ekstra İndirim"
+    },
+    {
+      "code": "DIGI300",
+      "type": "fixed",
+      "value": 300,
+      "minOrder": 500,
+      "active": true,
+      "description": "Çark Hediyesi 300 TL İndirim"
+    },
+    {
+      "code": "DIGI400",
+      "type": "fixed",
+      "value": 400,
+      "minOrder": 500,
+      "active": true,
+      "description": "Çark Hediyesi 400 TL İndirim"
+    },
+    {
+      "code": "DIGI500",
+      "type": "fixed",
+      "value": 500,
+      "minOrder": 500,
+      "active": true,
+      "description": "Çark Hediyesi 500 TL İndirim"
     }
   ],
   "users": [
