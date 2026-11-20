@@ -44,11 +44,15 @@ export default function Header({ settings, categories }: HeaderProps) {
   const [catDropdownOpen, setCatDropdownOpen] = useState(false);
 
   const searchRef = useRef<HTMLDivElement>(null);
+  const catMenuRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (searchRef.current && !searchRef.current.contains(e.target as Node)) {
         setShowDropdown(false);
+      }
+      if (catMenuRef.current && !catMenuRef.current.contains(e.target as Node)) {
+        setCatDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -292,43 +296,24 @@ export default function Header({ settings, categories }: HeaderProps) {
       </div>
 
       {/* Category Navigation Bar */}
-      <nav className="border-b border-gray-200 bg-white">
+      <nav ref={catMenuRef} className="relative border-b border-gray-200 bg-white">
         <div className="hb-container flex items-center justify-between gap-1.5 overflow-x-auto py-2 no-scrollbar">
-          {/* All Categories Dropdown */}
-          <div
-            className="relative shrink-0"
-            onMouseEnter={() => setCatDropdownOpen(true)}
-            onMouseLeave={() => setCatDropdownOpen(false)}
-          >
+          {/* All Categories Trigger Button */}
+          <div className="shrink-0">
             <button
               type="button"
-              onClick={() => setCatDropdownOpen(!catDropdownOpen)}
-              className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-[#FF6000] px-3.5 py-2 text-[16px] font-bold text-white shadow-2xs"
+              onClick={() => setCatDropdownOpen((prev) => !prev)}
+              aria-expanded={catDropdownOpen}
+              className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-[#FF6000] px-3.5 py-2 text-[16px] font-bold text-white shadow-2xs transition hover:bg-[#e55500]"
             >
               <Menu className="h-4 w-4" />
               <span>Tüm Kategoriler</span>
-              <ChevronDown className="h-3.5 w-3.5" />
+              <ChevronDown
+                className={`h-4 w-4 transition-transform duration-200 ${
+                  catDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
             </button>
-
-            {catDropdownOpen && (
-              <div className="absolute top-full left-0 z-50 w-72 pt-1">
-                <div className="overflow-hidden rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.slug}
-                      href={`/kategori/${cat.slug}`}
-                      onClick={() => setCatDropdownOpen(false)}
-                      className="flex items-center justify-between px-4 py-2.5 text-[16px] font-medium text-[#484848] hover:bg-orange-50 hover:font-semibold hover:text-[#FF6000]"
-                    >
-                      <span>{cat.name}</span>
-                      <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[14px] font-semibold text-[#7B7B7B]">
-                        {cat.count}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
 
           <Link
@@ -348,6 +333,37 @@ export default function Header({ settings, categories }: HeaderProps) {
             </Link>
           ))}
         </div>
+
+        {/* Categories Dropdown Rendered Outside overflow-x-auto so it is NEVER clipped */}
+        {catDropdownOpen && (
+          <div className="absolute top-full left-0 z-50 w-full px-4 pt-1 sm:left-4 sm:w-80 sm:px-0 lg:left-8">
+            <div className="max-h-[70vh] overflow-y-auto rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
+              <Link
+                href="/urunler"
+                onClick={() => setCatDropdownOpen(false)}
+                className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5 text-[16px] font-bold text-[#FF6000] hover:bg-orange-50"
+              >
+                <span>Tüm Ürünleri Gör</span>
+                <span className="rounded-full bg-orange-100 px-2 py-0.5 text-[13px] font-bold text-[#FF6000]">
+                  Tümü
+                </span>
+              </Link>
+              {categories.map((cat) => (
+                <Link
+                  key={cat.slug}
+                  href={`/kategori/${cat.slug}`}
+                  onClick={() => setCatDropdownOpen(false)}
+                  className="flex items-center justify-between px-4 py-2.5 text-[16px] font-medium text-[#484848] hover:bg-orange-50 hover:font-semibold hover:text-[#FF6000]"
+                >
+                  <span>{cat.name}</span>
+                  <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[14px] font-semibold text-[#7B7B7B]">
+                    {cat.count}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Mobile Drawer Menu */}
