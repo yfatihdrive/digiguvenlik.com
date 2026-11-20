@@ -71,7 +71,7 @@ export default function HomePage() {
               <div className="relative z-10 max-w-2xl space-y-3.5">
                 <div className="inline-flex flex-wrap items-center gap-2">
                   <span className="rounded-full bg-white px-3 py-1 text-[14px] font-bold tracking-wide text-[#FF6000] uppercase shadow-2xs">
-                    ÖNCE TESLİM AL SONRA ÖDEME YAP
+                    ÖNCE TESLİM AL SONRA ÖDEME YAP KAPIDA ÖDEME KOLAYLIĞI
                   </span>
                   <span className="rounded-full bg-black/25 px-3 py-1 text-[14px] font-semibold text-white backdrop-blur-xs">
                     81 İle Ücretsiz &amp; Güvenli Kargo
