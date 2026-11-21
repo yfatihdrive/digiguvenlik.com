@@ -12,6 +12,7 @@ import {
   PackageCheck,
 } from "lucide-react";
 import { Category, Product } from "@/lib/types";
+import { normalizeTurkish } from "@/lib/text";
 import ProductCard from "./ProductCard";
 
 interface CatalogBrowserProps {
@@ -58,16 +59,16 @@ export default function CatalogBrowser({
       }
     }
 
-    // Text search
-    const q = search.trim().toLowerCase();
+    // Turkish-character tolerant text search
+    const q = normalizeTurkish(search);
     if (q) {
-      list = list.filter(
-        (p) =>
-          p.name.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q) ||
-          p.sku.toLowerCase().includes(q) ||
-          p.shortDescription.toLowerCase().includes(q)
-      );
+      const tokens = q.split(" ").filter(Boolean);
+      list = list.filter((p) => {
+        const hay = normalizeTurkish(
+          `${p.name} ${p.category} ${p.sku} ${p.shortDescription}`
+        );
+        return tokens.every((t) => hay.includes(t));
+      });
     }
 
     // Price range

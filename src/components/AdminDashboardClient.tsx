@@ -1364,7 +1364,7 @@ export default function AdminDashboardClient() {
                 <X className="h-4 w-4" />
               </button>
             </div>
-            <div dangerouslySetInnerHTML={{ __html: previewHtml }} />
+            <iframe sandbox="" srcDoc={previewHtml} title="Sipariş E-posta Önizleme" className="h-[72vh] w-full border-0 bg-white" />
           </div>
         </div>
       )}

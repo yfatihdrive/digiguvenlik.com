@@ -1,20 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getProducts } from "@/lib/db";
+import { normalizeTurkish } from "@/lib/text";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const q = (searchParams.get("q") || "").trim().toLowerCase();
+  const raw = (searchParams.get("q") || "").trim().slice(0, 100);
+  const q = normalizeTurkish(raw);
   if (!q) {
     return NextResponse.json({ results: [] });
   }
+  const tokens = q.split(" ").filter(Boolean);
   const products = getProducts();
   const matched = products
-    .filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        p.sku.toLowerCase().includes(q)
-    )
+    .filter((p) => {
+      const hay = normalizeTurkish(`${p.name} ${p.category} ${p.sku}`);
+      return tokens.every((t) => hay.includes(t));
+    })
     .slice(0, 8)
     .map((p) => ({
       id: p.id,

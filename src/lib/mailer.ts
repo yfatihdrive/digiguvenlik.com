@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 import { Order, SiteSettings } from "./types";
 import { formatPrice } from "./db";
+import { escapeHtml } from "./text";
 
 export function buildOrderEmailHtml(order: Order, settings: SiteSettings): string {
   const itemsRows = order.items
@@ -10,7 +11,7 @@ export function buildOrderEmailHtml(order: Order, settings: SiteSettings): strin
       (item) => `
       <tr>
         <td style="padding: 12px; border-bottom: 1px solid #eee; font-weight: 600; color: #222;">
-          ${item.name}
+          ${escapeHtml(item.name)}
         </td>
         <td style="padding: 12px; border-bottom: 1px solid #eee; text-align: center; color: #555;">
           ${item.quantity} Adet
@@ -34,19 +35,19 @@ export function buildOrderEmailHtml(order: Order, settings: SiteSettings): strin
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Yeni Sipariş Bildirimi - ${order.id}</title>
+  <title>Yeni Sipariş Bildirimi - ${escapeHtml(order.id)}</title>
 </head>
 <body style="margin:0; padding:24px; background-color:#f5f5f5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;">
   <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #e5e7eb;">
     <div style="background: linear-gradient(135deg, #FF6000 0%, #e55500 100%); padding: 24px; color: #ffffff;">
       <div style="font-size: 12px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; font-weight: 700;">
-        ${settings.siteName} • YENİ SİPARİŞ BİLDİRİMİ
+        ${escapeHtml(settings.siteName)} • YENİ SİPARİŞ BİLDİRİMİ
       </div>
       <h1 style="margin: 6px 0 0; font-size: 24px; font-weight: 800;">
-        Sipariş No: #${order.id}
+        Sipariş No: #${escapeHtml(order.id)}
       </h1>
       <p style="margin: 6px 0 0; font-size: 14px; opacity: 0.95;">
-        Tarih: ${new Date(order.createdAt).toLocaleString("tr-TR")} • Kaynak: ${
+        Tarih: ${new Date(order.createdAt).toLocaleString("tr-TR", { timeZone: "Europe/Istanbul" })} • Kaynak: ${
     order.orderType === "quick_order" ? "Hızlı Sipariş Formu" : "Sepet Siparişi"
   }
       </p>
@@ -59,29 +60,29 @@ export function buildOrderEmailHtml(order: Order, settings: SiteSettings): strin
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px;">
         <tr>
           <td style="padding: 8px 0; color: #6b7280; width: 140px;">Ad Soyad:</td>
-          <td style="padding: 8px 0; font-weight: 700; color: #111827;">${order.customerFirstName} ${order.customerLastName}</td>
+          <td style="padding: 8px 0; font-weight: 700; color: #111827;">${escapeHtml(order.customerFirstName)} ${escapeHtml(order.customerLastName)}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #6b7280;">Telefon:</td>
           <td style="padding: 8px 0; font-weight: 700; color: #111827;">
-            <a href="tel:${order.customerPhone}" style="color: #FF6000; text-decoration: none;">${order.customerPhone}</a>
+            <a href="tel:${escapeHtml(cleanPhone)}" style="color: #FF6000; text-decoration: none;">${escapeHtml(order.customerPhone)}</a>
             &nbsp;|&nbsp;
             <a href="https://wa.me/${waPhone}" style="color: #16a34a; text-decoration: none; font-weight: 700;">WhatsApp ile Yaz</a>
           </td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #6b7280;">İl / İlçe:</td>
-          <td style="padding: 8px 0; font-weight: 700; color: #111827;">${order.customerCity} / ${order.customerDistrict}</td>
+          <td style="padding: 8px 0; font-weight: 700; color: #111827;">${escapeHtml(order.customerCity)} / ${escapeHtml(order.customerDistrict)}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #6b7280;">Açık Adres:</td>
-          <td style="padding: 8px 0; font-weight: 600; color: #111827;">${order.customerAddress}</td>
+          <td style="padding: 8px 0; font-weight: 600; color: #111827;">${escapeHtml(order.customerAddress)}</td>
         </tr>
         <tr>
           <td style="padding: 8px 0; color: #6b7280;">Ödeme Yöntemi:</td>
           <td style="padding: 8px 0;">
             <span style="background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; padding: 4px 10px; border-radius: 6px; font-weight: 700;">
-              ${order.paymentMethod}
+              ${escapeHtml(order.paymentMethod)}
             </span>
           </td>
         </tr>
@@ -89,7 +90,7 @@ export function buildOrderEmailHtml(order: Order, settings: SiteSettings): strin
           order.notes
             ? `<tr>
           <td style="padding: 8px 0; color: #6b7280;">Sipariş Notu:</td>
-          <td style="padding: 8px 0; color: #b91c1c; font-weight: 600;">${order.notes}</td>
+          <td style="padding: 8px 0; color: #b91c1c; font-weight: 600;">${escapeHtml(order.notes)}</td>
         </tr>`
             : ""
         }
@@ -119,7 +120,7 @@ export function buildOrderEmailHtml(order: Order, settings: SiteSettings): strin
         ${
           order.couponDiscount > 0
             ? `<div style="display: flex; justify-content: space-between; margin-bottom: 6px; color: #16a34a;">
-          <span>Kupon İndirimi (${order.couponCode}):</span>
+          <span>Kupon İndirimi (${escapeHtml(order.couponCode)}):</span>
           <strong>-${formatPrice(order.couponDiscount)} ₺</strong>
         </div>`
             : ""
