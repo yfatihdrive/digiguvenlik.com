@@ -69,8 +69,8 @@ export default function AdminDashboardClient() {
   const [settings, setSettings] = useState<SiteSettings | null>(null);
 
   // Admin Login Form if not logged in
-  const [adminEmail, setAdminEmail] = useState("admin@digiguvenlik.com");
-  const [adminPassword, setAdminPassword] = useState("admin123");
+  const [adminEmail, setAdminEmail] = useState("");
+  const [adminPassword, setAdminPassword] = useState("");
   const [loginErr, setLoginErr] = useState("");
 
   // Order filters & mail preview

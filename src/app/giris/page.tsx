@@ -181,40 +181,11 @@ export default function GirisPage() {
                 {loading ? "Giriş Yapılıyor..." : "GİRİŞ YAP"}
               </button>
 
-              {/* Quick Demo Credentials Box */}
-              <div className="mt-4 rounded-2xl border border-gray-200 bg-gray-50 p-3.5 text-xs">
-                <p className="mb-2 flex items-center gap-1.5 font-extrabold text-gray-700">
-                  <ShieldCheck className="h-4 w-4 text-[#FF6000]" />
-                  Hızlı Giriş (Test Hesapları):
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setLoginEmail("admin@digiguvenlik.com");
-                      setLoginPassword("admin123");
-                    }}
-                    className="rounded-lg border border-purple-300 bg-purple-50 px-2.5 py-2 text-left font-bold text-purple-900 hover:bg-purple-100"
-                  >
-                    <span className="block text-[13px] uppercase text-purple-600">
-                      Yönetici (Admin)
-                    </span>
-                    admin@digiguvenlik.com
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setLoginEmail("musteri@digiguvenlik.com");
-                      setLoginPassword("123456");
-                    }}
-                    className="rounded-lg border border-orange-300 bg-orange-50 px-2.5 py-2 text-left font-bold text-orange-900 hover:bg-orange-100"
-                  >
-                    <span className="block text-[13px] uppercase text-[#FF6000]">
-                      Örnek Müşteri
-                    </span>
-                    musteri@digiguvenlik.com
-                  </button>
-                </div>
+              <div className="mt-4 flex items-center gap-2 rounded-xl border border-gray-200 bg-gray-50 p-3 text-[13px] text-gray-600">
+                <ShieldCheck className="h-4 w-4 shrink-0 text-[#FF6000]" />
+                <span>
+                  Hesap bilgileriniz 256-bit şifreleme ile korunur. Şifrenizi hatırlamıyorsanız destek hattımızdan yardım alabilirsiniz.
+                </span>
               </div>
             </form>
           ) : (

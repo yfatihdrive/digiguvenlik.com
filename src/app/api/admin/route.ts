@@ -106,7 +106,7 @@ export async function POST(req: NextRequest) {
 
       const newProduct: Product = {
         id: newId,
-        sku: `DTX-${1000 + newId}`,
+        sku: `DGV-${1000 + newId}`,
         slug,
         name: prod.name,
         category: prod.category || "Güvenlik Kameralar",
@@ -132,7 +132,7 @@ export async function POST(req: NextRequest) {
           "Kapıda Nakit veya Kredi Kartı ile Ödeme Kolaylığı",
         ],
         specs: [
-          { label: "Ürün Kodu", value: `DTX-${1000 + newId}` },
+          { label: "Ürün Kodu", value: `DGV-${1000 + newId}` },
           { label: "Kategori", value: prod.category || "Güvenlik Kameralar" },
           { label: "Garanti Süresi", value: "24 Ay Digi Güvenlik Garantili" },
         ],

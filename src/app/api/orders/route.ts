@@ -115,7 +115,7 @@ export async function POST(req: NextRequest) {
 
     const totalAmount = Math.max(0, afterCoupon - havaleDiscount);
     const randomNum = Math.floor(100000 + Math.random() * 900000);
-    const orderId = `DTX-${randomNum}`;
+    const orderId = `DGV-${randomNum}`;
 
     const newOrder: Order = {
       id: orderId,

@@ -44,7 +44,7 @@ export default function SiparisTakipPage() {
               Sipariş Takibi ve Sorgulama
             </h1>
             <p className="text-xs text-gray-500">
-              Sipariş numaranız (Örn: DTX-904812) veya telefon numaranız ile siparişinizin durumunu anında sorgulayın.
+              Sipariş numaranız (Örn: DGV-904812) veya telefon numaranız ile siparişinizin durumunu anında sorgulayın.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function SiparisTakipPage() {
             type="text"
             value={orderId}
             onChange={(e) => setOrderId(e.target.value)}
-            placeholder="Sipariş No (Örn: DTX-904812)"
+            placeholder="Sipariş No (Örn: DGV-904812)"
             className="rounded-xl border border-gray-300 bg-gray-50 px-4 py-3 text-sm font-medium text-gray-900 focus:border-[#FF6000] focus:bg-white focus:outline-none"
           />
           <input

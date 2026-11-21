@@ -94,9 +94,13 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      const savedCart = localStorage.getItem("digi güvenlik_cart");
+      const savedCart =
+        localStorage.getItem("digiguvenlik_cart_v1") ||
+        localStorage.getItem("digi güvenlik_cart");
       if (savedCart) setCart(JSON.parse(savedCart));
-      const savedFavs = localStorage.getItem("digi güvenlik_favs");
+      const savedFavs =
+        localStorage.getItem("digiguvenlik_favs_v1") ||
+        localStorage.getItem("digi güvenlik_favs");
       if (savedFavs) setFavorites(JSON.parse(savedFavs));
       const savedCoupon = localStorage.getItem("digiguvenlik_wheel_coupon_v1");
       if (savedCoupon) setActiveCoupon(JSON.parse(savedCoupon));
@@ -108,7 +112,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem("digi güvenlik_cart", JSON.stringify(cart));
+      localStorage.setItem("digiguvenlik_cart_v1", JSON.stringify(cart));
     } catch {
       // ignore
     }
@@ -116,7 +120,7 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem("digi güvenlik_favs", JSON.stringify(favorites));
+      localStorage.setItem("digiguvenlik_favs_v1", JSON.stringify(favorites));
     } catch {
       // ignore
     }
