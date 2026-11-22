@@ -1,0 +1,46 @@
+{
+  "/": {
+    "violationCount": 1,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": 296
+      }
+    ]
+  },
+  "/urunler": {
+    "violationCount": 1,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": 267
+      }
+    ]
+  },
+  "/urun/uzaktan-ses-duyma-cihazi": {
+    "violationCount": 1,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": 128
+      }
+    ]
+  },
+  "/sepet": {
+    "violationCount": 1,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": 18
+      }
+    ]
+  }
+}

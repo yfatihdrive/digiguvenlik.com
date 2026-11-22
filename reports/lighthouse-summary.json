@@ -1,0 +1,80 @@
+[
+  {
+    "name": "home-mobile",
+    "url": "http://localhost:3030/",
+    "form": "mobile",
+    "perf": 91,
+    "a11y": 95,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "1.7 s",
+    "cls": "0",
+    "tbt": "350 ms",
+    "fcp": "1.7 s"
+  },
+  {
+    "name": "home-desktop",
+    "url": "http://localhost:3030/",
+    "form": "desktop",
+    "perf": 99,
+    "a11y": 95,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "0.8 s",
+    "cls": "0.002",
+    "tbt": "10 ms",
+    "fcp": "0.4 s"
+  },
+  {
+    "name": "category-mobile",
+    "url": "http://localhost:3030/kategori/duyma-cihazlari",
+    "form": "mobile",
+    "perf": 78,
+    "a11y": 95,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "4.4 s",
+    "cls": "0",
+    "tbt": "320 ms",
+    "fcp": "1.2 s"
+  },
+  {
+    "name": "product-mobile",
+    "url": "http://localhost:3030/urun/uzaktan-ses-duyma-cihazi",
+    "form": "mobile",
+    "perf": 77,
+    "a11y": 97,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "4.4 s",
+    "cls": "0",
+    "tbt": "340 ms",
+    "fcp": "1.5 s"
+  },
+  {
+    "name": "product-desktop",
+    "url": "http://localhost:3030/urun/uzaktan-ses-duyma-cihazi",
+    "form": "desktop",
+    "perf": 99,
+    "a11y": 97,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "0.9 s",
+    "cls": "0.002",
+    "tbt": "20 ms",
+    "fcp": "0.4 s"
+  },
+  {
+    "name": "cart-mobile",
+    "url": "http://localhost:3030/sepet",
+    "form": "mobile",
+    "perf": 92,
+    "a11y": 95,
+    "bp": 100,
+    "seo": 92,
+    "lcp": "3.2 s",
+    "cls": "0.001",
+    "tbt": "140 ms",
+    "fcp": "0.9 s"
+  }
+]

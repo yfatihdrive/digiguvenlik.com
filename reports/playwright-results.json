@@ -1,0 +1,364 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\xampp\\htdocs\\tektektek deneme tektektek\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "C:\\xampp\\htdocs\\tektektek deneme tektektek\\playwright.config.ts",
+    "rootDir": "C:/xampp/htdocs/tektektek deneme tektektek/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/xampp/htdocs/tektektek deneme tektektek/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "",
+        "name": "",
+        "testDir": "C:/xampp/htdocs/tektektek deneme tektektek/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 45000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\xampp\\htdocs\\tektektek deneme tektektek\\test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "",
+        "testDir": "C:\\xampp\\htdocs\\tektektek deneme tektektek\\tests\\e2e",
+        "snapshotDir": "C:\\xampp\\htdocs\\tektektek deneme tektektek\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 45000,
+        "use": {
+          "baseURL": "http://localhost:3030",
+          "channel": "chrome",
+          "headless": true,
+          "screenshot": "only-on-failure",
+          "trace": "off"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": ""
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/playwright-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.65.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "ecommerce.spec.ts",
+      "file": "ecommerce.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebilirlik Testleri",
+          "file": "ecommerce.spec.ts",
+          "line": 9,
+          "column": 6,
+          "specs": [
+            {
+              "title": "1. Ana sayfa yükleme, sıfır konsol hatası, çerez reddetme ve kategori menüsü",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2787,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:34:56.349Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-816b996cab1704171d40",
+              "file": "ecommerce.spec.ts",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "2. Türkçe karakter toleranslı arama ('ses kayit' -> 'Ses Kayıt') ve ürün detay galerisi",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3308,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:34:59.482Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-1df510f9b5ab3160f24c",
+              "file": "ecommerce.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "3. Sepet, 2. Üründe %30 İndirim, Çarkı Çevir ve sayfa yenileme kalıcılığı",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3475,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:35:02.815Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-39f737e8eefe02f39b57",
+              "file": "ecommerce.spec.ts",
+              "line": 56,
+              "column": 3
+            },
+            {
+              "title": "4. Misafir sipariş akışı: zorunlu sözleşme onayı, adres seçimi ve sipariş tamamlama",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3086,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:35:06.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-24f9244e551930011186",
+              "file": "ecommerce.spec.ts",
+              "line": 74,
+              "column": 3
+            },
+            {
+              "title": "5. Üye kayıt/giriş ve Admin giriş + ürün yönetimi akışı",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1506,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:35:09.414Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-237af1a5811bc66a0908",
+              "file": "ecommerce.spec.ts",
+              "line": 109,
+              "column": 3
+            },
+            {
+              "title": "6. Responsive kırılım ekran görüntüleri (360, 390, 768, 1024, 1440px) ve yatay taşma kontrolü",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17470,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:35:10.961Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-73e696467560d1f50e53",
+              "file": "ecommerce.spec.ts",
+              "line": 121,
+              "column": 3
+            },
+            {
+              "title": "7. WCAG 2.2 AA Erişilebilirlik Taraması (axe-core)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 45000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 12664,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "AXE_SUMMARY: {\"/\":{\"violationCount\":1,\"violations\":[{\"id\":\"color-contrast\",\"impact\":\"serious\",\"help\":\"Elements must meet minimum color contrast ratio thresholds\",\"nodes\":296}]},\"/urunler\":{\"violationCount\":1,\"violations\":[{\"id\":\"color-contrast\",\"impact\":\"serious\",\"help\":\"Elements must meet minimum color contrast ratio thresholds\",\"nodes\":267}]},\"/urun/uzaktan-ses-duyma-cihazi\":{\"violationCount\":1,\"violations\":[{\"id\":\"color-contrast\",\"impact\":\"serious\",\"help\":\"Elements must meet minimum color contrast ratio thresholds\",\"nodes\":128}]},\"/sepet\":{\"violationCount\":1,\"violations\":[{\"id\":\"color-contrast\",\"impact\":\"serious\",\"help\":\"Elements must meet minimum color contrast ratio thresholds\",\"nodes\":18}]}}\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-22T09:35:28.455Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "52933851c723f78502ec-29772bc6cd7340d16f8f",
+              "file": "ecommerce.spec.ts",
+              "line": 159,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-22T09:34:55.507Z",
+    "duration": 46079.185999999994,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
