@@ -190,6 +190,21 @@ export default function QuickOrderForm({
       }
 
       setCompletedOrder(data.order);
+      if (typeof window !== "undefined" && data.order) {
+        window.dispatchEvent(
+          new CustomEvent("digi-track-event", {
+            detail: {
+              eventName: "purchase",
+              params: {
+                transaction_id: String(data.order.id),
+                value: data.order.totalAmount,
+                currency: "TRY",
+                payment_type: data.order.paymentMethod,
+              },
+            },
+          })
+        );
+      }
       if (orderType === "cart_order") {
         clearCart();
       }

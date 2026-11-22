@@ -151,6 +151,27 @@ export function ShopProvider({ children }: { children: React.ReactNode }) {
         ];
       });
       showToast(`"${product.name}" sepete eklendi!`);
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(
+          new CustomEvent("digi-track-event", {
+            detail: {
+              eventName: "add_to_cart",
+              params: {
+                currency: "TRY",
+                value: product.price * qty,
+                items: [
+                  {
+                    item_id: String(pid),
+                    item_name: product.name,
+                    price: product.price,
+                    quantity: qty,
+                  },
+                ],
+              },
+            },
+          })
+        );
+      }
     },
     [showToast]
   );

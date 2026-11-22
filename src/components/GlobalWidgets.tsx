@@ -14,6 +14,7 @@ import QuickOrderForm from "./QuickOrderForm";
 import WhatsAppAiBot from "./WhatsAppAiBot";
 import SpinWheelCoupon from "./SpinWheelCoupon";
 import CookieConsent from "./CookieConsent";
+import AnalyticsScripts from "./AnalyticsScripts";
 
 export default function GlobalWidgets({ settings }: { settings: SiteSettings }) {
   const {
@@ -203,6 +204,9 @@ export default function GlobalWidgets({ settings }: { settings: SiteSettings }) 
           </div>
         </div>
       )}
+
+      {/* KVKK Consent Mode v2 + Analytics Scripts */}
+      <AnalyticsScripts />
 
       {/* KVKK Cookie Consent Banner (Accept / Reject) */}
       <CookieConsent />
