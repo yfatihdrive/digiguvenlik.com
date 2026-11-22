@@ -84,14 +84,50 @@ export default async function ProductDetailPage({
     },
     offers: {
       "@type": "Offer",
+      url: `https://digiguvenlik.com/urun/${product.slug}`,
       priceCurrency: "TRY",
       price: product.price,
-      availability: "https://schema.org/InStock",
+      availability:
+        product.stock > 0
+          ? "https://schema.org/InStock"
+          : "https://schema.org/OutOfStock",
+      itemCondition: "https://schema.org/NewCondition",
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0",
+          currency: "TRY",
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "TR",
+        },
+      },
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "TR",
+        returnPolicyCategory:
+          "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 14,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+      },
       seller: {
         "@type": "Organization",
         name: settings.companyName,
       },
     },
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.com/" },
+      { "@type": "ListItem", position: 2, name: product.category, item: `https://digiguvenlik.com/kategori/${product.categorySlug}` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://digiguvenlik.com/urun/${product.slug}` },
+    ],
   };
 
   const faqJsonLd = {
@@ -112,6 +148,10 @@ export default async function ProductDetailPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <script
         type="application/ld+json"

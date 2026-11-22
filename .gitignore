@@ -32,3 +32,8 @@ next-env.d.ts
 Thumbs.db
 .vscode/
 .idea/
+
+# Playwright transient artifacts
+/test-results/
+/playwright-report/
+/data/mail-logs/

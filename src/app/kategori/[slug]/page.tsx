@@ -33,7 +33,16 @@ export default async function CategoryPage({
     notFound();
   }
 
-  const products = getProducts();
+  const products = getProducts().map((p) => ({
+    ...p,
+    seoSections: [],
+    faqs: [],
+    reviews: [],
+    specs: [],
+    highlights: [],
+    images: p.images?.slice(0, 1) || [p.image],
+    imageAlts: p.imageAlts?.slice(0, 1) || [p.name],
+  })); // slimProducts for fast RSC hydration
   const categories = getCategories();
 
   return (

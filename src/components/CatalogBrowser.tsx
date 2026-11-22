@@ -194,6 +194,7 @@ export default function CatalogBrowser({
           <div className="flex items-center gap-2">
             <SlidersHorizontal className="h-4 w-4 shrink-0 text-[#FF6000]" />
             <select
+              aria-label="Fiyat Aralığı"
               value={priceRange}
               onChange={(e) => {
                 setPriceRange(e.target.value as typeof priceRange);
@@ -212,6 +213,7 @@ export default function CatalogBrowser({
           <div className="flex items-center gap-2">
             <ArrowUpDown className="h-4 w-4 shrink-0 text-[#FF6000]" />
             <select
+              aria-label="Sıralama"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as typeof sortBy)}
               className="w-full rounded-lg border border-gray-200 bg-[#F5F5F5] px-3 py-2 text-[16px] font-medium text-[#484848] focus:border-[#FF6000] focus:bg-white focus:outline-none"

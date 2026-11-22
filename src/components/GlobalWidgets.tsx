@@ -13,6 +13,7 @@ import { useShop } from "@/context/ShopContext";
 import QuickOrderForm from "./QuickOrderForm";
 import WhatsAppAiBot from "./WhatsAppAiBot";
 import SpinWheelCoupon from "./SpinWheelCoupon";
+import CookieConsent from "./CookieConsent";
 
 export default function GlobalWidgets({ settings }: { settings: SiteSettings }) {
   const {
@@ -202,6 +203,9 @@ export default function GlobalWidgets({ settings }: { settings: SiteSettings }) 
           </div>
         </div>
       )}
+
+      {/* KVKK Cookie Consent Banner (Accept / Reject) */}
+      <CookieConsent />
 
       {/* 10-Second Sound-Enabled Spin Wheel Coupon System */}
       <SpinWheelCoupon />

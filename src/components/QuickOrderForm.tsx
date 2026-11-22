@@ -49,6 +49,7 @@ export default function QuickOrderForm({
     "Kapıda Nakit" | "Kapıda Kredi Kartı" | "Havale - EFT"
   >("Kapıda Nakit");
   const [notes, setNotes] = useState("");
+  const [legalAccepted, setLegalAccepted] = useState(false);
 
   // Coupon state
   const [couponInput, setCouponInput] = useState("");
@@ -394,6 +395,7 @@ export default function QuickOrderForm({
             <div>
               <label className="mb-1 block text-[15px] font-medium text-[#484848]">İl</label>
               <select
+                aria-label="İl Seçin"
                 required
                 value={city}
                 onChange={(e) => {
@@ -413,6 +415,7 @@ export default function QuickOrderForm({
             <div>
               <label className="mb-1 block text-[15px] font-medium text-[#484848]">İlçe</label>
               <select
+                aria-label="İlçe Seçin"
                 required
                 disabled={!city}
                 value={district}
@@ -669,6 +672,46 @@ export default function QuickOrderForm({
             className="w-full rounded-lg border border-gray-300 bg-[#FAFAFA] px-3.5 py-2 text-[16px] text-[#212121] focus:border-[#FF6000] focus:bg-white focus:outline-none"
           />
         </div>
+
+        {/* Mandatory Turkish Legal Consent Checkbox */}
+        <label className="flex cursor-pointer items-start gap-2.5 rounded-xl border border-gray-200 bg-[#FAFAFA] p-3 text-[13.5px] leading-snug text-[#484848]">
+          <input
+            type="checkbox"
+            required
+            checked={legalAccepted}
+            onChange={(e) => setLegalAccepted(e.target.checked)}
+            className="mt-0.5 h-5 w-5 shrink-0 cursor-pointer accent-[#FF6000]"
+          />
+          <span>
+            <a
+              href="/kurumsal/on-bilgilendirme"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#FF6000] underline"
+            >
+              Ön Bilgilendirme Formu
+            </a>
+            &apos;nu,{" "}
+            <a
+              href="/kurumsal/mesafeli-satis"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#FF6000] underline"
+            >
+              Mesafeli Satış Sözleşmesi
+            </a>
+            &apos;ni ve{" "}
+            <a
+              href="/kurumsal/kvkk-veri-koruma"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold text-[#FF6000] underline"
+            >
+              KVKK Aydınlatma Metni
+            </a>
+            &apos;ni okudum, onaylıyorum. <span className="text-[#FF6000]">*</span>
+          </span>
+        </label>
 
         {/* Submit Button */}
         <button

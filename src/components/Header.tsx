@@ -96,23 +96,23 @@ export default function Header({ settings, categories }: HeaderProps) {
       <div className="hb-container py-3">
         <div className="flex items-center justify-between gap-3 lg:gap-6">
           {/* Digi Güvenlik Brand Logo */}
-          <Link href="/" className="group flex shrink-0 items-center gap-2.5" aria-label="Digi Güvenlik Ana Sayfa">
+          <Link href="/" className="group flex min-w-0 shrink-0 items-center gap-1.5 sm:gap-2.5" aria-label="Digi Güvenlik Ana Sayfa">
             <img
               src="/digi-guvenlik-icon.svg"
               alt="Digi Güvenlik Logo"
-              className="h-11 w-11 shrink-0 transition-transform duration-200 group-hover:scale-105 sm:h-12 sm:w-12"
+              className="h-8 w-8 shrink-0 transition-transform duration-200 group-hover:scale-105 sm:h-12 sm:w-12"
             />
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[24px] leading-none font-extrabold tracking-[-0.03em] sm:text-[28px]">
+              <div className="flex items-center gap-1 sm:gap-1.5">
+                <span className="text-[18px] leading-none font-extrabold tracking-[-0.03em] sm:text-[28px]">
                   <span className="text-[#FF6000]">Digi</span>
                   <span className="text-[#212121]"> Güvenlik</span>
                 </span>
-                <span className="rounded bg-[#FF6000] px-1.5 py-0.5 text-[11px] font-bold tracking-wide text-white uppercase">
+                <span className="hidden rounded bg-[#FF6000] px-1.5 py-0.5 text-[11px] font-bold tracking-wide text-white uppercase sm:inline">
                   PRO
                 </span>
               </div>
-              <span className="mt-0.5 text-[13px] font-medium tracking-tight text-[#666666]">
+              <span className="mt-0.5 text-[10.5px] font-medium tracking-tight text-[#666666] sm:text-[13px]">
                 Güvenlik &amp; Ses Teknolojileri
               </span>
             </div>
@@ -191,7 +191,7 @@ export default function Header({ settings, categories }: HeaderProps) {
           </div>
 
           {/* Right Action Widgets: Location, Account, Cart */}
-          <div className="flex items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
             {/* Location / Free Shipping Widget */}
             <div className="hidden items-center gap-2 rounded-lg border border-gray-200 px-3 py-1.5 xl:flex">
               <MapPin className="h-4 w-4 text-[#FF6000]" />
@@ -215,7 +215,8 @@ export default function Header({ settings, categories }: HeaderProps) {
             {/* Account Button (Hepsiburada style) */}
             <Link
               href={user ? "/hesabim" : "/giris"}
-              className="flex items-center gap-2.5 rounded-lg border border-gray-300 bg-white px-3.5 py-1.5 transition hover:border-[#FF6000]"
+              aria-label={user ? "Hesabım" : "Giriş Yap"}
+              className="flex h-10 items-center gap-2 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 transition hover:border-[#FF6000] sm:h-auto sm:px-3.5"
             >
               <User className="h-5 w-5 text-[#484848]" />
               <div className="hidden text-left leading-tight sm:block">
@@ -245,7 +246,8 @@ export default function Header({ settings, categories }: HeaderProps) {
             {/* Cart Button (Hepsiburada Grey Pill style) */}
             <Link
               href="/sepet"
-              className="relative flex items-center gap-2 rounded-lg bg-[#919191] px-4 py-2.5 text-white shadow-2xs transition hover:bg-[#7a7a7a]"
+              aria-label="Sepetim"
+              className="relative flex h-10 items-center gap-1.5 rounded-lg bg-[#6b6b6b] px-2.5 py-2 text-white shadow-2xs transition hover:bg-[#555555] sm:h-auto sm:gap-2 sm:px-4 sm:py-2.5"
             >
               <ShoppingCart className="h-5 w-5 text-white" />
               <span className="hidden text-[16px] font-bold sm:inline">Sepetim</span>

@@ -14,12 +14,10 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const settings = getSettings();
-  return {
+export const metadata: Metadata = {
     title: {
-      default: `${settings.siteName} — Güvenlik Amaçlı Ses Duyma Cihazları, Ses Kayıt ve Güvenlik Kameraları`,
-      template: `%s | ${settings.siteName}`,
+      default: "Digi Güvenlik — Yeni Nesil Akıllı Güvenlik Kameraları & Profesyonel Ses Kayıt Çözümleri",
+      template: "%s | Digi Güvenlik",
     },
     description:
       "Digi Güvenlik güvenlik amaçlı ses duyma cihazları, 30 gün ses kayıt cihazları, WiFi IP kameralar ve kompakt güvenlik çözümleri. Tüm Türkiye ücretsiz kargo, güvenli paketleme ve kapıda ödeme kolaylığı.",
@@ -39,12 +37,22 @@ export async function generateMetadata(): Promise<Metadata> {
       apple: "/digi-guvenlik-logo.png",
     },
     metadataBase: new URL("https://digiguvenlik.com"),
+    alternates: {
+      canonical: "https://digiguvenlik.com",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Digi Güvenlik — Yeni Nesil Akıllı Güvenlik Kameraları & Ses Kayıt",
+      description:
+        "Ücretsiz kargo, özenli kapalı paketleme ve kapıda nakit/kredi kartı ödeme ayrıcalığı.",
+      images: ["/digi-guvenlik-logo.png"],
+    },
     openGraph: {
       type: "website",
       locale: "tr_TR",
       url: "https://digiguvenlik.com",
-      siteName: settings.siteName,
-      title: `${settings.siteName} — Güvenlik ve Akıllı İzleme Teknolojileri`,
+      siteName: "Digi Güvenlik",
+      title: "Digi Güvenlik — Güvenlik ve Akıllı İzleme Teknolojileri",
       description:
         "Ücretsiz kargo, güvenli paketleme ve kapıda nakit/kredi kartı ödeme avantajıyla güvenlik kameraları ve ses kayıt cihazları.",
       images: [
@@ -56,8 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
     },
-  };
-}
+};
 
 export default function RootLayout({
   children,
@@ -100,9 +107,15 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:rounded-xl focus:bg-[#FF6000] focus:px-4 focus:py-2.5 focus:text-[15px] focus:font-bold focus:text-white focus:shadow-lg"
+        >
+          Ana İçeriğe Geç
+        </a>
         <ShopProvider>
           <Header settings={settings} categories={categories} />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer settings={settings} categories={categories} />
           <GlobalWidgets settings={settings} />
         </ShopProvider>

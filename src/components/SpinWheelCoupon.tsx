@@ -146,6 +146,22 @@ export default function SpinWheelCoupon() {
   }, []);
 
   useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && !spinning) {
+        setOpen(false);
+        try {
+          sessionStorage.setItem(STORAGE_KEY_DISMISSED, "1");
+        } catch {
+          // ignore
+        }
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, spinning]);
+
+  useEffect(() => {
     return () => {
       tickTimersRef.current.forEach((id) => window.clearTimeout(id));
     };
@@ -271,6 +287,9 @@ export default function SpinWheelCoupon() {
           onClick={handleClose}
         >
           <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="Çarkı Çevir Kuponu Kap"
             onClick={(e) => e.stopPropagation()}
             className="relative w-full max-w-md overflow-hidden rounded-3xl border-2 border-[#FF6000]/40 bg-gradient-to-b from-[#111827] via-[#1a2234] to-[#111827] text-white shadow-2xl"
           >

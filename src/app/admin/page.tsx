@@ -5,6 +5,7 @@ import AdminDashboardClient from "@/components/AdminDashboardClient";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: false },
   title: "Yönetici (Admin) Paneli — Sipariş, Ürün ve Site Yönetimi",
 };
 

@@ -202,8 +202,23 @@ export default function Footer({ settings, categories }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/kurumsal/hakkimizda" className="hover:text-[#FF6000]">
+                  Hakkımızda
+                </Link>
+              </li>
+              <li>
+                <Link href="/kurumsal/on-bilgilendirme" className="hover:text-[#FF6000]">
+                  Ön Bilgilendirme Formu
+                </Link>
+              </li>
+              <li>
                 <Link href="/kurumsal/mesafeli-satis" className="hover:text-[#FF6000]">
                   Mesafeli Satış Sözleşmesi
+                </Link>
+              </li>
+              <li>
+                <Link href="/kurumsal/cerez-politikasi" className="hover:text-[#FF6000]">
+                  Çerez Politikası
                 </Link>
               </li>
               <li>

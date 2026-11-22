@@ -145,7 +145,7 @@ export default function HomePage() {
                         {item.name}
                       </p>
                       <p className="mt-1 text-[16px] font-black text-[#FF6000]">
-                        {formatPrice(item.price)}
+                        {formatPrice(item.price)} TL
                       </p>
                     </div>
                   </Link>

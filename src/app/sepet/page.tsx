@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Alışveriş Sepetim ve Sipariş Tamamlama",
+  robots: { index: false, follow: false },
   description:
     "Sepetinizdeki ürünleri inceleyin, kapıda nakit, kredi kartı veya %10 indirimli havale/EFT ile siparişinizi hemen tamamlayın.",
 };

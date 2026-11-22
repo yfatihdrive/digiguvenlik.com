@@ -124,6 +124,10 @@ export default function ProductGallery({
         )}
 
         <img
+              width={720}
+              height={1280}
+              fetchPriority="high"
+              loading="eager"
           src={currentSrc}
           alt={currentAlt}
           title={currentAlt}
