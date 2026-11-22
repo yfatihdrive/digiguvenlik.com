@@ -1,8 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import { readDb } from "@/lib/db";
 
+const couponAttempts = new Map<string, { count: number; resetAt: number }>();
+
 export async function POST(req: NextRequest) {
   try {
+    const ip = (req.headers.get("x-forwarded-for") || "127.0.0.1").split(",")[0].trim();
+    const now = Date.now();
+    const rec = couponAttempts.get(ip);
+    if (rec && now < rec.resetAt) {
+      if (rec.count >= 25) {
+        return NextResponse.json(
+          { valid: false, message: "Çok fazla kupon denemesi yaptınız. Lütfen biraz bekleyin." },
+          { status: 429, headers: { "Retry-After": "60" } }
+        );
+      }
+      rec.count += 1;
+    } else {
+      couponAttempts.set(ip, { count: 1, resetAt: now + 10 * 60 * 1000 });
+    }
     const { code, subtotal } = await req.json();
     const cleanCode = (code || "").trim().toUpperCase();
     if (!cleanCode) {

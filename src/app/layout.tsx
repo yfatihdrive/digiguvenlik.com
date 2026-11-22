@@ -150,7 +150,7 @@ export default function RootLayout({
         </a>
         <ShopProvider>
           <Header settings={settings} categories={categories} />
-          <main id="main-content" className="flex-1">{children}</main>
+          <main id="main-content" tabIndex={-1} className="flex-1 outline-none">{children}</main>
           <Footer settings={settings} categories={categories} />
           <GlobalWidgets settings={settings} />
         </ShopProvider>

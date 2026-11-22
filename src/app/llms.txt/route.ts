@@ -65,6 +65,7 @@ ${topProducts}
 - Google Merchant Feed: ${SITE_CONFIG.url}/api/feeds/google-merchant.xml
 - Cimri Feed: ${SITE_CONFIG.url}/api/feeds/cimri.xml
 - Akakçe Feed: ${SITE_CONFIG.url}/api/feeds/akakce.xml
+- Epey Feed: ${SITE_CONFIG.url}/api/feeds/epey.xml
 `;
 
   return new NextResponse(body, {

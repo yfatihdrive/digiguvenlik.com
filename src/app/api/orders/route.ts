@@ -96,8 +96,24 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ orders: myOrders });
 }
 
+const orderIpWindow = new Map<string, { count: number; resetAt: number }>();
+
 export async function POST(req: NextRequest) {
   try {
+    const ip = (req.headers.get("x-forwarded-for") || "127.0.0.1").split(",")[0].trim();
+    const now = Date.now();
+    const rec = orderIpWindow.get(ip);
+    if (rec && now < rec.resetAt) {
+      if (rec.count >= 15) {
+        return NextResponse.json(
+          { error: "Çok fazla sipariş isteği gönderildi. Lütfen birkaç dakika sonra tekrar deneyin." },
+          { status: 429, headers: { "Retry-After": "60" } }
+        );
+      }
+      rec.count += 1;
+    } else {
+      orderIpWindow.set(ip, { count: 1, resetAt: now + 15 * 60 * 1000 });
+    }
     const body = await req.json();
     const db = readDb();
     const user = await getCurrentUser();
