@@ -32,6 +32,7 @@ export const SITE_CONFIG = {
   },
   analytics: {
     googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || "_Rnrot5c6XbteumuxIJl2JZsXjnwYxD2gvvWO2rh34o",
+    bingSiteVerification: process.env.BING_SITE_VERIFICATION || "46D2139FF4AF0866240419F21C7791F0",
     ga4Id: process.env.NEXT_PUBLIC_GA_ID || "G-NK7Q4TZQJY",
     gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-K788SZ6D",
     yandexMetricaId: process.env.NEXT_PUBLIC_YANDEX_METRICA_ID || "",

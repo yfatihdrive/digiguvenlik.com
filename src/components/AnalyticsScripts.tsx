@@ -37,7 +37,7 @@ export default function AnalyticsScripts() {
   const rawYm = (process.env.NEXT_PUBLIC_YANDEX_METRICA_ID || "").trim();
 
   const gtmId = GTM_RE.test(rawGtm) ? rawGtm : "";
-  const ga4Id = GA4_RE.test(rawGa4) ? rawGa4 : "";
+  const ga4Id = !gtmId && GA4_RE.test(rawGa4) ? rawGa4 : "";
   const ymId = YM_RE.test(rawYm) ? rawYm : "";
 
   useEffect(() => {

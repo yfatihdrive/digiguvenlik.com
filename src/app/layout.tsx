@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION || "_Rnrot5c6XbteumuxIJl2JZsXjnwYxD2gvvWO2rh34o",
       yandex: process.env.YANDEX_SITE_VERIFICATION || undefined,
-      other: process.env.BING_SITE_VERIFICATION
-        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
-        : undefined,
+      other: {
+        "msvalidate.01": process.env.BING_SITE_VERIFICATION || "46D2139FF4AF0866240419F21C7791F0",
+      },
     },
     title: {
       default: "Digi Güvenlik — Gizli Kamera, Dinleme Cihazları & Ses Kayıt Cihazları",
