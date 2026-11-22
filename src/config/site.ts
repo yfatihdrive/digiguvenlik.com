@@ -30,6 +30,12 @@ export const SITE_CONFIG = {
     etbisNo: "[DOLDUR: ETBİS Kayıt No]",
     etbisUrl: "[DOLDUR: ETBİS Doğrulama Linki]",
   },
+  analytics: {
+    googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || "_Rnrot5c6XbteumuxIJl2JZsXjnwYxD2gvvWO2rh34o",
+    ga4Id: process.env.NEXT_PUBLIC_GA_ID || "G-NK7Q4TZQJY",
+    gtmId: process.env.NEXT_PUBLIC_GTM_ID || "GTM-K788SZ6D",
+    yandexMetricaId: process.env.NEXT_PUBLIC_YANDEX_METRICA_ID || "",
+  },
   shipping: {
     freeShipping: true,
     sameDayCutoff: "16:00",

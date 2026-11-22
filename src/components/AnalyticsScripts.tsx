@@ -32,12 +32,12 @@ export function pushAnalyticsEvent(
 export default function AnalyticsScripts() {
   const [consented, setConsented] = useState(false);
 
-  const rawGtm = (process.env.NEXT_PUBLIC_GTM_ID || "").trim();
-  const rawGa4 = (process.env.NEXT_PUBLIC_GA_ID || "").trim();
+  const rawGtm = (process.env.NEXT_PUBLIC_GTM_ID || "GTM-K788SZ6D").trim();
+  const rawGa4 = (process.env.NEXT_PUBLIC_GA_ID || "G-NK7Q4TZQJY").trim();
   const rawYm = (process.env.NEXT_PUBLIC_YANDEX_METRICA_ID || "").trim();
 
   const gtmId = GTM_RE.test(rawGtm) ? rawGtm : "";
-  const ga4Id = !gtmId && GA4_RE.test(rawGa4) ? rawGa4 : "";
+  const ga4Id = GA4_RE.test(rawGa4) ? rawGa4 : "";
   const ymId = YM_RE.test(rawYm) ? rawYm : "";
 
   useEffect(() => {
@@ -95,9 +95,10 @@ export default function AnalyticsScripts() {
 
     const onCustomAnalytics = (e: Event) => {
       const detail = (e as CustomEvent<Record<string, unknown>>).detail || {};
-      const { event, ...rest } = detail;
-      if (typeof event === "string") {
-        pushAnalyticsEvent(event, rest);
+      const evtName = (detail.eventName || detail.event) as string | undefined;
+      const params = (detail.params as Record<string, unknown>) || detail;
+      if (typeof evtName === "string") {
+        pushAnalyticsEvent(evtName, params);
       }
     };
 
@@ -115,6 +116,7 @@ export default function AnalyticsScripts() {
 
     window.addEventListener("digiguvenlik-cookie-consent", onConsentChange);
     window.addEventListener("digiguvenlik-analytics-event", onCustomAnalytics);
+    window.addEventListener("digi-track-event", onCustomAnalytics);
     document.addEventListener("click", onDocClick);
 
     return () => {
@@ -123,6 +125,7 @@ export default function AnalyticsScripts() {
         "digiguvenlik-analytics-event",
         onCustomAnalytics
       );
+      window.removeEventListener("digi-track-event", onCustomAnalytics);
       document.removeEventListener("click", onDocClick);
     };
   }, []);

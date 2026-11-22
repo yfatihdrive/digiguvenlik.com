@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       ? { index: false, follow: false }
       : { index: true, follow: true },
     verification: {
-      google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+      google: process.env.GOOGLE_SITE_VERIFICATION || "_Rnrot5c6XbteumuxIJl2JZsXjnwYxD2gvvWO2rh34o",
       yandex: process.env.YANDEX_SITE_VERIFICATION || undefined,
       other: process.env.BING_SITE_VERIFICATION
         ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
