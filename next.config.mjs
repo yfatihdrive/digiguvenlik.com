@@ -28,6 +28,15 @@ const nextConfig = {
       { source: "/urun/arac-ici-online-duyma-cihazi", destination: "/urun/arac-ici-online-dinleme-cihazi", permanent: true },
       { source: "/urun/elbiseye-takilan-duyma-cihazi", destination: "/urun/elbiseye-takilan-dinleme-cihazi", permanent: true },
       { source: "/urun/powerbank-ortam-duyma-cihazi", destination: "/urun/powerbank-ortam-dinleme-cihazi", permanent: true },
+      { source: "/hakkimizda", destination: "/kurumsal/hakkimizda", permanent: true },
+      { source: "/kvkk", destination: "/kurumsal/kvkk-veri-koruma", permanent: true },
+      { source: "/gizlilik-politikasi", destination: "/kurumsal/gizlilik-politikasi", permanent: true },
+      { source: "/cerez-politikasi", destination: "/kurumsal/cerez-politikasi", permanent: true },
+      { source: "/mesafeli-satis-sozlesmesi", destination: "/kurumsal/mesafeli-satis", permanent: true },
+      { source: "/on-bilgilendirme-formu", destination: "/kurumsal/on-bilgilendirme", permanent: true },
+      { source: "/iade-ve-garanti-kosullari", destination: "/kurumsal/kullanim-sartlari", permanent: true },
+      { source: "/teslimat-kosullari", destination: "/kurumsal/teslimat-kosullari", permanent: true },
+      { source: "/kargo-takip", destination: "/siparis-takip", permanent: true },
     ];
   },
   async headers() {

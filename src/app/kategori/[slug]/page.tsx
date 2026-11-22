@@ -19,6 +19,9 @@ export async function generateMetadata({
   return {
     title: category.seoTitle,
     description: category.seoDescription,
+    alternates: {
+      canonical: `https://digiguvenlik.com/kategori/${category.slug}`,
+    },
   };
 }
 
@@ -45,13 +48,52 @@ export default async function CategoryPage({
   })); // slimProducts for fast RSC hydration
   const categories = getCategories();
 
+  const categoryProducts = products
+    .filter((p) => p.categorySlug === slug || (slug === "gizli-kameralar" && p.categorySlug.includes("kamera")))
+    .slice(0, 20);
+
+  const categoryJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.com/" },
+          { "@type": "ListItem", position: 2, name: category.name, item: `https://digiguvenlik.com/kategori/${category.slug}` },
+        ],
+      },
+      {
+        "@type": "CollectionPage",
+        name: category.name,
+        description: category.seoDescription || category.description,
+        url: `https://digiguvenlik.com/kategori/${category.slug}`,
+        mainEntity: {
+          "@type": "ItemList",
+          numberOfItems: categoryProducts.length,
+          itemListElement: categoryProducts.map((p, idx) => ({
+            "@type": "ListItem",
+            position: idx + 1,
+            url: `https://digiguvenlik.com/urun/${p.slug}`,
+            name: p.name,
+          })),
+        },
+      },
+    ],
+  };
+
   return (
-    <CatalogBrowser
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(categoryJsonLd).replace(/</g, "\\u003c") }}
+      />
+      <CatalogBrowser
       products={products}
       categories={categories}
       activeCategorySlug={slug}
       pageTitle={category.name}
       pageDescription={category.description}
-    />
+      />
+    </>
   );
 }

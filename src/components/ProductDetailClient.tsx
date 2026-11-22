@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   ShoppingCart,
   Zap,
@@ -29,6 +29,30 @@ export default function ProductDetailClient({
   const { addToCart, favorites, toggleFavorite } = useShop();
   const [qty, setQty] = useState(1);
   const isFav = favorites.includes(product.id);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(
+        new CustomEvent("digi-track-event", {
+          detail: {
+            eventName: "view_item",
+            params: {
+              currency: "TRY",
+              value: product.price,
+              items: [
+                {
+                  item_id: String(product.id),
+                  item_name: product.name,
+                  item_category: product.category,
+                  price: product.price,
+                },
+              ],
+            },
+          },
+        })
+      );
+    }
+  }, [product.id, product.name, product.category, product.price]);
 
   const formatTL = (n: number) =>
     new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 }).format(Math.round(n));

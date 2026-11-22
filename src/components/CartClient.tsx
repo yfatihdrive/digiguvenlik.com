@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import {
   ShoppingBag,
@@ -22,6 +22,30 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
 
   const totalQty = cart.reduce((s, i) => s + i.quantity, 0);
   const secondItemDiscount = calculateSecondItemDiscount(cart);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && cart.length > 0) {
+      const value = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+      window.dispatchEvent(
+        new CustomEvent("digi-track-event", {
+          detail: {
+            eventName: "begin_checkout",
+            params: {
+              currency: "TRY",
+              value,
+              items: cart.map((i) => ({
+                item_id: String(i.productId),
+                item_name: i.name,
+                price: i.price,
+                quantity: i.quantity,
+              })),
+            },
+          },
+        })
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cart.length]);
 
   if (cart.length === 0) {
     return (

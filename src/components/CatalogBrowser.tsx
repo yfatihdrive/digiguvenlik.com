@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import {
   Search,
@@ -40,6 +40,22 @@ export default function CatalogBrowser({
   >(initialFilter === "bestseller" ? "bestseller" : initialFilter === "super" ? "discount" : "recommended");
   const [priceRange, setPriceRange] = useState<"all" | "under3500" | "3500to4500" | "over4500">("all");
   const [visibleCount, setVisibleCount] = useState(36);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && products.length > 0) {
+      window.dispatchEvent(
+        new CustomEvent("digi-track-event", {
+          detail: {
+            eventName: "view_item_list",
+            params: {
+              item_list_id: activeCategorySlug || "all",
+              item_list_name: pageTitle,
+            },
+          },
+        })
+      );
+    }
+  }, [activeCategorySlug, pageTitle, products.length]);
 
   const filteredProducts = useMemo(() => {
     let list = [...products];
