@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { getCategories, getSettings } from "@/lib/db";
@@ -14,7 +14,27 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#FF6000",
+  width: "device-width",
+  initialScale: 1,
+};
+
+const isStagingNoindex =
+  process.env.ALLOW_INDEXING === "false" ||
+  (Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production");
+
 export const metadata: Metadata = {
+    robots: isStagingNoindex
+      ? { index: false, follow: false }
+      : { index: true, follow: true },
+    verification: {
+      google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+      yandex: process.env.YANDEX_SITE_VERIFICATION || undefined,
+      other: process.env.BING_SITE_VERIFICATION
+        ? { "msvalidate.01": process.env.BING_SITE_VERIFICATION }
+        : undefined,
+    },
     title: {
       default: "Digi Güvenlik — Gizli Kamera, Dinleme Cihazları & Ses Kayıt Cihazları",
       template: "%s | Digi Güvenlik",
@@ -78,14 +98,21 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        "@type": ["Organization", "ElectronicsStore"],
         name: settings.companyName,
+        alternateName: settings.siteName,
         url: "https://digiguvenlik.com",
         logo: "https://digiguvenlik.com/digi-guvenlik-logo.png",
+        image: "https://digiguvenlik.com/digi-guvenlik-logo.png",
         telephone: settings.phone,
+        email: settings.email,
+        priceRange: "₺₺",
         address: {
           "@type": "PostalAddress",
-          streetAddress: settings.address,
+          streetAddress: "Sultan Orhan, İlyasbey Cd. No:21/C",
+          addressLocality: "Gebze",
+          addressRegion: "Kocaeli",
+          postalCode: "41400",
           addressCountry: "TR",
         },
       },
@@ -94,6 +121,14 @@ export default function RootLayout({
         name: settings.siteName,
         url: "https://digiguvenlik.com",
         inLanguage: "tr-TR",
+        potentialAction: {
+          "@type": "SearchAction",
+          target: {
+            "@type": "EntryPoint",
+            urlTemplate: "https://digiguvenlik.com/urunler?q={search_term_string}",
+          },
+          "query-input": "required name=search_term_string",
+        },
       },
     ],
   };
@@ -105,7 +140,7 @@ export default function RootLayout({
       >
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd).replace(/</g, "\\u003c") }}
         />
         <a
           href="#main-content"

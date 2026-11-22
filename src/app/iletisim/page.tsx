@@ -9,6 +9,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { getSettings } from "@/lib/db";
+import ContactFormClient from "@/components/ContactFormClient";
 
 export const dynamic = "force-dynamic";
 
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
   title: "İletişim & Müşteri Hizmetleri Destek Hattı",
   description:
     "Digi Güvenlik müşteri hizmetleri, WhatsApp sipariş hattı (0 216 825 10 87), teknik destek ve adres bilgileri.",
+  alternates: { canonical: "https://digiguvenlik.com/iletisim" },
 };
 
 export default function IletisimPage() {
@@ -118,6 +120,7 @@ export default function IletisimPage() {
             </div>
           </div>
         </div>
+        <ContactFormClient />
       </div>
     </div>
   );

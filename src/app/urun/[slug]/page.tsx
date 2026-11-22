@@ -37,6 +37,13 @@ export async function generateMetadata({
     title: product.seoTitle,
     description: product.seoDescription,
     keywords: product.seoKeywords,
+    alternates: {
+      canonical: `https://digiguvenlik.com/urun/${product.slug}`,
+    },
+    robots:
+      product.stock > 0
+        ? { index: true, follow: true }
+        : { index: false, follow: true },
     openGraph: {
       title: product.seoTitle,
       description: product.seoDescription,
@@ -147,15 +154,15 @@ export default async function ProductDetailPage({
     <div className="hb-container space-y-10 py-6">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd).replace(/</g, "\\u003c") }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd).replace(/</g, "\\u003c") }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }}
       />
 
       {/* Breadcrumb Bar */}

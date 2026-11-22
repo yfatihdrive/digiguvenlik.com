@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const productUrls: MetadataRoute.Sitemap = products.map((p) => ({
+  const productUrls: MetadataRoute.Sitemap = products.filter((p) => p.stock > 0).map((p) => ({
     url: `${baseUrl}/urun/${p.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
