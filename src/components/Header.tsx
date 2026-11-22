@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import {
   Search,
   ShoppingCart,
@@ -35,6 +35,7 @@ interface SearchHit {
 
 export default function Header({ settings, categories }: HeaderProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { cartCount, user, favorites } = useShop();
 
   const [query, setQuery] = useState("");
@@ -55,8 +56,19 @@ export default function Header({ settings, categories }: HeaderProps) {
         setCatDropdownOpen(false);
       }
     };
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowDropdown(false);
+        setCatDropdownOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
     document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   useEffect(() => {
@@ -205,6 +217,7 @@ export default function Header({ settings, categories }: HeaderProps) {
             {user?.role === "admin" && (
               <Link
                 href="/admin"
+                prefetch={false}
                 className="flex items-center gap-1.5 rounded-lg border border-purple-600 bg-purple-50 px-3 py-2 text-[15px] font-bold text-purple-800 hover:bg-purple-100"
               >
                 <LayoutDashboard className="h-4 w-4 text-purple-700" />
@@ -215,6 +228,7 @@ export default function Header({ settings, categories }: HeaderProps) {
             {/* Account Button (Hepsiburada style) */}
             <Link
               href={user ? "/hesabim" : "/giris"}
+              prefetch={false}
               aria-label={user ? "Hesabım" : "Giriş Yap"}
               className="flex h-10 items-center gap-2 rounded-lg border border-gray-300 bg-white px-2.5 py-1.5 transition hover:border-[#FF6000] sm:h-auto sm:px-3.5"
             >
@@ -232,6 +246,7 @@ export default function Header({ settings, categories }: HeaderProps) {
             {/* Favorites Button */}
             <Link
               href="/hesabim?tab=favorites"
+              prefetch={false}
               aria-label="Favorilerim"
               className="relative hidden h-11 w-11 items-center justify-center rounded-lg border border-gray-300 text-[#484848] hover:border-[#FF6000] hover:text-[#FF6000] sm:flex"
             >
@@ -320,20 +335,33 @@ export default function Header({ settings, categories }: HeaderProps) {
 
           <Link
             href="/urunler"
-            className="shrink-0 rounded-lg px-3 py-2 text-[16px] font-semibold text-[#212121] hover:bg-orange-50 hover:text-[#FF6000]"
+            aria-current={pathname === "/urunler" ? "page" : undefined}
+            className={`shrink-0 rounded-lg px-3 py-2 text-[16px] font-semibold transition ${
+              pathname === "/urunler"
+                ? "bg-orange-50 text-[#FF6000]"
+                : "text-[#212121] hover:bg-orange-50 hover:text-[#FF6000]"
+            }`}
           >
             Tüm Ürünler
           </Link>
 
-          {categories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/kategori/${cat.slug}`}
-              className="shrink-0 rounded-lg px-3 py-2 text-[16px] font-semibold text-[#484848] transition hover:bg-orange-50 hover:text-[#FF6000]"
-            >
-              {cat.name}
-            </Link>
-          ))}
+          {categories.map((cat) => {
+            const isCurrent = pathname === `/kategori/${cat.slug}`;
+            return (
+              <Link
+                key={cat.slug}
+                href={`/kategori/${cat.slug}`}
+                aria-current={isCurrent ? "page" : undefined}
+                className={`shrink-0 rounded-lg px-3 py-2 text-[16px] font-semibold transition ${
+                  isCurrent
+                    ? "bg-orange-50 text-[#FF6000]"
+                    : "text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
+                }`}
+              >
+                {cat.name}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Categories Dropdown Rendered Outside overflow-x-auto so it is NEVER clipped */}

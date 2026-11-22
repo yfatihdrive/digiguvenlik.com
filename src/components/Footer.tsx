@@ -10,6 +10,7 @@ import {
   PackageCheck,
 } from "lucide-react";
 import { Category, SiteSettings } from "@/lib/types";
+import CookieSettingsButton from "./CookieSettingsButton";
 
 interface FooterProps {
   settings: SiteSettings;
@@ -197,8 +198,18 @@ export default function Footer({ settings, categories }: FooterProps) {
                 </Link>
               </li>
               <li>
-                <Link href="/hesabim" className="hover:text-[#FF6000]">
+                <Link href="/hesabim" prefetch={false} className="hover:text-[#FF6000]">
                   Hesabım ve Siparişlerim
+                </Link>
+              </li>
+              <li>
+                <Link href="/sss" className="hover:text-[#FF6000]">
+                  Sıkça Sorulan Sorular (SSS)
+                </Link>
+              </li>
+              <li>
+                <Link href="/kampanyalar" className="font-semibold text-[#FF6000] hover:underline">
+                  Kampanyalar &amp; Fırsatlar
                 </Link>
               </li>
               <li>
@@ -217,9 +228,22 @@ export default function Footer({ settings, categories }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/kurumsal/gizlilik-politikasi" className="hover:text-[#FF6000]">
+                  Gizlilik Politikası
+                </Link>
+              </li>
+              <li>
+                <Link href="/kurumsal/teslimat-kosullari" className="hover:text-[#FF6000]">
+                  Teslimat Koşulları
+                </Link>
+              </li>
+              <li>
                 <Link href="/kurumsal/cerez-politikasi" className="hover:text-[#FF6000]">
                   Çerez Politikası
                 </Link>
+              </li>
+              <li>
+                <CookieSettingsButton />
               </li>
               <li>
                 <Link href="/kurumsal/kvkk-veri-koruma" className="hover:text-[#FF6000]">

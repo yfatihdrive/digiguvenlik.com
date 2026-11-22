@@ -61,6 +61,26 @@ const LEGAL_PAGES: Record<
       "Teslimatlar saat 16:00'ya kadar verilen siparişlerde aynı gün ücretsiz kargo ile yapılmaktadır. İade ve değişim talepleriniz için 0 216 825 10 57 destek hattımızdan 7/24 yardım alabilirsiniz.",
     ],
   },
+  "gizlilik-politikasi": {
+    title: "Gizlilik Politikası",
+    description: "Digi Güvenlik gizlilik ve kişisel veri güvenliği politikası.",
+    draft: true,
+    content: [
+      "Digi Güvenlik olarak müşterilerimizin kişisel bilgilerini ve sipariş verilerini en üst düzey güvenlik önlemleriyle korumaktayız.",
+      "Sipariş sırasında paylaşılan iletişim ve teslimat bilgileri yalnızca siparişin teslimi, faturalandırma ve garanti/destek hizmetleri için kullanılır; izinsiz üçüncü taraflarla paylaşılmaz.",
+      "Tüm bağlantılar 256-bit SSL şifreleme ile korunur ve kargo gönderileri %100 gizli paketleme ile sevk edilir.",
+    ],
+  },
+  "teslimat-kosullari": {
+    title: "Teslimat ve Kargo Koşulları",
+    description: "Aynı gün ücretsiz kargo, gizli paketleme ve kapıda ödeme teslimat koşulları.",
+    draft: true,
+    content: [
+      "Saat 16:00'ya kadar oluşturulan tüm siparişler aynı iş günü içinde kargoya teslim edilir.",
+      "Türkiye'nin 81 iline kargo tamamen ücretsizdir. Paket üzerinde ürün içeriğini belli edecek herhangi bir ibare bulunmaz.",
+      "Teslimat esnasında kargonuzu kontrol ederek kapıda nakit veya kredi kartı ile güvenle ödeme yapabilirsiniz.",
+    ],
+  },
   hakkimizda: {
     title: "Hakkımızda",
     description: "Digi Güvenlik kurumsal tanıtım ve iletişim bilgileri.",

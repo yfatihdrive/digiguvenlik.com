@@ -18,6 +18,10 @@ export default function CookieConsent() {
     } catch {
       // ignore
     }
+    const onOpen = () => setVisible(true);
+    window.addEventListener("digiguvenlik-open-cookie-settings", onOpen);
+    return () =>
+      window.removeEventListener("digiguvenlik-open-cookie-settings", onOpen);
   }, []);
 
   const saveChoice = (choice: "accepted" | "rejected") => {
