@@ -70,7 +70,7 @@ export default function Footer({ settings, categories }: FooterProps) {
             </div>
             <div>
               <h4 className="text-[16px] font-bold text-[#212121]">
-                %100 Güvenli Paketleme
+                %100 Gizli Paketleme
               </h4>
               <p className="text-[14px] font-normal text-[#7B7B7B]">
                 Paket içeriği dışarıdan belli olmaz
@@ -107,8 +107,8 @@ export default function Footer({ settings, categories }: FooterProps) {
               </div>
             </Link>
             <p className="text-[15px] leading-[1.6] font-normal text-[#7B7B7B]">
-              {settings.companyName} güvencesiyle profesyonel güvenlik kameraları,
-              uzaktan ses duyma sistemleri ve dijital ses kayıt teknolojileri.
+              {settings.companyName} güvencesiyle profesyonel gizli kameralar,
+              uzaktan ses dinleme sistemleri ve dijital ses kayıt teknolojileri.
             </p>
             <div className="space-y-2 pt-2 text-[15px]">
               <a

@@ -36,14 +36,14 @@ export default function HomePage() {
     .filter(
       (p) =>
         p.categorySlug === "ses-kayit-cihazlari" ||
-        p.categorySlug === "duyma-cihazlari"
+        p.categorySlug === "dinleme-cihazlari"
     )
     .slice(0, 12);
   const wifiProducts = allProducts
     .filter(
       (p) =>
-        p.categorySlug === "wifi-kameralar" ||
-        p.categorySlug === "guvenlik-kameralar"
+        p.categorySlug === "wifi-gizli-kameralar" ||
+        p.categorySlug === "gizli-kameralar"
     )
     .slice(0, 12);
 
@@ -51,7 +51,7 @@ export default function HomePage() {
 
   const getCategoryIcon = (slug: string) => {
     if (slug.includes("ses-kayit")) return <Mic className="h-6 w-6" />;
-    if (slug.includes("duyma")) return <Radio className="h-6 w-6" />;
+    if (slug.includes("dinleme")) return <Radio className="h-6 w-6" />;
     if (slug.includes("wifi")) return <Wifi className="h-6 w-6" />;
     if (slug.includes("saat")) return <Clock className="h-6 w-6" />;
     if (slug.includes("kalem")) return <PenTool className="h-6 w-6" />;
@@ -79,11 +79,11 @@ export default function HomePage() {
                 </div>
 
                 <h1 className="max-w-3xl text-[24px] font-bold leading-[1.2] tracking-[-0.02em] text-white sm:text-[34px] lg:text-[38px]">
-                  Yeni Nesil Akıllı Güvenlik Kameraları &amp; Profesyonel Ses Kayıt Çözümleri
+                  Gizli Kamera, Dinleme Cihazları &amp; Ses Kayıt Cihazları
                 </h1>
 
                 <p className="max-w-3xl text-[16px] leading-[1.55] font-normal text-orange-50">
-                  Mesafe sınırı olmaksızın kesintisiz erişim sunan SIM kartlı ses takip sistemleri, 30 güne kadar uzun pil ömürlü ses kayıt çözümleri ve kablosuz Wi-Fi güvenlik kameralarında{" "}
+                  Mesafe sınırı olmaksızın kesintisiz erişim sunan SIM kartlı ses dinleme cihazları ve dinleme cihazları, 30 güne kadar uzun pil ömürlü ses kayıt çözümleri ve kablosuz Wi-Fi gizli kameralarda{" "}
                   <strong className="font-semibold underline decoration-amber-300 decoration-2">
                     kapıda nakit veya kredi kartı ile güvenli ödeme ayrıcalığı.
                   </strong>
@@ -254,7 +254,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="text-[16px] font-bold text-[#212121]">
-                %100 Güvenli Paketleme
+                %100 Gizli Paketleme
               </h3>
               <p className="text-[14px] font-normal text-[#7B7B7B]">
                 Kutu içeriği dışarıdan görünmez
@@ -362,10 +362,10 @@ export default function HomePage() {
               </span>
               <div>
                 <h2 className="text-[22px] font-bold tracking-[-0.02em] text-[#212121] sm:text-[24px]">
-                  Süper Fiyat, Süper Teklif — Ses Kayıt &amp; Duyma Cihazları
+                  Süper Fiyat, Süper Teklif — Ses Kayıt &amp; Dinleme Cihazları
                 </h2>
                 <p className="text-[15px] font-normal text-[#7B7B7B]">
-                  SIM kartlı mesafe sınırı olmayan duyma cihazları ve 30 güne varan ses kayıt çözümleri
+                  SIM kartlı mesafe sınırı olmayan dinleme cihazları ve 30 güne varan ses kayıt çözümleri
                 </p>
               </div>
             </div>
@@ -391,17 +391,17 @@ export default function HomePage() {
         <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-[22px] font-bold tracking-[-0.02em] text-[#212121] sm:text-[24px]">
-              Kablosuz Wi-Fi &amp; Güvenlik Kameraları
+              Kablosuz Wi-Fi &amp; Gizli Kameralar
             </h2>
             <p className="text-[15px] font-normal text-[#7B7B7B]">
-              Cep telefonundan 7/24 canlı izlenebilen Full HD &amp; 4K güvenlik kameraları
+              Cep telefonundan 7/24 canlı izlenebilen Full HD &amp; 4K gizli kameralar
             </p>
           </div>
           <Link
-            href="/kategori/wifi-kameralar"
+            href="/kategori/wifi-gizli-kameralar"
             className="text-[16px] font-bold text-[#FF6000] hover:underline"
           >
-            Tüm Wi-Fi Kameraları Gör →
+            Tüm Wi-Fi Gizli Kameraları Gör →
           </Link>
         </div>
 
@@ -468,7 +468,7 @@ export default function HomePage() {
             Digi Güvenlik Alışveriş Rehberi
           </span>
           <h2 className="mt-1 text-[20px] font-bold text-[#212121] sm:text-[22px]">
-            Güvenlik Amaçlı Ses Duyma Cihazları, Ses Kayıt Cihazları ve Wi-Fi Kameralar Hakkında Merak Edilenler
+            Ses Dinleme Cihazları ve Dinleme Cihazları, Ses Kayıt Cihazları ve Wi-Fi Gizli Kameralar Hakkında Merak Edilenler
           </h2>
           <p className="mt-1.5 text-[16px] leading-[1.6] text-[#484848]">
             Ev, ofis, depo, araç veya bakım süreçlerinde doğru güvenlik teknolojisini seçmek hem bütçenizi korur hem de kesintisiz performans almanızı sağlar. Aşağıdaki rehber başlıklarımızdan ihtiyacınıza en uygun kategoriyi belirleyebilirsiniz.
@@ -480,10 +480,10 @@ export default function HomePage() {
               className="group rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] p-4"
             >
               <summary className="cursor-pointer list-none text-[16px] font-bold text-[#212121]">
-                1. GSM Tabanlı Uzaktan Ses Duyma Cihazı Nasıl Çalışır?
+                1. GSM Tabanlı Uzaktan Ses Dinleme Cihazı Nasıl Çalışır?
               </summary>
               <p className="mt-2 text-[15px] leading-[1.6] text-[#484848]">
-                GSM tabanlı güvenlik amaçlı ses duyma cihazları, içerisine yerleştirilen standart bir SIM kart (Turkcell, Vodafone veya Türk Telekom) aracılığıyla hücresel şebekeye bağlanır. Wi-Fi bağlantısına ihtiyaç duymadan, Türkiye&apos;nin veya dünyanın neresinde olursanız olun cihazın içindeki hattı telefonunuzdan arayarak ortam sesini canlı ses takibi yapmanıza olanak tanır. VOX ses sensörlü modeller ise ortamda konuşma algıladığında sizi otomatik olarak arar.
+                GSM tabanlı ses dinleme cihazları ve dinleme cihazları, içerisine yerleştirilen standart bir SIM kart (Turkcell, Vodafone veya Türk Telekom) aracılığıyla hücresel şebekeye bağlanır. Wi-Fi bağlantısına ihtiyaç duymadan, Türkiye&apos;nin veya dünyanın neresinde olursanız olun cihazın içindeki hattı telefonunuzdan arayarak ortam sesini canlı ses takibi yapmanıza olanak tanır. VOX ses sensörlü modeller ise ortamda konuşma algıladığında sizi otomatik olarak arar.
               </p>
             </details>
 
@@ -504,16 +504,16 @@ export default function HomePage() {
                 3. Kablosuz Wi-Fi IP Kameralar ile Canlı İzleme Avantajı
               </summary>
               <p className="mt-2 text-[15px] leading-[1.6] text-[#484848]">
-                Wi-Fi güvenlik kameraları; ampul, masa saati, duvar saati, priz veya adaptör gibi doğal formlarda tasarlanır. iOS ve Android uyumlu Türkçe mobil uygulaması sayesinde canlı görüntüyü anlık izleyebilir, hareket algılandığında cep telefonunuza bildirim alabilir ve Micro SD karttaki geçmiş kayıtları uzaktan izleyebilirsiniz.
+                Wi-Fi gizli kameralar; ampul, masa saati, duvar saati, priz veya adaptör gibi doğal formlarda tasarlanır. iOS ve Android uyumlu Türkçe mobil uygulaması sayesinde canlı görüntüyü anlık izleyebilir, hareket algılandığında cep telefonunuza bildirim alabilir ve Micro SD karttaki geçmiş kayıtları uzaktan izleyebilirsiniz.
               </p>
             </details>
 
             <details className="group rounded-xl border border-[#E5E5E5] bg-[#FAFAFA] p-4">
               <summary className="cursor-pointer list-none text-[16px] font-bold text-[#212121]">
-                4. Kapıda Ödeme, Güvenli Paketleme ve Garanti Süreci
+                4. Kapıda Ödeme, Gizli Paketleme ve Garanti Süreci
               </summary>
               <p className="mt-2 text-[15px] leading-[1.6] text-[#484848]">
-                Digi Güvenlik üzerinden oluşturduğunuz tüm siparişler ücretsiz kargo ve güvenli paketleme prensibiyle gönderilir; paket üzerinde ürün içeriğine dair hiçbir ibare bulunmaz. Kapıda nakit veya kapıda kredi kartı ile ödeme yapabilir, Havale/EFT ödemelerinde ise sepette anında %10 indirim kazanabilirsiniz.
+                Digi Güvenlik üzerinden oluşturduğunuz tüm siparişler ücretsiz kargo ve gizli paketleme prensibiyle gönderilir; paket üzerinde ürün içeriğine dair hiçbir ibare bulunmaz. Kapıda nakit veya kapıda kredi kartı ile ödeme yapabilir, Havale/EFT ödemelerinde ise sepette anında %10 indirim kazanabilirsiniz.
               </p>
             </details>
           </div>

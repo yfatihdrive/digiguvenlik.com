@@ -39,7 +39,7 @@ const BOT_WA_DISPLAY = "0 216 825 10 57";
 
 const QUICK_REPLIES = [
   "🔥 En çok satanlar",
-  "🎙️ Uzaktan ses duyma cihazı",
+  "🎙️ Uzaktan ses dinleme cihazı",
   "💳 Kapıda ödeme & kargo",
   "🎁 200 TL indirim kuponu",
   "🛒 Sipariş vermek istiyorum",

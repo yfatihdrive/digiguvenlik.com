@@ -56,7 +56,7 @@ const LEGAL_PAGES: Record<
     description: "Teslimat koşulları, garanti ve 14 gün iade/değişim şartları.",
     draft: true,
     content: [
-      "Sitemizde satışa sunulan güvenlik kameraları, ses kayıt cihazları ve uzaktan duyma sistemleri; mülk güvenliği, iş yeri denetimi, kişisel güvenlik ve yasal çerçevedeki gözlem ihtiyaçları için tasarlanmıştır.",
+      "Sitemizde satışa sunulan gizli kameralar, ses kayıt cihazları ve uzaktan dinleme sistemleri; mülk güvenliği, iş yeri denetimi, kişisel güvenlik ve yasal çerçevedeki gözlem ihtiyaçları için tasarlanmıştır.",
       "Cihazların üçüncü kişilerin özel yaşamının ve kişisel verilerin korunmasını ihlal edecek biçimde izinsiz kullanılması 5237 sayılı Türk Ceza Kanunu ve 6698 sayılı KVKK uyarınca yasaktır; yasal kullanım sorumluluğu alıcıya aittir.",
       "Teslimatlar saat 16:00'ya kadar verilen siparişlerde aynı gün ücretsiz kargo ile yapılmaktadır. İade ve değişim talepleriniz için 0 216 825 10 57 destek hattımızdan 7/24 yardım alabilirsiniz.",
     ],
@@ -66,7 +66,7 @@ const LEGAL_PAGES: Record<
     description: "Digi Güvenlik kurumsal tanıtım ve iletişim bilgileri.",
     draft: true,
     content: [
-      "Digi Güvenlik, Türkiye genelinde bireysel ve kurumsal kullanıcılar için yeni nesil akıllı güvenlik kameraları, uzun pil ömürlü dijital ses kayıt cihazları ve uzaktan ses takip teknolojileri sunmaktadır.",
+      "Digi Güvenlik, Türkiye genelinde bireysel ve kurumsal kullanıcılar için yeni nesil akıllı gizli kameralar, uzun pil ömürlü dijital ses kayıt cihazları ve uzaktan ses takip teknolojileri sunmaktadır.",
       "Tüm ürünlerimiz 24 ay resmi garanti, ücretsiz kargo, özenli kapalı paketleme ve kapıda nakit/kredi kartı ödeme güvencesiyle gönderilmektedir.",
     ],
   },

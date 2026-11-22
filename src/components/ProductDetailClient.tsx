@@ -209,7 +209,7 @@ export default function ProductDetailClient({
           </div>
           <div className="flex items-center gap-1.5 rounded-lg bg-[#F5F5F5] p-2">
             <PackageCheck className="h-4 w-4 shrink-0 text-[#FF6000]" />
-            <span>Güvenli Paketleme</span>
+            <span>Gizli Paketleme</span>
           </div>
           <div className="flex items-center gap-1.5 rounded-lg bg-[#F5F5F5] p-2">
             <ShieldCheck className="h-4 w-4 shrink-0 text-[#FF6000]" />

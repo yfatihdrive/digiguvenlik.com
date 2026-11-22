@@ -43,8 +43,8 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
     await expect(page.locator("main")).toContainText(/Ses Kayıt/i);
 
     // Navigate to flagship product and test 9:16 popup lightbox (no new tab!)
-    await page.goto("/urun/uzaktan-ses-duyma-cihazi", { waitUntil: "networkidle" });
-    await expect(page.locator("h1")).toContainText("Uzaktan Ses Duyma Cihazı");
+    await page.goto("/urun/uzaktan-ses-dinleme-cihazi", { waitUntil: "networkidle" });
+    await expect(page.locator("h1")).toContainText("Uzaktan Ses Dinleme Cihazı");
     // Open 9:16 popup lightbox (advances image & opens popup)
     await page.locator("main img").first().click();
     await expect(page.getByText(/Görsel \d+ \/ 5/i)).toBeVisible();
@@ -55,7 +55,7 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
 
   test("3. Sepet, 2. Üründe %30 İndirim, Çarkı Çevir ve sayfa yenileme kalıcılığı", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/urun/uzaktan-ses-duyma-cihazi", { waitUntil: "networkidle" });
+    await page.goto("/urun/uzaktan-ses-dinleme-cihazi", { waitUntil: "networkidle" });
 
     // Dismiss cookie banner if present
     const rej = page.getByRole("button", { name: /Reddet/i });
@@ -73,7 +73,7 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
 
   test("4. Misafir sipariş akışı: zorunlu sözleşme onayı, adres seçimi ve sipariş tamamlama", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/urun/arac-ici-online-duyma-cihazi", { waitUntil: "networkidle" });
+    await page.goto("/urun/arac-ici-online-dinleme-cihazi", { waitUntil: "networkidle" });
     const rej = page.getByRole("button", { name: /Reddet/i });
     if (await rej.isVisible()) await rej.click();
 
@@ -122,7 +122,7 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
     const widths = [360, 390, 768, 1024, 1440];
     const pagesToSnap = [
       { path: "/", name: "home" },
-      { path: "/urun/uzaktan-ses-duyma-cihazi", name: "product" },
+      { path: "/urun/uzaktan-ses-dinleme-cihazi", name: "product" },
       { path: "/urunler", name: "catalog" },
     ];
 
@@ -168,7 +168,7 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
     });
 
     const axeReport: Record<string, unknown> = {};
-    for (const url of ["/", "/urunler", "/urun/uzaktan-ses-duyma-cihazi", "/sepet"]) {
+    for (const url of ["/", "/urunler", "/urun/uzaktan-ses-dinleme-cihazi", "/sepet"]) {
       await page.goto(url, { waitUntil: "networkidle" });
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])

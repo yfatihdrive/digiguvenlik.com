@@ -1272,13 +1272,13 @@ export default function AdminDashboardClient() {
                   Kategori
                 </label>
                 <select
-                  value={editingProduct.categorySlug || "guvenlik-kameralar"}
+                  value={editingProduct.categorySlug || "gizli-kameralar"}
                   onChange={(e) => {
                     const catObj = categories.find((c) => c.slug === e.target.value);
                     setEditingProduct({
                       ...editingProduct,
                       categorySlug: e.target.value,
-                      category: catObj ? catObj.name : "Güvenlik Kameralar",
+                      category: catObj ? catObj.name : "Gizli Kameralar",
                     });
                   }}
                   className="w-full rounded-xl border border-gray-300 px-3 py-2"

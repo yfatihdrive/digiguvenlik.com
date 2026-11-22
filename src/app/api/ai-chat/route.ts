@@ -154,12 +154,12 @@ export async function POST(req: NextRequest) {
         reply = `Memnuniyetle yardımcı olalım! 😊\n\nSipariş vermek veya canlı müşteri temsilcimizle birebir görüşmek için aşağıdaki yeşil butona tıklayarak doğrudan **0 216 825 10 57** WhatsApp hattımıza bağlanabilirsiniz. Ekibimiz size hemen dönüş yapacaktır.`;
       }
     } else if (/^(merhaba|selam|slm|iyi gunler|iyi aksamlar|gunaydin|hey|hi)\b/.test(norm) && tokens.length === 0) {
-      reply = `Merhaba! 👋 Digi Güvenlik WhatsApp Yapay Zeka Asistanına hoş geldiniz.\n\n291 ürünümüz hakkında anında bilgi alabilir, fiyat sorabilir veya kapıda ödemeli sipariş oluşturabilirsiniz. Size nasıl yardımcı olabilirim?\n\n• Örn: *"Uzaktan ses duyma cihazı fiyatı nedir?"*\n• Örn: *"Araç içi veya 30 gün ses kayıt cihazı var mı?"*\n• Örn: *"Kapıda ödeme ve kargo nasıl?"*`;
+      reply = `Merhaba! 👋 Digi Güvenlik WhatsApp Yapay Zeka Asistanına hoş geldiniz.\n\n291 ürünümüz hakkında anında bilgi alabilir, fiyat sorabilir veya kapıda ödemeli sipariş oluşturabilirsiniz. Size nasıl yardımcı olabilirim?\n\n• Örn: *"Uzaktan ses dinleme cihazı fiyatı nedir?"*\n• Örn: *"Araç içi veya 30 gün ses kayıt cihazı var mı?"*\n• Örn: *"Kapıda ödeme ve kargo nasıl?"*`;
     } else if (asksCoupon) {
       reply = `Size özel aktif indirim kuponumuz hazır! 🎁\n\n• **Kupon Kodu:** \`4Q4CGNLR\` (**200 TL Anında İndirim**)\n• **Ekstra Fırsat:** Havale / EFT ile ödemelerde sepette ayrıca **%${settings.havaleDiscountRate} indirim** uygulanır!\n\nKuponu Hızlı Sipariş formunda veya Sepet ekranında hemen kullanabilirsiniz. Temsilcimizle indirimli sipariş oluşturmak isterseniz WhatsApp'tan bağlanabilirsiniz.`;
       showWhatsAppCta = true;
     } else if (asksShipping || asksPayment) {
-      reply = `Sipariş ve teslimat avantajlarımız şu şekildedir: 🚚💳\n\n• **Önce Teslim Al, Sonra Öde:** Kapıda Nakit veya Kapıda Kredi Kartı ile ödeme yapabilirsiniz.\n• **Havale / EFT Avantajı:** %${settings.havaleDiscountRate} anında ekstra indirim!\n• **Ücretsiz & Güvenli Kargo:** Türkiye'nin 81 iline ücretsiz kargo ile gönderim yapılır. Paket üzerinde ürün içeriği kesinlikle yazmaz (%100 güvenli paketleme).\n• **Teslimat Süresi:** Genellikle 1–3 iş günü içinde kapınızda.\n\nSipariş vermek isterseniz hemen WhatsApp temsilcimize bağlanabilirsiniz!`;
+      reply = `Sipariş ve teslimat avantajlarımız şu şekildedir: 🚚💳\n\n• **Önce Teslim Al, Sonra Öde:** Kapıda Nakit veya Kapıda Kredi Kartı ile ödeme yapabilirsiniz.\n• **Havale / EFT Avantajı:** %${settings.havaleDiscountRate} anında ekstra indirim!\n• **Ücretsiz & Güvenli Kargo:** Türkiye'nin 81 iline ücretsiz kargo ile gönderim yapılır. Paket üzerinde ürün içeriği kesinlikle yazmaz (%100 gizli paketleme).\n• **Teslimat Süresi:** Genellikle 1–3 iş günü içinde kapınızda.\n\nSipariş vermek isterseniz hemen WhatsApp temsilcimize bağlanabilirsiniz!`;
       showWhatsAppCta = true;
     } else if (asksWarranty) {
       if (currentProduct) {
@@ -211,7 +211,7 @@ export async function POST(req: NextRequest) {
     } else {
       const top = products.filter((p) => p.isBestseller).slice(0, 2);
       cards = top.map(toCard);
-      reply = `Sorunuzu aldım! Size en doğru bilgiyi verebilmem için ilgilendiğiniz ürün türünü yazabilirsiniz (ör: *"ses kayıt"*, *"uzaktan ses duyma"*, *"wifi kamera"*, *"saat kamera"* veya *"kalem kamera"*).\n\nDilerseniz doğrudan **0 216 825 10 57** numaralı WhatsApp canlı müşteri temsilcimize bağlanarak anında destek alabilirsiniz. 😊`;
+      reply = `Sorunuzu aldım! Size en doğru bilgiyi verebilmem için ilgilendiğiniz ürün türünü yazabilirsiniz (ör: *"ses kayıt"*, *"uzaktan ses dinleme"*, *"wifi kamera"*, *"saat kamera"* veya *"kalem kamera"*).\n\nDilerseniz doğrudan **0 216 825 10 57** numaralı WhatsApp canlı müşteri temsilcimize bağlanarak anında destek alabilirsiniz. 😊`;
       showWhatsAppCta = true;
     }
 

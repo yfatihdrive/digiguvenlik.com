@@ -34,7 +34,7 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
             Sepetin şu an boş
           </h1>
           <p className="mt-2 text-[16px] font-normal text-[#7B7B7B]">
-            İhtiyacınız olan güvenlik kamerası, ses kayıt veya uzaktan duyma cihazlarını hemen sepetinize ekleyebilirsiniz.
+            İhtiyacınız olan gizli kamera, ses kayıt veya uzaktan dinleme cihazlarını hemen sepetinize ekleyebilirsiniz.
           </p>
           <Link
             href="/urunler"

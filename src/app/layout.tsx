@@ -16,20 +16,20 @@ const inter = Inter({
 
 export const metadata: Metadata = {
     title: {
-      default: "Digi Güvenlik — Yeni Nesil Akıllı Güvenlik Kameraları & Profesyonel Ses Kayıt Çözümleri",
+      default: "Digi Güvenlik — Gizli Kamera, Dinleme Cihazları & Ses Kayıt Cihazları",
       template: "%s | Digi Güvenlik",
     },
     description:
-      "Digi Güvenlik güvenlik amaçlı ses duyma cihazları, 30 gün ses kayıt cihazları, WiFi IP kameralar ve kompakt güvenlik çözümleri. Tüm Türkiye ücretsiz kargo, güvenli paketleme ve kapıda ödeme kolaylığı.",
+      "Digi Güvenlik ses dinleme cihazları ve dinleme cihazları, 30 gün ses kayıt cihazları, WiFi IP kameralar ve kompakt güvenlik çözümleri. Tüm Türkiye ücretsiz kargo, gizli paketleme ve kapıda ödeme kolaylığı.",
     keywords: [
-      "güvenlik amaçlı ses duyma cihazları",
+      "ses dinleme cihazları ve dinleme cihazları",
       "ses kayıt cihazı",
-      "uzaktan ses duyma cihazı",
-      "wifi güvenlik kamerası",
-      "mini güvenlik kamerası",
-      "ortam ses duyma cihazı",
+      "uzaktan ses dinleme cihazı",
+      "wifi gizli kamera",
+      "mini gizli kamera",
+      "ortam ses dinleme cihazı",
       "digi güvenlik",
-      "kapıda ödeme güvenlik kamerası",
+      "kapıda ödeme gizli kamera",
     ],
     icons: {
       icon: "/digi-guvenlik-icon.svg",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Digi Güvenlik — Yeni Nesil Akıllı Güvenlik Kameraları & Ses Kayıt",
+      title: "Digi Güvenlik — Gizli Kamera, Dinleme Cihazları & Ses Kayıt Cihazları",
       description:
         "Ücretsiz kargo, özenli kapalı paketleme ve kapıda nakit/kredi kartı ödeme ayrıcalığı.",
       images: ["/digi-guvenlik-logo.png"],
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       siteName: "Digi Güvenlik",
       title: "Digi Güvenlik — Güvenlik ve Akıllı İzleme Teknolojileri",
       description:
-        "Ücretsiz kargo, güvenli paketleme ve kapıda nakit/kredi kartı ödeme avantajıyla güvenlik kameraları ve ses kayıt cihazları.",
+        "Ücretsiz kargo, gizli paketleme ve kapıda nakit/kredi kartı ödeme avantajıyla gizli kameralar ve ses kayıt cihazları.",
       images: [
         {
           url: "/digi-guvenlik-logo.png",

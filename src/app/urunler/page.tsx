@@ -6,9 +6,9 @@ import CatalogBrowser from "@/components/CatalogBrowser";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Tüm Ürünler — Güvenlik Kameraları, Ses Kayıt ve Duyma Cihazları",
+  title: "Tüm Ürünler — Gizli Kameralar, Ses Kayıt ve Dinleme Cihazları",
   description:
-    "Digi Güvenlik güvenlik kameraları, uzaktan ses duyma cihazları ve ses kayıt cihazları. 291 farklı model, ücretsiz kargo ve kapıda ödeme kolaylığıyla.",
+    "Digi Güvenlik gizli kameralar, uzaktan ses dinleme cihazları ve ses kayıt cihazları. 291 farklı model, ücretsiz kargo ve kapıda ödeme kolaylığıyla.",
 };
 
 export default async function UrunlerPage({

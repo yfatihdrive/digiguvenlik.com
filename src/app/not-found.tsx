@@ -15,7 +15,7 @@ export default function NotFound() {
           Aradığınız sayfa bulunamadı
         </h1>
         <p className="mt-3 text-[16px] leading-relaxed text-[#666666]">
-          İlgili ürün yayından kaldırılmış veya bağlantı adresi değişmiş olabilir. Ana sayfaya dönerek tüm güvenlik kameralarımızı ve ses kayıt cihazlarımızı inceleyebilirsiniz.
+          İlgili ürün yayından kaldırılmış veya bağlantı adresi değişmiş olabilir. Ana sayfaya dönerek tüm gizli kameralarmızı ve ses kayıt cihazlarımızı inceleyebilirsiniz.
         </p>
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <Link

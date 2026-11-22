@@ -44,14 +44,14 @@ export default function CatalogBrowser({
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Category filter (Note: on digiguvenlik.com, "guvenlik-kameralar" and "aksesuar-guvenlik-kameralar" also include broad camera items)
+    // Category filter (Note: on digiguvenlik.com, "gizli-kameralar" and "aksesuar-guvenlik-kameralar" also include broad camera items)
     if (activeCategorySlug && activeCategorySlug !== "all") {
       if (activeCategorySlug === "indirimli-urunler") {
         list = list.filter((p) => p.discountPercent >= 35);
-      } else if (activeCategorySlug === "guvenlik-kameralar") {
+      } else if (activeCategorySlug === "gizli-kameralar") {
         list = list.filter(
           (p) =>
-            p.categorySlug === "guvenlik-kameralar" ||
+            p.categorySlug === "gizli-kameralar" ||
             p.categorySlug.includes("kamera")
         );
       } else {
@@ -132,7 +132,7 @@ export default function CatalogBrowser({
               <Award className="h-3.5 w-3.5" /> 2 Yıl Garanti
             </span>
             <span className="inline-flex items-center gap-1 rounded-full bg-purple-50 px-3 py-1.5 text-purple-700">
-              <PackageCheck className="h-3.5 w-3.5" /> Güvenli Paketleme
+              <PackageCheck className="h-3.5 w-3.5" /> Gizli Paketleme
             </span>
           </div>
         </div>
