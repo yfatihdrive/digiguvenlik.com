@@ -10,6 +10,8 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   poweredByHeader: false,
+  productionBrowserSourceMaps: false,
+  trailingSlash: false,
   async redirects() {
     return [
       { source: "/kategori/guvenlik-kameralar", destination: "/kategori/gizli-kameralar", permanent: true },
