@@ -20,7 +20,7 @@ export async function generateMetadata({
     title: category.seoTitle,
     description: category.seoDescription,
     alternates: {
-      canonical: `https://digiguvenlik.com/kategori/${category.slug}`,
+      canonical: `https://digiguvenlik.company/kategori/${category.slug}`,
     },
   };
 }
@@ -58,22 +58,22 @@ export default async function CategoryPage({
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.com/" },
-          { "@type": "ListItem", position: 2, name: category.name, item: `https://digiguvenlik.com/kategori/${category.slug}` },
+          { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.company/" },
+          { "@type": "ListItem", position: 2, name: category.name, item: `https://digiguvenlik.company/kategori/${category.slug}` },
         ],
       },
       {
         "@type": "CollectionPage",
         name: category.name,
         description: category.seoDescription || category.description,
-        url: `https://digiguvenlik.com/kategori/${category.slug}`,
+        url: `https://digiguvenlik.company/kategori/${category.slug}`,
         mainEntity: {
           "@type": "ItemList",
           numberOfItems: categoryProducts.length,
           itemListElement: categoryProducts.map((p, idx) => ({
             "@type": "ListItem",
             position: idx + 1,
-            url: `https://digiguvenlik.com/urun/${p.slug}`,
+            url: `https://digiguvenlik.company/urun/${p.slug}`,
             name: p.name,
           })),
         },

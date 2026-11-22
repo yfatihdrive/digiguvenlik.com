@@ -103,7 +103,7 @@ export default function Footer({ settings, categories }: FooterProps) {
                   </span>
                 </div>
                 <span className="text-[12px] font-semibold text-[#7B7B7B]">
-                  digiguvenlik.com
+                  digiguvenlik.company
                 </span>
               </div>
             </Link>

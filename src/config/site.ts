@@ -1,8 +1,8 @@
 export const SITE_CONFIG = {
   name: "Digi Güvenlik",
   legalName: "DİGİ GÜVENLİK TEKNOLOJİ A.Ş.",
-  domain: "digiguvenlik.com",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://digiguvenlik.com",
+  domain: "digiguvenlik.company",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://digiguvenlik.company",
   slogan: "Gizli Kamera, Dinleme Cihazları & Ses Kayıt Cihazları",
   phone: "0 216 825 10 57",
   phoneHref: "+902168251057",
@@ -10,8 +10,8 @@ export const SITE_CONFIG = {
   whatsappDisplay: "0 216 825 10 57",
   whatsappOrder: "902168251087",
   whatsappOrderDisplay: "0 216 825 10 87",
-  email: "siparis@digiguvenlik.com",
-  infoEmail: "info@digiguvenlik.com",
+  email: "siparis@digiguvenlik.company",
+  infoEmail: "info@digiguvenlik.company",
   address: {
     street: "Sultan Orhan, İlyasbey Cd. No:21/C",
     district: "Gebze",

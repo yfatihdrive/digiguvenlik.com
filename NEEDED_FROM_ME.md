@@ -19,4 +19,4 @@ Bu liste, geliştirme ortamında uydurulmaması gereken (yasal onay, gerçek fir
 ## 3. Ürün ve İçerik Doğrulamaları (`MISSING DATA`)
 - [ ] **Gerçek Ürün Ölçüleri / Ağırlık / GTIN-MPN Barkodları:** JSON-LD `Product` şemasında `gtin`/`mpn` alanları mevcut veride yok; gerçek barkod/model kodları sağlanırsa zengin sonuç performansı artar.
 - [ ] **Gerçek Müşteri Yorumları:** Veritabanındaki yorumlar başlangıç şablon verisidir; canlıya alınırken gerçek müşteri değerlendirmeleriyle değiştirilmesi önerilir (Google `AggregateRating` politikası gereği).
-- [ ] **Admin & Demo Hesap Şifreleri:** Canlıya çıkmadan önce varsayılan `admin@digiguvenlik.com` (`admin123`) şifresi mutlaka güçlü bir şifreyle değiştirilmeli ve demo `musteri@digiguvenlik.com` hesabı kaldırılmalıdır.
+- [ ] **Admin & Demo Hesap Şifreleri:** Canlıya çıkmadan önce varsayılan `admin@digiguvenlik.company` (`admin123`) şifresi mutlaka güçlü bir şifreyle değiştirilmeli ve demo `musteri@digiguvenlik.company` hesabı kaldırılmalıdır.

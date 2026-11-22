@@ -38,7 +38,7 @@ export async function generateMetadata({
     description: product.seoDescription,
     keywords: product.seoKeywords,
     alternates: {
-      canonical: `https://digiguvenlik.com/urun/${product.slug}`,
+      canonical: `https://digiguvenlik.company/urun/${product.slug}`,
     },
     robots:
       product.stock > 0
@@ -77,7 +77,7 @@ export default async function ProductDetailPage({
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: (product.images && product.images.length > 0 ? product.images : [product.image]).map((img) => `https://digiguvenlik.com${img}`),
+    image: (product.images && product.images.length > 0 ? product.images : [product.image]).map((img) => `https://digiguvenlik.company${img}`),
     description: product.shortDescription,
     sku: product.sku,
     brand: {
@@ -91,7 +91,7 @@ export default async function ProductDetailPage({
     },
     offers: {
       "@type": "Offer",
-      url: `https://digiguvenlik.com/urun/${product.slug}`,
+      url: `https://digiguvenlik.company/urun/${product.slug}`,
       priceCurrency: "TRY",
       price: product.price,
       availability:
@@ -131,9 +131,9 @@ export default async function ProductDetailPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.com/" },
-      { "@type": "ListItem", position: 2, name: product.category, item: `https://digiguvenlik.com/kategori/${product.categorySlug}` },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://digiguvenlik.com/urun/${product.slug}` },
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://digiguvenlik.company/" },
+      { "@type": "ListItem", position: 2, name: product.category, item: `https://digiguvenlik.company/kategori/${product.categorySlug}` },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://digiguvenlik.company/urun/${product.slug}` },
     ],
   };
 

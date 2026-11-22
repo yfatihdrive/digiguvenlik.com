@@ -111,7 +111,7 @@ test.describe("Digi Güvenlik — Uçtan Uca E-Ticaret, Responsive ve Erişilebi
 
     // Login as Admin via /admin
     await page.goto("/admin", { waitUntil: "networkidle" });
-    await page.locator('input[type="email"]').fill("admin@digiguvenlik.com");
+    await page.locator('input[type="email"]').fill("admin@digiguvenlik.company");
     await page.locator('input[type="password"]').fill("admin123");
     await page.locator('main form button[type="submit"]').click();
 

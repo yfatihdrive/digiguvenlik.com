@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getCategories, getProducts } from "@/lib/db";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://digiguvenlik.com";
+  const baseUrl = "https://digiguvenlik.company";
   const products = getProducts();
   const categories = getCategories();
 

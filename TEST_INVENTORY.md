@@ -20,7 +20,7 @@
 | PG-12 | `/iletisim` (İletişim & Destek) | SSR | Tümü | ✅ | Production build doğrulandı |
 | PG-13 | `/kurumsal/[slug]` (Mesafeli Satış, Ön Bilgilendirme, KVKK, Çerez, Kullanım, Hakkımızda) | SSR | Tümü | ✅ | HTTP 200 + TASLAK uyarısı + geçersiz slug'da gerçek HTTP 404 |
 | PG-14 | `/robots.txt` | Teknik SEO | Bot | ✅ | HTTP 200, `Sitemap:` ve `Disallow: /admin` doğrulandı |
-| PG-15 | `/sitemap.xml` | Teknik SEO | Bot | ✅ | HTTP 200, `312` geçerli `https://digiguvenlik.com/...` URL |
+| PG-15 | `/sitemap.xml` | Teknik SEO | Bot | ✅ | HTTP 200, `312` geçerli `https://digiguvenlik.company/...` URL |
 | PG-16 | `404 Not Found` (`src/app/not-found.tsx`) | Hata | Tümü | ✅ | `/olmayan-bir-sayfa-test-404` ve `/urun/olmayan-urun-xyz` gerçek HTTP 404 |
 | PG-17 | `500 Error` (`src/app/error.tsx`) | Hata | Tümü | ✅ | Özel Türkçe Error Boundary eklendi ve production build ile derlendi |
 

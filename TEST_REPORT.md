@@ -62,12 +62,12 @@ Rapor dosyaları: `reports/lighthouse-*.json`
 ---
 
 ## 4. PHASE 10 — Canlıya Geçiş Hazırlık Kontrol Listesi (Deploy Edilmedi)
-- [ ] **Üretim Ortam Değişkenleri:** `.env.example` baz alınarak sunucuda güçlü `AUTH_SECRET` (32+ bayt), gerçek `SMTP_*` ve `NEXT_PUBLIC_SITE_URL=https://digiguvenlik.com` tanımlanmalı.
+- [ ] **Üretim Ortam Değişkenleri:** `.env.example` baz alınarak sunucuda güçlü `AUTH_SECRET` (32+ bayt), gerçek `SMTP_*` ve `NEXT_PUBLIC_SITE_URL=https://digiguvenlik.company` tanımlanmalı.
 - [ ] **HTTPS & Güvenlik:** SSL sertifikası + `http → https` 301 yönlendirmesi aktif olmalı (`Secure` cookie ve `HSTS` otomatik devreye girer).
-- [ ] **Varsayılan Şifreler:** `admin@digiguvenlik.com` şifresi değiştirilmeli, demo `musteri@digiguvenlik.com` hesabı silinmeli.
-- [ ] **E-posta DNS Kayıtları:** `digiguvenlik.com` için `SPF`, `DKIM` ve `DMARC` kayıtları eklenmeli.
+- [ ] **Varsayılan Şifreler:** `admin@digiguvenlik.company` şifresi değiştirilmeli, demo `musteri@digiguvenlik.company` hesabı silinmeli.
+- [ ] **E-posta DNS Kayıtları:** `digiguvenlik.company` için `SPF`, `DKIM` ve `DMARC` kayıtları eklenmeli.
 - [ ] **Veritabanı Yedekleme:** `data/db.json` ve `data/mail-logs/` için günlük otomatik yedekleme (veya yüksek trafikte PostgreSQL/SQLite geçişi) planlanmalı.
-- [ ] **Hata & Uptime İzleme:** Sentry (runtime hata takibi) + UptimeRobot/BetterStack (`https://digiguvenlik.com/` 5dk kontrol) bağlanmalı.
+- [ ] **Hata & Uptime İzleme:** Sentry (runtime hata takibi) + UptimeRobot/BetterStack (`https://digiguvenlik.company/` 5dk kontrol) bağlanmalı.
 - [ ] **Performans Son Adım:** Canlı Node/Vercel ortamında `sharp` kurulup `images: { unoptimized: false }` açılarak mobil Lighthouse Performance ≥ 90'a taşınmalı.
 - [ ] **Sanal POS (İsteniyorsa):** iyzico / PayTR sandbox testleri + webhook imza doğrulaması tamamlandıktan sonra canlı anahtarlara geçilmeli.
 - [ ] **Yasal Onay & ETBİS:** `NEEDED_FROM_ME.md` dosyasındaki VKN/MERSİS/KEP ve avukat onayları tamamlanıp `TASLAK` ibareleri kaldırılmalı.

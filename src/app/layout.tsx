@@ -56,9 +56,9 @@ export const metadata: Metadata = {
       shortcut: "/digi-guvenlik-icon.svg",
       apple: "/digi-guvenlik-logo.png",
     },
-    metadataBase: new URL("https://digiguvenlik.com"),
+    metadataBase: new URL("https://digiguvenlik.company"),
     alternates: {
-      canonical: "https://digiguvenlik.com",
+      canonical: "https://digiguvenlik.company",
     },
     twitter: {
       card: "summary_large_image",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     openGraph: {
       type: "website",
       locale: "tr_TR",
-      url: "https://digiguvenlik.com",
+      url: "https://digiguvenlik.company",
       siteName: "Digi Güvenlik",
       title: "Digi Güvenlik — Güvenlik ve Akıllı İzleme Teknolojileri",
       description:
@@ -101,9 +101,9 @@ export default function RootLayout({
         "@type": ["Organization", "ElectronicsStore"],
         name: settings.companyName,
         alternateName: settings.siteName,
-        url: "https://digiguvenlik.com",
-        logo: "https://digiguvenlik.com/digi-guvenlik-logo.png",
-        image: "https://digiguvenlik.com/digi-guvenlik-logo.png",
+        url: "https://digiguvenlik.company",
+        logo: "https://digiguvenlik.company/digi-guvenlik-logo.png",
+        image: "https://digiguvenlik.company/digi-guvenlik-logo.png",
         telephone: settings.phone,
         email: settings.email,
         priceRange: "₺₺",
@@ -119,13 +119,13 @@ export default function RootLayout({
       {
         "@type": "WebSite",
         name: settings.siteName,
-        url: "https://digiguvenlik.com",
+        url: "https://digiguvenlik.company",
         inLanguage: "tr-TR",
         potentialAction: {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://digiguvenlik.com/urunler?q={search_term_string}",
+            urlTemplate: "https://digiguvenlik.company/urunler?q={search_term_string}",
           },
           "query-input": "required name=search_term_string",
         },

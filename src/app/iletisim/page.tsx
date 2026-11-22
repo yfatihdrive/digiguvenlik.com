@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "İletişim & Müşteri Hizmetleri Destek Hattı",
   description:
     "Digi Güvenlik müşteri hizmetleri, WhatsApp sipariş hattı (0 216 825 10 87), teknik destek ve adres bilgileri.",
-  alternates: { canonical: "https://digiguvenlik.com/iletisim" },
+  alternates: { canonical: "https://digiguvenlik.company/iletisim" },
 };
 
 export default function IletisimPage() {

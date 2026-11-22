@@ -6,8 +6,8 @@
     "whatsapp": "902168251087",
     "whatsappDisplay": "0 216 825 10 87",
     "supportPhone": "0 216 825 10 57",
-    "email": "siparis@digiguvenlik.com",
-    "notificationEmail": "siparis@digiguvenlik.com",
+    "email": "siparis@digiguvenlik.company",
+    "notificationEmail": "siparis@digiguvenlik.company",
     "address": "Sultan Orhan, İlyasbey Cd. No:21/C, 41400 Gebze / Kocaeli",
     "companyName": "DİGİ GÜVENLİK TEKNOLOJİ A.Ş.",
     "havaleDiscountRate": 10,
@@ -23,7 +23,7 @@
       "secure": false,
       "user": "",
       "pass": "",
-      "from": "Digi Güvenlik Sipariş Sistemi <siparis@digiguvenlik.com>"
+      "from": "Digi Güvenlik Sipariş Sistemi <siparis@digiguvenlik.company>"
     }
   },
   "categories": [
@@ -45027,7 +45027,7 @@
       "id": "usr-admin-1",
       "firstName": "Digi Güvenlik",
       "lastName": "Yönetici",
-      "email": "admin@digiguvenlik.com",
+      "email": "admin@digiguvenlik.company",
       "phone": "0216 825 10 87",
       "passwordHash": "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9",
       "role": "admin",
@@ -45040,7 +45040,7 @@
       "id": "usr-member-1",
       "firstName": "Ahmet",
       "lastName": "Yılmaz",
-      "email": "musteri@digiguvenlik.com",
+      "email": "musteri@digiguvenlik.company",
       "phone": "0532 111 22 33",
       "passwordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
       "role": "member",
@@ -45058,7 +45058,7 @@
       "customerFirstName": "Ahmet",
       "customerLastName": "Yılmaz",
       "customerPhone": "0532 111 22 33",
-      "customerEmail": "musteri@digiguvenlik.com",
+      "customerEmail": "musteri@digiguvenlik.company",
       "customerCity": "İstanbul",
       "customerDistrict": "Kadıköy",
       "customerAddress": "Caferağa Mah. Moda Cad. No:45 D:3",

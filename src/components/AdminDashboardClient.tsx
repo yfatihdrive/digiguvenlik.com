@@ -1078,7 +1078,7 @@ export default function AdminDashboardClient() {
                         notificationEmail: e.target.value,
                       })
                     }
-                    placeholder="siparis@digiguvenlik.com"
+                    placeholder="siparis@digiguvenlik.company"
                     className="w-full rounded-xl border border-gray-300 px-3 py-2 font-bold text-[#FF6000]"
                   />
                 </div>

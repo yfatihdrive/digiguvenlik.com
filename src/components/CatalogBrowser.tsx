@@ -60,7 +60,7 @@ export default function CatalogBrowser({
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Category filter (Note: on digiguvenlik.com, "gizli-kameralar" and "aksesuar-guvenlik-kameralar" also include broad camera items)
+    // Category filter (Note: on digiguvenlik.company, "gizli-kameralar" and "aksesuar-guvenlik-kameralar" also include broad camera items)
     if (activeCategorySlug && activeCategorySlug !== "all") {
       if (activeCategorySlug === "indirimli-urunler") {
         list = list.filter((p) => p.discountPercent >= 35);

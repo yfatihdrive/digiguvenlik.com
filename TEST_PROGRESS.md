@@ -1,6 +1,6 @@
 # TEST_PROGRESS.md — Denetim İlerleme Takibi (TAMAMLANDI)
 
-- **Proje:** Digi Güvenlik (`digiguvenlik.com`) E-Ticaret Platformu
+- **Proje:** Digi Güvenlik (`digiguvenlik.company`) E-Ticaret Platformu
 - **Dal (Branch):** `qa/full-audit`
 - **Son Güncelleme:** 2026-11-22
 - **Durum:** ✅ PHASE 0 – PHASE 10 Tamamlandı (Canlıya deploy edilmedi; onayınıza hazır)

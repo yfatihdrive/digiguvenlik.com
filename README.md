@@ -1,4 +1,4 @@
-# Digi Güvenlik (`digiguvenlik.com`) E-Ticaret Platformu
+# Digi Güvenlik (`digiguvenlik.company`) E-Ticaret Platformu
 
 Next.js 15 (App Router), React 19, TypeScript ve Tailwind CSS v4 ile geliştirilmiş, 291 ürünlü, kapıda ödeme & havale/EFT destekli, WhatsApp AI Asistanlı, Çarkı Çevir kupon sistemli ve 2. üründe %30 indirim kampanyalı e-ticaret platformudur.
 
