@@ -43,12 +43,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/api/feeds/"],
         disallow: privateAndFilterPaths,
       },
       ...aiAndSearchBots.map((bot) => ({
         userAgent: bot,
-        allow: "/",
+        allow: ["/", "/api/feeds/"],
         disallow: privateAndFilterPaths,
       })),
     ],

@@ -52,9 +52,12 @@ export const metadata: Metadata = {
       "kapıda ödeme gizli kamera",
     ],
     icons: {
-      icon: "/digi-guvenlik-icon.svg",
-      shortcut: "/digi-guvenlik-icon.svg",
-      apple: "/digi-guvenlik-logo.png",
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/digi-guvenlik-icon.svg", type: "image/svg+xml" },
+      ],
+      shortcut: "/favicon.ico",
+      apple: "/apple-touch-icon.png",
     },
     metadataBase: new URL("https://digiguvenlik.company"),
     alternates: {
