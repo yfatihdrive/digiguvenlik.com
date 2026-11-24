@@ -446,13 +446,13 @@ export default function Header({ settings, categories }: HeaderProps) {
           })}
         </div>
 
-        {/* Subcategories Dropdown for Parent Category (e.g. Gizli Kameralar, Takip Cihazları) */}
+        {/* Subcategories Dropdown for Parent Category (e.g. Takip Cihazları, Gizli Kameralar) */}
         {activeParentDropdown && childrenByParent[activeParentDropdown]?.length > 0 && (
           <div
             className={`absolute top-full left-4 z-50 w-80 pt-1 ${
               activeParentDropdown === "takip-cihazlari"
-                ? "sm:left-[380px] lg:left-[520px]"
-                : "sm:left-40"
+                ? "sm:left-40"
+                : "sm:left-64 lg:left-80"
             }`}
           >
             <div className="rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">

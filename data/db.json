@@ -28,6 +28,16 @@
   },
   "categories": [
     {
+      "id": "takip-cihazlari",
+      "slug": "takip-cihazlari",
+      "name": "Takip Cihazları",
+      "count": 24,
+      "icon": "Navigation",
+      "description": "Araç, motosiklet, filo, çocuk, yaşlı, personel, evcil hayvan ve büyükbaş sürüler için 4G kablolu, OBD, çakmaklık, mıknatıslı ve güneş panelli GPS takip cihazları.",
+      "seoTitle": "GPS Takip Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
+      "seoDescription": "Araç, motosiklet, kişisel, personel ve hayvan GPS takip cihazları; 4G canlı takip, 2 yıl garanti, gizli ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te."
+    },
+    {
       "id": "guvenlik-kameralar",
       "slug": "gizli-kameralar",
       "name": "Gizli Kameralar",
@@ -36,6 +46,36 @@
       "description": "Ev, ofis, depo ve iş yerleri için yüksek çözünürlüklü, uzun pil ömürlü kompakt güvenlik ve gözlem kameraları.",
       "seoTitle": "Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
       "seoDescription": "En yeni güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+    },
+    {
+      "id": "duyma-cihazlari",
+      "slug": "dinleme-cihazlari",
+      "name": "Dinleme Cihazları",
+      "count": 14,
+      "icon": "Radio",
+      "description": "SIM kart (GSM) altyapısıyla mesafe sınırı olmaksızın uzaktan canlı ortam sesi ses dinleme ve ses sensörlü geri arama cihazları.",
+      "seoTitle": "Duyma Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
+      "seoDescription": "En yeni duyma cihazları modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+    },
+    {
+      "id": "ses-kayit-cihazlari",
+      "slug": "ses-kayit-cihazlari",
+      "name": "Ses Kayıt Cihazları",
+      "count": 35,
+      "icon": "Mic",
+      "description": "Yüksek hassasiyetli mikrofon ve VOX ses aktivasyon teknolojisiyle günlerce kesintisiz ses arşivleme yapan profesyonel ses kayıt cihazları.",
+      "seoTitle": "Ses Kayıt Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
+      "seoDescription": "En yeni ses kayıt cihazları modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+    },
+    {
+      "id": "indirimli-urunler",
+      "slug": "indirimli-urunler",
+      "name": "İndirimli Ürünler",
+      "count": 2,
+      "icon": "Percent",
+      "description": "Süper fiyat ve özel kampanya avantajlarıyla sunulan, stoklarla sınırlı indirimli güvenlik ve kayıt teknolojileri.",
+      "seoTitle": "İndirimli Ürünler Fiyatları ve Modelleri | Digi Güvenlik",
+      "seoDescription": "En yeni i̇ndirimli ürünler modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
     },
     {
       "id": "anahtarlik-guvenlik-kameralar",
@@ -115,36 +155,6 @@
       "parentSlug": "gizli-kameralar"
     },
     {
-      "id": "duyma-cihazlari",
-      "slug": "dinleme-cihazlari",
-      "name": "Dinleme Cihazları",
-      "count": 14,
-      "icon": "Radio",
-      "description": "SIM kart (GSM) altyapısıyla mesafe sınırı olmaksızın uzaktan canlı ortam sesi ses dinleme ve ses sensörlü geri arama cihazları.",
-      "seoTitle": "Duyma Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni duyma cihazları modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
-    },
-    {
-      "id": "ses-kayit-cihazlari",
-      "slug": "ses-kayit-cihazlari",
-      "name": "Ses Kayıt Cihazları",
-      "count": 35,
-      "icon": "Mic",
-      "description": "Yüksek hassasiyetli mikrofon ve VOX ses aktivasyon teknolojisiyle günlerce kesintisiz ses arşivleme yapan profesyonel ses kayıt cihazları.",
-      "seoTitle": "Ses Kayıt Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni ses kayıt cihazları modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
-    },
-    {
-      "id": "indirimli-urunler",
-      "slug": "indirimli-urunler",
-      "name": "İndirimli Ürünler",
-      "count": 2,
-      "icon": "Percent",
-      "description": "Süper fiyat ve özel kampanya avantajlarıyla sunulan, stoklarla sınırlı indirimli güvenlik ve kayıt teknolojileri.",
-      "seoTitle": "İndirimli Ürünler Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni i̇ndirimli ürünler modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
-    },
-    {
       "id": "aksesuar-guvenlik-kameralar",
       "slug": "aksesuar-gizli-kameralar",
       "name": "Aksesuar Gizli Kameralar",
@@ -154,16 +164,6 @@
       "seoTitle": "Aksesuar Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
       "seoDescription": "En yeni aksesuar güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
       "parentSlug": "gizli-kameralar"
-    },
-    {
-      "id": "takip-cihazlari",
-      "slug": "takip-cihazlari",
-      "name": "Takip Cihazları",
-      "count": 24,
-      "icon": "Navigation",
-      "description": "Araç, motosiklet, filo, çocuk, yaşlı, personel, evcil hayvan ve büyükbaş sürüler için 4G kablolu, OBD, çakmaklık, mıknatıslı ve güneş panelli GPS takip cihazları.",
-      "seoTitle": "GPS Takip Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "Araç, motosiklet, kişisel, personel ve hayvan GPS takip cihazları; 4G canlı takip, 2 yıl garanti, gizli ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te."
     },
     {
       "id": "kablolu-arac-gps-takip",
