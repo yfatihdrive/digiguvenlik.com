@@ -42,7 +42,7 @@ export async function GET() {
 - Ödeme Seçenekleri: Kapıda Nakit Ödeme, Kapıda Kredi Kartı, Havale/EFT (%10 anında indirim).
 - Garanti: Tüm ürünlerde ${SITE_CONFIG.shipping.warrantyMonths} ay (2 yıl) resmi garanti ve fatura.
 - İade Hakkı: Teslimattan itibaren ${SITE_CONFIG.shipping.returnDays} gün içinde yasal cayma ve iade hakkı.
-- Aktif Kampanyalar: 2. üründe %30 otomatik indirim, Çarkı Çevir ile 200–500 TL indirim kuponu.
+- Aktif Kampanyalar: 2. üründe %20 otomatik indirim, Çarkı Çevir ile 200–500 TL indirim kuponu.
 
 ## Ana Ürün Kategorileri (Toplam ${inStockCount} Stoklu Ürün)
 ${catLines}

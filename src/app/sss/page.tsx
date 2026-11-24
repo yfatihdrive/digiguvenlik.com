@@ -41,8 +41,8 @@ const FAQ_ITEMS = [
     a: "Tüm ürünlerimiz 24 ay (2 yıl) Digi Güvenlik resmi garantili ve adınıza faturalıdır. Teslim tarihinden itibaren 14 gün içinde yasal cayma, iade ve değişim hakkınız bulunmaktadır.",
   },
   {
-    q: "2. üründe %30 indirim ve Çarkı Çevir kuponu nasıl kullanılır?",
-    a: "Sepetinize aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe %30 indirim otomatik olarak uygulanır. Ayrıca Çarkı Çevir ile kazandığınız 200–500 TL indirim kodunu tek tıkla sepetinize tanımlayabilirsiniz.",
+    q: "2. üründe %20 indirim ve Çarkı Çevir kuponu nasıl kullanılır?",
+    a: "Sepetinize aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe %20 indirim otomatik olarak uygulanır. Ayrıca Çarkı Çevir ile kazandığınız 200–500 TL indirim kodunu tek tıkla sepetinize tanımlayabilirsiniz.",
   },
 ];
 

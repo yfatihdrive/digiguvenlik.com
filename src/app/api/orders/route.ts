@@ -297,8 +297,8 @@ export async function POST(req: NextRequest) {
       couponCode:
         secondItemDiscount > 0
           ? appliedCoupon
-            ? `${appliedCoupon} + 2.URUN%30`
-            : "2.URUN%30"
+            ? `${appliedCoupon} + 2.URUN%20`
+            : "2.URUN%20"
           : appliedCoupon,
       couponDiscount: totalPromoAndCoupon,
       havaleDiscount,

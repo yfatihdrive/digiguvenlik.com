@@ -185,7 +185,7 @@ export default function ProductDetailClient({
         </button>
       </div>
 
-      {/* 2. Üründe %30 İndirim Upsell Option (Luminous Animated Glowing Border) */}
+      {/* 2. Üründe %20 İndirim Upsell Option (Luminous Animated Glowing Border) */}
       <div className="promo-glow-wrap">
         <span aria-hidden="true" className="promo-glow-beam" />
         <svg aria-hidden="true" className="promo-dash-svg">
@@ -194,17 +194,17 @@ export default function ProductDetailClient({
         <div className="relative z-10 flex flex-col justify-between gap-3 rounded-[13px] bg-gradient-to-r from-orange-50 via-amber-50 to-orange-50 p-4 sm:flex-row sm:items-center">
           <div>
             <span className="inline-block animate-pulse rounded-full bg-gradient-to-r from-[#FF6000] to-[#ff8c00] px-3 py-0.5 text-[12px] font-extrabold text-white uppercase shadow-sm">
-              🔥 2. ÜRÜNDE %30 İNDİRİM FIRSATI
+              🔥 2. ÜRÜNDE %20 İNDİRİM FIRSATI
             </span>
             <p className="mt-1.5 text-[15px] font-bold text-[#212121]">
               2 Adet Sepete Ekle, 2. Üründe{" "}
               <span className="font-extrabold text-[#2E7D32]">
-                {formatTL(Math.round(product.price * 0.3))} TL
+                {formatTL(Math.round(product.price * 0.2))} TL
               </span>{" "}
               Anında İndirim Kazan!
             </p>
             <p className="text-[13px] font-medium text-[#666666]">
-              Aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe %30 indirim otomatik uygulanır.
+              Aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe %20 indirim otomatik uygulanır.
             </p>
           </div>
           <button
@@ -215,7 +215,7 @@ export default function ProductDetailClient({
             }}
             className="shrink-0 cursor-pointer rounded-xl bg-[#212121] px-4 py-2.5 text-[14px] font-extrabold text-white shadow-md transition hover:scale-105 hover:bg-[#FF6000]"
           >
-            2 Adet Ekle (%30 İndirimli)
+            2 Adet Ekle (%20 İndirimli)
           </button>
         </div>
       </div>

@@ -96,7 +96,7 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
         {/* Left: Cart Items */}
         <div className="space-y-4 lg:col-span-6">
-          {/* 2. Üründe %30 İndirim Kampanya Bannerı */}
+          {/* 2. Üründe %20 İndirim Kampanya Bannerı */}
           {totalQty === 1 && cart[0] ? (
             <div className="promo-glow-wrap">
               <span aria-hidden="true" className="promo-glow-beam" />
@@ -107,15 +107,15 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <span className="inline-block rounded-full bg-[#FF6000] px-2.5 py-0.5 text-[12px] font-extrabold text-white uppercase">
-                    🔥 2. ÜRÜNDE %30 İNDİRİM
+                    🔥 2. ÜRÜNDE %20 İNDİRİM
                   </span>
                   <h2 className="mt-1 text-[17px] font-extrabold text-[#212121]">
-                    1 Ürün Daha Ekle, 2. Üründe %30 İndirim Kazan!
+                    1 Ürün Daha Ekle, 2. Üründe %20 İndirim Kazan!
                   </h2>
                   <p className="text-[14px] text-[#555555]">
                     Bu üründen 1 adet daha ekleyerek hemen{" "}
                     <strong className="text-[#2E7D32]">
-                      {formatTL(Math.round(cart[0].price * 0.3))} TL
+                      {formatTL(Math.round(cart[0].price * 0.2))} TL
                     </strong>{" "}
                     tasarruf edebilir veya mağazadan farklı bir 2. ürün seçebilirsiniz.
                   </p>
@@ -126,7 +126,7 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
                     onClick={() => updateQuantity(cart[0].productId, cart[0].quantity + 1)}
                     className="cursor-pointer rounded-xl bg-[#FF6000] px-4 py-2.5 text-[14px] font-extrabold text-white shadow-sm transition hover:bg-[#e55500]"
                   >
-                    +1 Adet Daha Ekle (−{formatTL(Math.round(cart[0].price * 0.3))} TL)
+                    +1 Adet Daha Ekle (−{formatTL(Math.round(cart[0].price * 0.2))} TL)
                   </button>
                   <Link
                     href="/urunler"
@@ -143,10 +143,10 @@ export default function CartClient({ settings }: { settings: SiteSettings }) {
             <div className="flex flex-wrap items-center justify-between gap-2 rounded-2xl border-2 border-emerald-400 bg-emerald-50 px-4 py-3.5 text-emerald-900 shadow-2xs">
               <div>
                 <p className="text-[16px] font-extrabold text-emerald-800">
-                  🎉 2. Üründe %30 İndirim Uygulandı!
+                  🎉 2. Üründe %20 İndirim Uygulandı!
                 </p>
                 <p className="text-[14px] font-medium text-emerald-700">
-                  Sepetinizde {totalQty} ürün bulunduğu için 2. üründe %30 indirim tutardan otomatik düşüldü.
+                  Sepetinizde {totalQty} ürün bulunduğu için 2. üründe %20 indirim tutardan otomatik düşüldü.
                 </p>
               </div>
               <span className="rounded-xl bg-emerald-600 px-3.5 py-1.5 text-[16px] font-black text-white shadow-xs">

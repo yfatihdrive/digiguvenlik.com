@@ -461,7 +461,7 @@ export default function QuickOrderForm({
           </div>
         </div>
 
-        {/* 2. Üründe %30 İndirim Upsell / Applied Strip inside Order Form */}
+        {/* 2. Üründe %20 İndirim Upsell / Applied Strip inside Order Form */}
         {allowQuantityChange && effectiveItems.length === 1 && quantity === 1 ? (
           <div className="promo-glow-wrap">
             <span aria-hidden="true" className="promo-glow-beam" />
@@ -475,12 +475,12 @@ export default function QuickOrderForm({
             >
               <div>
                 <p className="text-[14px] font-extrabold text-[#FF6000]">
-                  🔥 2. Üründe %30 İndirim Fırsatı!
+                  🔥 2. Üründe %20 İndirim Fırsatı!
                 </p>
                 <p className="text-[13px] font-medium text-[#484848]">
                   2 adet almak için tıklayın, 2. üründe{" "}
                   <strong className="text-[#2E7D32]">
-                    {formatTL(Math.round(effectiveItems[0].price * 0.3))} TL
+                    {formatTL(Math.round(effectiveItems[0].price * 0.2))} TL
                   </strong>{" "}
                   anında indirim kazanın!
                 </p>
@@ -492,7 +492,7 @@ export default function QuickOrderForm({
           </div>
         ) : secondItemDiscount > 0 ? (
           <div className="flex items-center justify-between rounded-xl border border-emerald-300 bg-emerald-50 px-3.5 py-2.5 text-[14px] font-bold text-emerald-800">
-            <span>🎉 2. Üründe %30 İndirim Uygulandı!</span>
+            <span>🎉 2. Üründe %20 İndirim Uygulandı!</span>
             <span className="rounded-lg bg-emerald-600 px-2.5 py-0.5 text-white">
               −{formatTL(secondItemDiscount)} TL
             </span>
@@ -646,7 +646,7 @@ export default function QuickOrderForm({
           </div>
           {secondItemDiscount > 0 && (
             <div className="flex justify-between text-emerald-400">
-              <span>2. Üründe %30 İndirim:</span>
+              <span>2. Üründe %20 İndirim:</span>
               <span className="font-bold">−{formatTL(secondItemDiscount)} TL</span>
             </div>
           )}

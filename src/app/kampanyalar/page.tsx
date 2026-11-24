@@ -7,7 +7,7 @@ import { SITE_CONFIG } from "@/config/site";
 export const metadata: Metadata = {
   title: "Aktif Kampanyalar ve İndirim Fırsatları",
   description:
-    "Digi Güvenlik gizli kamera, dinleme cihazı ve ses kayıt cihazlarında 2. üründe %30 indirim, Çarkı Çevir 500 TL'ye varan kupon ve havale %10 indirim fırsatları.",
+    "Digi Güvenlik gizli kamera, dinleme cihazı ve ses kayıt cihazlarında 2. üründe %20 indirim, Çarkı Çevir 500 TL'ye varan kupon ve havale %10 indirim fırsatları.",
   alternates: { canonical: `${SITE_CONFIG.url}/kampanyalar` },
 };
 
@@ -16,8 +16,8 @@ export default function KampanyalarPage() {
     {
       icon: <Percent className="h-6 w-6" />,
       badge: "OTOMATİK UYGULANIR",
-      title: "2. Üründe %30 İndirim Fırsatı",
-      desc: "Sepetinize aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe anında %30 indirim otomatik olarak tutardan düşülür.",
+      title: "2. Üründe %20 İndirim Fırsatı",
+      desc: "Sepetinize aynı üründen 2 adet veya farklı 2 ürün eklediğinizde 2. üründe anında %20 indirim otomatik olarak tutardan düşülür.",
       href: "/urunler",
       cta: "Ürünleri İncele",
       accent: "border-orange-300 bg-orange-50/60",
