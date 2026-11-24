@@ -62,6 +62,7 @@ export default function HomePage() {
     if (slug.includes("kalem")) return <PenTool className="h-6 w-6" />;
     if (slug.includes("anahtar")) return <Key className="h-6 w-6" />;
     if (slug.includes("aksesuar")) return <Briefcase className="h-6 w-6" />;
+    if (slug.includes("takip-cihazlari")) return <Navigation className="h-6 w-6" />;
     if (slug.includes("kablolu-arac-gps")) return <Navigation className="h-6 w-6" />;
     if (slug.includes("obd-ve-cakmaklik")) return <Plug className="h-6 w-6" />;
     if (slug.includes("kablosuz-miknatisli")) return <Magnet className="h-6 w-6" />;
@@ -307,7 +308,7 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {categories
             .filter((c) => !c.parentSlug && c.count > 0)
             .map((cat) => (

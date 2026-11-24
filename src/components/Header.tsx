@@ -66,8 +66,8 @@ export default function Header({ settings, categories }: HeaderProps) {
     const activeCat = categories.find((c) => `/kategori/${c.slug}` === pathname);
     if (activeCat?.parentSlug) {
       setExpandedParents((prev) => ({ ...prev, [activeCat.parentSlug!]: true }));
-    } else if (pathname === "/kategori/gizli-kameralar") {
-      setExpandedParents((prev) => ({ ...prev, "gizli-kameralar": true }));
+    } else if (activeCat && childrenByParent[activeCat.slug]?.length) {
+      setExpandedParents((prev) => ({ ...prev, [activeCat.slug]: true }));
     }
   }, [pathname, categories]);
 
@@ -446,9 +446,15 @@ export default function Header({ settings, categories }: HeaderProps) {
           })}
         </div>
 
-        {/* Subcategories Dropdown for Parent Category (e.g. Gizli Kameralar) */}
+        {/* Subcategories Dropdown for Parent Category (e.g. Gizli Kameralar, Takip Cihazları) */}
         {activeParentDropdown && childrenByParent[activeParentDropdown]?.length > 0 && (
-          <div className="absolute top-full left-4 z-50 w-80 pt-1 sm:left-40">
+          <div
+            className={`absolute top-full left-4 z-50 w-80 pt-1 ${
+              activeParentDropdown === "takip-cihazlari"
+                ? "sm:left-[380px] lg:left-[520px]"
+                : "sm:left-40"
+            }`}
+          >
             <div className="rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
               <Link
                 href={`/kategori/${activeParentDropdown}`}

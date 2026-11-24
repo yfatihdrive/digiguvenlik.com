@@ -156,6 +156,16 @@
       "parentSlug": "gizli-kameralar"
     },
     {
+      "id": "takip-cihazlari",
+      "slug": "takip-cihazlari",
+      "name": "Takip Cihazları",
+      "count": 24,
+      "icon": "Navigation",
+      "description": "Araç, motosiklet, filo, çocuk, yaşlı, personel, evcil hayvan ve büyükbaş sürüler için 4G kablolu, OBD, çakmaklık, mıknatıslı ve güneş panelli GPS takip cihazları.",
+      "seoTitle": "GPS Takip Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
+      "seoDescription": "Araç, motosiklet, kişisel, personel ve hayvan GPS takip cihazları; 4G canlı takip, 2 yıl garanti, gizli ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te."
+    },
+    {
       "id": "kablolu-arac-gps-takip",
       "slug": "kablolu-arac-gps-takip",
       "name": "Kablolu Araç GPS Takip",
@@ -163,7 +173,8 @@
       "icon": "Navigation",
       "description": "Otomobil, motosiklet, ticari filo ve iş makineleri için 9-90V DC akü beslemeli, uzaktan yakıt/motor kesme ve kontak algılama özellikli 4G/GSM kablolu araç GPS takip cihazları.",
       "seoTitle": "Kablolu Araç GPS Takip Cihazları Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "Otomobil, motosiklet ve ticari filolar için uzaktan motor kesmeli, harici mikrofonlu ve su geçirmez kablolu GPS takip cihazları kapıda ödeme ve ücretsiz kargo ile Digi Güvenlik'te."
+      "seoDescription": "Otomobil, motosiklet ve ticari filolar için uzaktan motor kesmeli, harici mikrofonlu ve su geçirmez kablolu GPS takip cihazları kapıda ödeme ve ücretsiz kargo ile Digi Güvenlik'te.",
+      "parentSlug": "takip-cihazlari"
     },
     {
       "id": "obd-ve-cakmaklik-gps-takip",
@@ -173,7 +184,8 @@
       "icon": "Plug",
       "description": "Kablo kesme veya oto elektrikçi montajı gerektirmeyen, doğrudan aracın OBD-II soketine veya çakmaklık girişine takılarak saniyeler içinde aktif olan 4G araç GPS takip cihazları.",
       "seoTitle": "Tak-Çalıştır OBD ve Çakmaklık GPS Takip Cihazları | Digi Güvenlik",
-      "seoDescription": "Saniyeler içinde kurulan OBD-II ve çift USB hızlı şarjlı çakmaklık gizli GPS takip cihazları. 4G anlık konum, hız ve sökme alarmı ile hemen sipariş verin."
+      "seoDescription": "Saniyeler içinde kurulan OBD-II ve çift USB hızlı şarjlı çakmaklık gizli GPS takip cihazları. 4G anlık konum, hız ve sökme alarmı ile hemen sipariş verin.",
+      "parentSlug": "takip-cihazlari"
     },
     {
       "id": "kablosuz-miknatisli-gps-takip",
@@ -183,7 +195,8 @@
       "icon": "Magnet",
       "description": "Araç şasisine, konteynere veya sabit kıymetlere kablosuz tutunan güçlü neodyum mıknatıslı, 600 mAh'den 20.000 mAh ve 3 yıl bekleme süreli modellere kadar 4G kablosuz GPS takip cihazları.",
       "seoTitle": "Kablosuz Mıknatıslı Araç GPS Takip Cihazları | Digi Güvenlik",
-      "seoDescription": "Kablolama gerektirmeyen güçlü mıknatıslı, dijital pil ekranlı ve 3 yıla kadar bekleme süreli 4G kablosuz GPS takip cihazları 2 yıl garantili olarak Digi Güvenlik'te."
+      "seoDescription": "Kablolama gerektirmeyen güçlü mıknatıslı, dijital pil ekranlı ve 3 yıla kadar bekleme süreli 4G kablosuz GPS takip cihazları 2 yıl garantili olarak Digi Güvenlik'te.",
+      "parentSlug": "takip-cihazlari"
     },
     {
       "id": "kisisel-ve-personel-gps-takip",
@@ -193,7 +206,8 @@
       "icon": "UserCheck",
       "description": "Çocuk, yaşlı, alzheimer hastası ve saha/kampüs personeli güvenliği için tek tuş SOS acil çağrı, çift yönlü sesli görüşme ve WiFi destekli iç/dış mekan 4G kişisel GPS takip cihazları.",
       "seoTitle": "Çocuk, Yaşlı ve Personel GPS Takip Cihazları | Digi Güvenlik",
-      "seoDescription": "Tek tuş SOS acil çağrı, çift yönlü konuşma ve yaka kartı/kolye tasarımlı 4G kişisel ve personel GPS takip cihazları ücretsiz kargo ile Digi Güvenlik'te."
+      "seoDescription": "Tek tuş SOS acil çağrı, çift yönlü konuşma ve yaka kartı/kolye tasarımlı 4G kişisel ve personel GPS takip cihazları ücretsiz kargo ile Digi Güvenlik'te.",
+      "parentSlug": "takip-cihazlari"
     },
     {
       "id": "hayvan-gps-takip-cihazlari",
@@ -203,7 +217,8 @@
       "icon": "PawPrint",
       "description": "Evcil kedi ve köpekler için ısırma/suya dayanıklı akıllı tasmalar ile büyükbaş sığır, at ve koyun sürüleri için güneş panelli IP68 12.000 mAh GPS hayvan takip cihazları.",
       "seoTitle": "Evcil Hayvan ve Büyükbaş Hayvan GPS Takip Tasmaları | Digi Güvenlik",
-      "seoDescription": "Kedi, köpek ve büyükbaş sürüler için IP68 su geçirmez, güneş panelli ve güvenli alan (Geofence) alarmlı 4G hayvan GPS takip cihazları Digi Güvenlik'te."
+      "seoDescription": "Kedi, köpek ve büyükbaş sürüler için IP68 su geçirmez, güneş panelli ve güvenli alan (Geofence) alarmlı 4G hayvan GPS takip cihazları Digi Güvenlik'te.",
+      "parentSlug": "takip-cihazlari"
     }
   ],
   "products": [

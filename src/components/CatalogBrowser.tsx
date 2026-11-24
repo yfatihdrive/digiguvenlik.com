@@ -60,18 +60,28 @@ export default function CatalogBrowser({
   const filteredProducts = useMemo(() => {
     let list = [...products];
 
-    // Category filter (Note: on digiguvenlik.company, "gizli-kameralar" and "aksesuar-guvenlik-kameralar" also include broad camera items)
+    // Category filter (Note: parent categories include all child subcategories)
     if (activeCategorySlug && activeCategorySlug !== "all") {
+      const childSlugs = new Set(
+        categories
+          .filter((c) => c.parentSlug === activeCategorySlug)
+          .map((c) => c.slug)
+      );
       if (activeCategorySlug === "indirimli-urunler") {
         list = list.filter((p) => p.discountPercent >= 35);
       } else if (activeCategorySlug === "gizli-kameralar") {
         list = list.filter(
           (p) =>
             p.categorySlug === "gizli-kameralar" ||
+            childSlugs.has(p.categorySlug) ||
             p.categorySlug.includes("kamera")
         );
       } else {
-        list = list.filter((p) => p.categorySlug === activeCategorySlug);
+        list = list.filter(
+          (p) =>
+            p.categorySlug === activeCategorySlug ||
+            childSlugs.has(p.categorySlug)
+        );
       }
     }
 
@@ -108,7 +118,7 @@ export default function CatalogBrowser({
     }
 
     return list;
-  }, [products, activeCategorySlug, search, priceRange, sortBy]);
+  }, [products, categories, activeCategorySlug, search, priceRange, sortBy]);
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
 

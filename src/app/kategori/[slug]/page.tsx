@@ -48,8 +48,16 @@ export default async function CategoryPage({
   })); // slimProducts for fast RSC hydration
   const categories = getCategories();
 
+  const childSlugs = new Set(
+    categories.filter((c) => c.parentSlug === slug).map((c) => c.slug)
+  );
   const categoryProducts = products
-    .filter((p) => p.categorySlug === slug || (slug === "gizli-kameralar" && p.categorySlug.includes("kamera")))
+    .filter(
+      (p) =>
+        p.categorySlug === slug ||
+        childSlugs.has(p.categorySlug) ||
+        (slug === "gizli-kameralar" && p.categorySlug.includes("kamera"))
+    )
     .slice(0, 20);
 
   const categoryJsonLd = {
