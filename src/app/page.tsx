@@ -19,6 +19,11 @@ import {
   PenTool,
   Key,
   Briefcase,
+  Navigation,
+  Plug,
+  Magnet,
+  UserCheck,
+  PawPrint,
 } from "lucide-react";
 import { getCategories, getProducts, getSettings, formatPrice } from "@/lib/db";
 import ProductCard from "@/components/ProductCard";
@@ -57,6 +62,11 @@ export default function HomePage() {
     if (slug.includes("kalem")) return <PenTool className="h-6 w-6" />;
     if (slug.includes("anahtar")) return <Key className="h-6 w-6" />;
     if (slug.includes("aksesuar")) return <Briefcase className="h-6 w-6" />;
+    if (slug.includes("kablolu-arac-gps")) return <Navigation className="h-6 w-6" />;
+    if (slug.includes("obd-ve-cakmaklik")) return <Plug className="h-6 w-6" />;
+    if (slug.includes("kablosuz-miknatisli")) return <Magnet className="h-6 w-6" />;
+    if (slug.includes("kisisel-ve-personel")) return <UserCheck className="h-6 w-6" />;
+    if (slug.includes("hayvan-gps")) return <PawPrint className="h-6 w-6" />;
     return <Shield className="h-6 w-6" />;
   };
 

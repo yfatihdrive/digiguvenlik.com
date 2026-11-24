@@ -47,6 +47,23 @@ export async function GET() {
 ## Ana Ürün Kategorileri (Toplam ${inStockCount} Stoklu Ürün)
 ${catLines}
 
+## GPS Takip Uygulama Alanları (9 Sektör ve Kullanım Senaryosu)
+- Binek Otomobil GPS Takibi: Gerçek zamanlı konum izleme, aşırı hız alarmı, kontak (ACC) algılama ve uzaktan yakıt/elektrik kesme ile araç güvenliği.
+- Motosiklet GPS Takibi: Kompakt ve su geçirmez gövdeli kablolu GPS cihazları ile titreşim alarmı ve akü koruma (9–90V DC geniş voltaj).
+- Bisiklet ve E-Bike GPS Takibi: Kolay gizlenebilir mini kablolu ve mıknatıslı konum belirleyiciler ile şehir içi çalınmaya karşı takip.
+- Kişisel ve Personel Güvenliği (Çocuk, Yaşlı, Saha Ekibi): Tek tuş SOS acil çağrı butonu, çift yönlü sesli görüşme, TTS sesli anons ve WiFi destekli iç/dış mekan konumu.
+- Evcil Hayvan (Kedi ve Köpek) GPS Takibi: Su, toz, düşme ve ısırmaya dayanıklı hafif akıllı tasma modülleri ile elektronik güvenli alan (Geofence) bildirimleri.
+- Büyükbaş ve Küçükbaş Hayvan (Mera) Takibi: 12.000 mAh batarya ve entegre güneş panelli IP68 su geçirmez tasma cihazları ile kesintisiz sürü yönetimi.
+- İş Makinesi ve Sabit Kıymet Koruması: 20.000 mAh / 10.000 mAh dev bataryalı veya 3 yıl bekleme süreli güçlü mıknatıslı kablosuz takip sistemleri.
+- Lojistik ve Kargo Filo Takibi: Konteyner, tır, dorse ve soğuk zincir araçlarında 6 aylık geçmiş rota kaydı ve sökme (demontaj) alarmı.
+- Tekne ve Deniz Aracı Güvenliği: Suya ve zorlu hava koşullarına dayanıklı dış/iç mekan marin GPS konum izleme.
+
+## B2B Kurumsal Filo Yönetimi Çözümleri
+- Canlı Uyarılar ve Alarmlar: Elektronik çit (bölge giriş/çıkış), aşırı hız, darbe/titreşim, cihaz sökme/kurcalama, tek tuş SOS ve harici akü voltaj düşüş bildirimleri.
+- Çoklu Platform Yönetimi: iOS, Android mobil uygulama ve Web yönetim paneli üzerinden tek ekranda yüzlerce aracı canlı izleme, uzaktan açma/kapama ve motor kilitleme.
+- Sürüş Günlüğü ve Veri Saklama: Son 6 aya ait kilometre, duraklama, hız ve güzergâh kayıtlarını dışa aktarma desteği.
+- Kurumsal Toptan ve Filo Teklifleri: Filo ölçeğine özel kurulum ve toplu alım danışmanlığı için ${SITE_CONFIG.phone} veya WhatsApp ${SITE_CONFIG.whatsappDisplay}.
+
 ## Öne Çıkan Çok Satan Ürünler
 ${topProducts}
 
