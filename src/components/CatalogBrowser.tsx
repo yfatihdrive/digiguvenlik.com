@@ -154,40 +154,89 @@ export default function CatalogBrowser({
         </div>
 
         {/* Category Filter Bar */}
-        <div className="mt-5 flex flex-wrap gap-2 border-t border-gray-100 pt-4">
-          <Link
-            href="/urunler"
-            className={`rounded-lg px-3.5 py-2 text-[15px] font-semibold transition ${
-              activeCategorySlug === "all"
-                ? "bg-[#FF6000] text-white shadow-2xs"
-                : "bg-[#F5F5F5] text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
-            }`}
-          >
-            Tümü ({products.length})
-          </Link>
+        {(() => {
+          const topCats = categories.filter((c) => !c.parentSlug && c.count > 0);
+          const activeCatObj = categories.find((c) => c.slug === activeCategorySlug);
+          const activeParentSlug = activeCatObj?.parentSlug
+            ? activeCatObj.parentSlug
+            : activeCategorySlug;
+          const subCats = categories.filter((c) => c.parentSlug === activeParentSlug);
 
-          {categories
-            .filter((c) => c.count > 0)
-            .map((cat) => {
-              const isActive = activeCategorySlug === cat.slug;
-              return (
+          return (
+            <>
+              <div className="mt-5 flex flex-wrap gap-2 border-t border-gray-100 pt-4">
                 <Link
-                  key={cat.slug}
-                  href={`/kategori/${cat.slug}`}
+                  href="/urunler"
                   className={`rounded-lg px-3.5 py-2 text-[15px] font-semibold transition ${
-                    isActive
+                    activeCategorySlug === "all"
                       ? "bg-[#FF6000] text-white shadow-2xs"
                       : "bg-[#F5F5F5] text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
                   }`}
                 >
-                  {cat.name}{" "}
-                  <span className={isActive ? "text-orange-100" : "text-[#9B9B9B]"}>
-                    ({cat.count})
-                  </span>
+                  Tümü ({products.length})
                 </Link>
-              );
-            })}
-        </div>
+
+                {topCats.map((cat) => {
+                  const isActive =
+                    activeCategorySlug === cat.slug || activeCatObj?.parentSlug === cat.slug;
+                  return (
+                    <Link
+                      key={cat.slug}
+                      href={`/kategori/${cat.slug}`}
+                      className={`rounded-lg px-3.5 py-2 text-[15px] font-semibold transition ${
+                        isActive
+                          ? "bg-[#FF6000] text-white shadow-2xs"
+                          : "bg-[#F5F5F5] text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
+                      }`}
+                    >
+                      {cat.name}{" "}
+                      <span className={isActive ? "text-orange-100" : "text-[#9B9B9B]"}>
+                        ({cat.count})
+                      </span>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {subCats.length > 0 && (
+                <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-dashed border-orange-200 bg-orange-50/40 px-3 py-2.5 rounded-xl">
+                  <span className="mr-1 text-[13px] font-extrabold tracking-wide text-[#FF6000] uppercase">
+                    Alt Kategoriler:
+                  </span>
+                  <Link
+                    href={`/kategori/${activeParentSlug}`}
+                    className={`rounded-lg px-3 py-1.5 text-[14px] font-semibold transition ${
+                      activeCategorySlug === activeParentSlug
+                        ? "bg-[#FF6000] text-white shadow-2xs"
+                        : "bg-white text-[#484848] border border-orange-200 hover:bg-orange-50 hover:text-[#FF6000]"
+                    }`}
+                  >
+                    Tümü
+                  </Link>
+                  {subCats.map((sub) => {
+                    const isSubActive = activeCategorySlug === sub.slug;
+                    return (
+                      <Link
+                        key={sub.slug}
+                        href={`/kategori/${sub.slug}`}
+                        className={`rounded-lg px-3 py-1.5 text-[14px] font-semibold transition ${
+                          isSubActive
+                            ? "bg-[#FF6000] text-white shadow-2xs"
+                            : "bg-white text-[#484848] border border-gray-200 hover:border-[#FF6000] hover:text-[#FF6000]"
+                        }`}
+                      >
+                        {sub.name}{" "}
+                        <span className={isSubActive ? "text-orange-100" : "text-[#9B9B9B]"}>
+                          ({sub.count})
+                        </span>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </>
+          );
+        })()}
 
         {/* Filter & Sort Toolbar (Hepsiburada style) */}
         <div className="mt-4 grid grid-cols-1 gap-3 border-t border-gray-100 pt-4 sm:grid-cols-3">

@@ -43,9 +43,33 @@ export default function Header({ settings, categories }: HeaderProps) {
   const [showDropdown, setShowDropdown] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [catDropdownOpen, setCatDropdownOpen] = useState(false);
+  const [activeParentDropdown, setActiveParentDropdown] = useState<string | null>(null);
+  const [expandedParents, setExpandedParents] = useState<Record<string, boolean>>({});
+
+  const topLevelCategories = categories.filter((c) => !c.parentSlug);
+  const childrenByParent = categories.reduce<Record<string, Category[]>>((acc, c) => {
+    if (c.parentSlug) {
+      if (!acc[c.parentSlug]) acc[c.parentSlug] = [];
+      acc[c.parentSlug].push(c);
+    }
+    return acc;
+  }, {});
+
+  const toggleParentExpand = (slug: string) => {
+    setExpandedParents((prev) => ({ ...prev, [slug]: !prev[slug] }));
+  };
 
   const searchRef = useRef<HTMLDivElement>(null);
   const catMenuRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const activeCat = categories.find((c) => `/kategori/${c.slug}` === pathname);
+    if (activeCat?.parentSlug) {
+      setExpandedParents((prev) => ({ ...prev, [activeCat.parentSlug!]: true }));
+    } else if (pathname === "/kategori/gizli-kameralar") {
+      setExpandedParents((prev) => ({ ...prev, "gizli-kameralar": true }));
+    }
+  }, [pathname, categories]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
@@ -54,12 +78,14 @@ export default function Header({ settings, categories }: HeaderProps) {
       }
       if (catMenuRef.current && !catMenuRef.current.contains(e.target as Node)) {
         setCatDropdownOpen(false);
+        setActiveParentDropdown(null);
       }
     };
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setShowDropdown(false);
         setCatDropdownOpen(false);
+        setActiveParentDropdown(null);
         setMobileMenuOpen(false);
       }
     };
@@ -313,13 +339,20 @@ export default function Header({ settings, categories }: HeaderProps) {
       </div>
 
       {/* Category Navigation Bar */}
-      <nav ref={catMenuRef} className="relative border-b border-gray-200 bg-white">
+      <nav
+        ref={catMenuRef}
+        onMouseLeave={() => setActiveParentDropdown(null)}
+        className="relative border-b border-gray-200 bg-white"
+      >
         <div className="hb-container flex items-center justify-between gap-1.5 overflow-x-auto py-2 no-scrollbar">
           {/* All Categories Trigger Button */}
           <div className="shrink-0">
             <button
               type="button"
-              onClick={() => setCatDropdownOpen((prev) => !prev)}
+              onClick={() => {
+                setCatDropdownOpen((prev) => !prev);
+                setActiveParentDropdown(null);
+              }}
               aria-expanded={catDropdownOpen}
               className="flex cursor-pointer items-center gap-1.5 rounded-lg bg-[#FF6000] px-3.5 py-2 text-[16px] font-bold text-white shadow-2xs transition hover:bg-[#e55500]"
             >
@@ -345,13 +378,62 @@ export default function Header({ settings, categories }: HeaderProps) {
             Tüm Ürünler
           </Link>
 
-          {categories.map((cat) => {
-            const isCurrent = pathname === `/kategori/${cat.slug}`;
+          {topLevelCategories.map((cat) => {
+            const subs = childrenByParent[cat.slug] || [];
+            const hasActiveChild = subs.some((s) => pathname === `/kategori/${s.slug}`);
+            const isCurrent = pathname === `/kategori/${cat.slug}` || hasActiveChild;
+
+            if (subs.length > 0) {
+              const isOpen = activeParentDropdown === cat.slug;
+              return (
+                <div
+                  key={cat.slug}
+                  onMouseEnter={() => {
+                    setCatDropdownOpen(false);
+                    setActiveParentDropdown(cat.slug);
+                  }}
+                  className="flex shrink-0 items-center"
+                >
+                  <Link
+                    href={`/kategori/${cat.slug}`}
+                    aria-current={isCurrent ? "page" : undefined}
+                    className={`rounded-l-lg py-2 pr-1.5 pl-3 text-[16px] font-semibold transition ${
+                      isCurrent
+                        ? "bg-orange-50 text-[#FF6000]"
+                        : "text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
+                    }`}
+                  >
+                    {cat.name}
+                  </Link>
+                  <button
+                    type="button"
+                    aria-label={`${cat.name} alt kategorileri`}
+                    aria-expanded={isOpen}
+                    onClick={() =>
+                      setActiveParentDropdown((prev) => (prev === cat.slug ? null : cat.slug))
+                    }
+                    className={`cursor-pointer rounded-r-lg py-2.5 pr-2.5 pl-1 transition ${
+                      isCurrent || isOpen
+                        ? "bg-orange-50 text-[#FF6000]"
+                        : "text-[#484848] hover:bg-orange-50 hover:text-[#FF6000]"
+                    }`}
+                  >
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={cat.slug}
                 href={`/kategori/${cat.slug}`}
                 aria-current={isCurrent ? "page" : undefined}
+                onMouseEnter={() => setActiveParentDropdown(null)}
                 className={`shrink-0 rounded-lg px-3 py-2 text-[16px] font-semibold transition ${
                   isCurrent
                     ? "bg-orange-50 text-[#FF6000]"
@@ -364,10 +446,47 @@ export default function Header({ settings, categories }: HeaderProps) {
           })}
         </div>
 
+        {/* Subcategories Dropdown for Parent Category (e.g. Gizli Kameralar) */}
+        {activeParentDropdown && childrenByParent[activeParentDropdown]?.length > 0 && (
+          <div className="absolute top-full left-4 z-50 w-80 pt-1 sm:left-40">
+            <div className="rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
+              <Link
+                href={`/kategori/${activeParentDropdown}`}
+                onClick={() => setActiveParentDropdown(null)}
+                className="flex items-center justify-between border-b border-gray-100 px-4 py-2.5 text-[15px] font-bold text-[#FF6000] hover:bg-orange-50"
+              >
+                <span>
+                  {topLevelCategories.find((c) => c.slug === activeParentDropdown)?.name} (Tümü)
+                </span>
+                <span className="rounded-full bg-orange-100 px-2 py-0.5 text-[13px] font-bold text-[#FF6000]">
+                  {topLevelCategories.find((c) => c.slug === activeParentDropdown)?.count}
+                </span>
+              </Link>
+              {childrenByParent[activeParentDropdown].map((sub) => (
+                <Link
+                  key={sub.slug}
+                  href={`/kategori/${sub.slug}`}
+                  onClick={() => setActiveParentDropdown(null)}
+                  className={`flex items-center justify-between px-4 py-2 text-[15px] font-medium transition hover:bg-orange-50 hover:font-semibold hover:text-[#FF6000] ${
+                    pathname === `/kategori/${sub.slug}`
+                      ? "bg-orange-50 font-semibold text-[#FF6000]"
+                      : "text-[#484848]"
+                  }`}
+                >
+                  <span>{sub.name}</span>
+                  <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[13px] font-semibold text-[#7B7B7B]">
+                    {sub.count}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Categories Dropdown Rendered Outside overflow-x-auto so it is NEVER clipped */}
         {catDropdownOpen && (
-          <div className="absolute top-full left-0 z-50 w-full px-4 pt-1 sm:left-4 sm:w-80 sm:px-0 lg:left-8">
-            <div className="max-h-[70vh] overflow-y-auto rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
+          <div className="absolute top-full left-0 z-50 w-full px-4 pt-1 sm:left-4 sm:w-84 sm:px-0 lg:left-8">
+            <div className="max-h-[75vh] overflow-y-auto rounded-xl border border-gray-200 bg-white py-2 shadow-2xl">
               <Link
                 href="/urunler"
                 onClick={() => setCatDropdownOpen(false)}
@@ -378,19 +497,61 @@ export default function Header({ settings, categories }: HeaderProps) {
                   Tümü
                 </span>
               </Link>
-              {categories.map((cat) => (
-                <Link
-                  key={cat.slug}
-                  href={`/kategori/${cat.slug}`}
-                  onClick={() => setCatDropdownOpen(false)}
-                  className="flex items-center justify-between px-4 py-2.5 text-[16px] font-medium text-[#484848] hover:bg-orange-50 hover:font-semibold hover:text-[#FF6000]"
-                >
-                  <span>{cat.name}</span>
-                  <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[14px] font-semibold text-[#7B7B7B]">
-                    {cat.count}
-                  </span>
-                </Link>
-              ))}
+              {topLevelCategories.map((cat) => {
+                const subs = childrenByParent[cat.slug] || [];
+                const isExpanded = !!expandedParents[cat.slug];
+                return (
+                  <div key={cat.slug}>
+                    <div className="flex items-center justify-between pr-2 hover:bg-orange-50">
+                      <Link
+                        href={`/kategori/${cat.slug}`}
+                        onClick={() => setCatDropdownOpen(false)}
+                        className="flex flex-1 items-center justify-between py-2.5 pl-4 text-[16px] font-medium text-[#484848] hover:font-semibold hover:text-[#FF6000]"
+                      >
+                        <span>{cat.name}</span>
+                        <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[14px] font-semibold text-[#7B7B7B]">
+                          {cat.count}
+                        </span>
+                      </Link>
+                      {subs.length > 0 && (
+                        <button
+                          type="button"
+                          aria-label={`${cat.name} alt kategorilerini aç/kapat`}
+                          onClick={() => toggleParentExpand(cat.slug)}
+                          className="ml-1 cursor-pointer rounded-md p-1.5 text-[#7B7B7B] hover:bg-orange-100 hover:text-[#FF6000]"
+                        >
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-200 ${
+                              isExpanded ? "rotate-180 text-[#FF6000]" : ""
+                            }`}
+                          />
+                        </button>
+                      )}
+                    </div>
+                    {subs.length > 0 && isExpanded && (
+                      <div className="my-1 mr-2 ml-4 border-l-2 border-orange-200 pl-2">
+                        {subs.map((sub) => (
+                          <Link
+                            key={sub.slug}
+                            href={`/kategori/${sub.slug}`}
+                            onClick={() => setCatDropdownOpen(false)}
+                            className={`flex items-center justify-between rounded-lg px-2.5 py-2 text-[14px] font-medium hover:bg-orange-50 hover:text-[#FF6000] ${
+                              pathname === `/kategori/${sub.slug}`
+                                ? "bg-orange-50 font-bold text-[#FF6000]"
+                                : "text-[#555555]"
+                            }`}
+                          >
+                            <span>{sub.name}</span>
+                            <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[12px] font-semibold text-[#7B7B7B]">
+                              {sub.count}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         )}
@@ -425,17 +586,53 @@ export default function Header({ settings, categories }: HeaderProps) {
             Kategoriler
           </p>
           <div className="grid grid-cols-1 divide-y divide-gray-100">
-            {categories.map((cat) => (
-              <Link
-                key={cat.slug}
-                href={`/kategori/${cat.slug}`}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between py-2.5 text-sm font-bold text-gray-700"
-              >
-                <span>{cat.name}</span>
-                <span className="text-xs text-gray-400">{cat.count} ürün</span>
-              </Link>
-            ))}
+            {topLevelCategories.map((cat) => {
+              const subs = childrenByParent[cat.slug] || [];
+              const isExpanded = !!expandedParents[cat.slug];
+              return (
+                <div key={cat.slug}>
+                  <div className="flex items-center justify-between">
+                    <Link
+                      href={`/kategori/${cat.slug}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="flex flex-1 items-center justify-between py-2.5 text-sm font-bold text-gray-700"
+                    >
+                      <span>{cat.name}</span>
+                      <span className="text-xs text-gray-400">{cat.count} ürün</span>
+                    </Link>
+                    {subs.length > 0 && (
+                      <button
+                        type="button"
+                        aria-label={`${cat.name} alt kategorileri`}
+                        onClick={() => toggleParentExpand(cat.slug)}
+                        className="ml-2 p-2 text-gray-500"
+                      >
+                        <ChevronDown
+                          className={`h-4 w-4 transition-transform ${
+                            isExpanded ? "rotate-180 text-[#FF6000]" : ""
+                          }`}
+                        />
+                      </button>
+                    )}
+                  </div>
+                  {subs.length > 0 && isExpanded && (
+                    <div className="mb-2 ml-3 space-y-1 border-l-2 border-orange-200 pl-3">
+                      {subs.map((sub) => (
+                        <Link
+                          key={sub.slug}
+                          href={`/kategori/${sub.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center justify-between py-1.5 text-[13px] font-semibold text-gray-600 hover:text-[#FF6000]"
+                        >
+                          <span>{sub.name}</span>
+                          <span className="text-xs text-gray-400">{sub.count}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       )}

@@ -45,7 +45,8 @@
       "icon": "Key",
       "description": "Günlük taşıma kolaylığı sunan, ergonomik anahtarlık formunda Full HD sesli ve görüntülü güvenlik kayıt kameraları.",
       "seoTitle": "Anahtarlık Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni anahtarlık güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni anahtarlık güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "kalem-guvenlik-kameralar",
@@ -55,7 +56,8 @@
       "icon": "PenTool",
       "description": "Toplantı, ders, mülakat ve saha denetimlerinde pratik kullanım sağlayan şık kalem görünümlü gizli kameralar.",
       "seoTitle": "Kalem Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni kalem güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni kalem güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "wifi-kameralar",
@@ -65,7 +67,8 @@
       "icon": "Wifi",
       "description": "Akıllı telefon uygulaması üzerinden 7/24 canlı izleme, hareket bildirimleri ve uzaktan erişim sunan kablosuz WiFi IP kameralar.",
       "seoTitle": "Wifi Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni wifi kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni wifi kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "masa-saati-guvenlik-kameralar",
@@ -75,7 +78,8 @@
       "icon": "Clock",
       "description": "Ofis masası ve yaşam alanlarına doğal uyum sağlayan, dijital veya analog masa saati formunda gizli kameralar.",
       "seoTitle": "Masa Saati Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni masa saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni masa saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "duvar-saati-guvenlik-kameralar",
@@ -85,7 +89,8 @@
       "icon": "Watch",
       "description": "Geniş açılı lens yapısı ile salon, ofis ve koridorları yukarıdan izleyen dekoratif duvar saati gizli kameralar.",
       "seoTitle": "Duvar Saati Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni duvar saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni duvar saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "kol-saati-guvenlik-kameralar",
@@ -95,7 +100,8 @@
       "icon": "Watch",
       "description": "Saha çalışmaları ve mobil güvenlik ihtiyaçları için giyilebilir teknoloji formunda kol saati kameralar.",
       "seoTitle": "Kol Saati Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni kol saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni kol saati güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "online-wifi-kameralar",
@@ -105,7 +111,8 @@
       "icon": "Globe",
       "description": "Bulut ve mobil uygulama destekli, dünyanın her yerinden anlık canlı izleme imkânı tanıyan yeni nesil online kameralar.",
       "seoTitle": "Online Wifi Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni online wifi kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni online wifi kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "duyma-cihazlari",
@@ -145,7 +152,8 @@
       "icon": "Briefcase",
       "description": "Powerbank, priz, adaptör, gözlük ve günlük yaşam aksesuarları formunda tasarlanmış özel gizli kameralar.",
       "seoTitle": "Aksesuar Güvenlik Kameralar Fiyatları ve Modelleri | Digi Güvenlik",
-      "seoDescription": "En yeni aksesuar güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!"
+      "seoDescription": "En yeni aksesuar güvenlik kameralar modelleri, %100 orijinal garantili, ücretsiz kargo ve kapıda ödeme imkanıyla Digi Güvenlik'te. Hemen inceleyin!",
+      "parentSlug": "gizli-kameralar"
     },
     {
       "id": "kablolu-arac-gps-takip",

@@ -59,6 +59,7 @@ export interface Category {
   name: string;
   count: number;
   icon: string;
+  parentSlug?: string;
   description: string;
   seoTitle: string;
   seoDescription: string;

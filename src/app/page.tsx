@@ -307,10 +307,9 @@ export default function HomePage() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 2xl:grid-cols-12">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-9">
           {categories
-            .filter((c) => c.count > 0)
-            .slice(0, 12)
+            .filter((c) => !c.parentSlug && c.count > 0)
             .map((cat) => (
               <Link
                 key={cat.slug}
