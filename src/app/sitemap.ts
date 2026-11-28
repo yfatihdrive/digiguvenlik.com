@@ -1,14 +1,17 @@
 import { MetadataRoute } from "next";
 import { getCategories, getProducts } from "@/lib/db";
+import { getBlogPosts } from "@/lib/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://digiguvenlik.company";
   const products = getProducts();
   const categories = getCategories();
+  const blogPosts = getBlogPosts();
 
   const staticUrls: MetadataRoute.Sitemap = [
     { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
     { url: `${baseUrl}/urunler`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "daily", priority: 0.9 },
     { url: `${baseUrl}/iletisim`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/sss`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.75 },
     { url: `${baseUrl}/kampanyalar`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.75 },
@@ -29,12 +32,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const productUrls: MetadataRoute.Sitemap = products.filter((p) => p.stock > 0).map((p) => ({
-    url: `${baseUrl}/urun/${p.slug}`,
-    lastModified: new Date(),
+  const productUrls: MetadataRoute.Sitemap = products
+    .filter((p) => p.stock > 0)
+    .map((p) => ({
+      url: `${baseUrl}/urun/${p.slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+      images: (p.images && p.images.length > 0 ? p.images : [p.image]).map(
+        (img) => `${baseUrl}${img}`
+      ),
+    }));
+
+  const blogUrls: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt || post.publishedAt),
     changeFrequency: "weekly",
-    priority: 0.85,
+    priority: 0.8,
+    images: (post.images || []).map((im) => `${baseUrl}${im.url}`),
   }));
 
-  return [...staticUrls, ...categoryUrls, ...productUrls];
+  return [...staticUrls, ...categoryUrls, ...productUrls, ...blogUrls];
 }

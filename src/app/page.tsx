@@ -24,6 +24,9 @@ import {
   Magnet,
   UserCheck,
   PawPrint,
+  Bike,
+  Speaker,
+  Star,
 } from "lucide-react";
 import { getCategories, getProducts, getSettings, formatPrice } from "@/lib/db";
 import ProductCard from "@/components/ProductCard";
@@ -62,12 +65,14 @@ export default function HomePage() {
     if (slug.includes("kalem")) return <PenTool className="h-6 w-6" />;
     if (slug.includes("anahtar")) return <Key className="h-6 w-6" />;
     if (slug.includes("aksesuar")) return <Briefcase className="h-6 w-6" />;
+    if (slug.includes("motosiklet")) return <Bike className="h-6 w-6" />;
     if (slug.includes("takip-cihazlari")) return <Navigation className="h-6 w-6" />;
     if (slug.includes("kablolu-arac-gps")) return <Navigation className="h-6 w-6" />;
     if (slug.includes("obd-ve-cakmaklik")) return <Plug className="h-6 w-6" />;
     if (slug.includes("kablosuz-miknatisli")) return <Magnet className="h-6 w-6" />;
     if (slug.includes("kisisel-ve-personel")) return <UserCheck className="h-6 w-6" />;
     if (slug.includes("hayvan-gps")) return <PawPrint className="h-6 w-6" />;
+    if (slug.includes("hoparlor")) return <Speaker className="h-6 w-6" />;
     return <Shield className="h-6 w-6" />;
   };
 
@@ -141,11 +146,11 @@ export default function HomePage() {
                     href={`/urun/${item.slug}`}
                     className="group flex items-center gap-3 rounded-2xl border border-white/25 bg-white p-3 text-[#212121] shadow-md transition hover:-translate-y-0.5 hover:shadow-xl"
                   >
-                    <div className="h-24 w-16 shrink-0 overflow-hidden rounded-xl bg-gray-100">
+                    <div className="h-24 w-16 shrink-0 overflow-hidden rounded-xl bg-white p-0.5">
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -166,61 +171,106 @@ export default function HomePage() {
 
             {/* Right Spotlight Card: Günün Süper Teklifi */}
             {heroDeal && (
-              <div className="flex flex-col justify-between rounded-2xl border border-[#E5E5E5] bg-white p-5 shadow-sm lg:col-span-4 xl:col-span-3">
+              <div className="flex flex-col justify-between rounded-2xl border border-orange-200/90 bg-white p-5 shadow-md ring-1 ring-orange-100/70 lg:col-span-4 xl:col-span-3">
                 <div>
-                  <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center gap-1 rounded bg-[#FF6000] px-2.5 py-1 text-[14px] font-bold text-white">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="inline-flex items-center gap-1 rounded-md bg-[#FF6000] px-2.5 py-1 text-[13px] font-bold text-white shadow-2xs">
                       <Sparkles className="h-3.5 w-3.5" /> Süper Fiyat, Süper Teklif
                     </span>
-                    <span className="rounded bg-[#FA0000]/10 px-2 py-0.5 text-[14px] font-bold text-[#FA0000]">
+                    <span className="rounded-md bg-[#FA0000]/10 px-2 py-0.5 text-[13px] font-extrabold text-[#FA0000]">
                       %{heroDeal.discountPercent} İndirim
                     </span>
                   </div>
 
                   <Link
                     href={`/urun/${heroDeal.slug}`}
-                    className="my-3 block w-full overflow-hidden rounded-xl bg-[#050b16] shadow-xs"
+                    className="group relative my-3 flex aspect-[4/3] w-full items-center justify-center overflow-hidden rounded-xl border border-gray-100 bg-gradient-to-b from-white via-[#FAFAFA] to-orange-50/35 p-3"
                   >
                     <img
-                      src={heroDeal.image}
+                      src={
+                        heroDeal.slug === "uzaktan-ses-dinleme-cihazi"
+                          ? "/uploads/products/uzaktan-ses-dinleme-cihazi/hero-spotlight.webp"
+                          : heroDeal.image
+                      }
                       alt={heroDeal.name}
-                      className="aspect-[9/14] w-full object-cover object-center transition-transform duration-300 hover:scale-[1.03] lg:aspect-[4/5] lg:max-h-[340px]"
+                      className="h-full w-full object-contain drop-shadow-xs transition-transform duration-300 group-hover:scale-105"
                     />
+                    <span className="pointer-events-none absolute bottom-2 left-2.5 inline-flex items-center gap-1.5 rounded-full border border-emerald-200/80 bg-white/95 px-2.5 py-0.5 text-[11px] font-bold text-emerald-700 shadow-2xs backdrop-blur-xs">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                      Stokta • Aynı Gün Kargo
+                    </span>
                   </Link>
 
                   <Link href={`/urun/${heroDeal.slug}`}>
-                    <h2 className="text-[16px] leading-[24px] font-semibold text-[#212121] hover:text-[#FF6000]">
+                    <h2 className="text-[17px] leading-[23px] font-bold text-[#212121] transition hover:text-[#FF6000]">
                       {heroDeal.name}
                     </h2>
                   </Link>
-                  <p className="mt-1 line-clamp-2 text-[15px] leading-[22px] text-[#7B7B7B]">
+
+                  {/* Social Proof Row */}
+                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5 text-[12px]">
+                    <div className="flex items-center text-[#F59F28]">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-3.5 w-3.5 fill-[#F59F28] text-[#F59F28]" />
+                      ))}
+                    </div>
+                    <span className="font-bold text-[#212121]">{heroDeal.rating.toFixed(1)}</span>
+                    <span className="text-[#7B7B7B]">({heroDeal.reviewCount} Değerlendirme)</span>
+                    <span className="rounded bg-orange-100 px-1.5 py-0.5 text-[11px] font-bold text-[#FF6000]">
+                      En Çok Satan
+                    </span>
+                  </div>
+
+                  <p className="mt-1.5 line-clamp-2 text-[14px] leading-[20px] text-[#666666]">
                     {heroDeal.shortDescription}
                   </p>
                 </div>
 
-                <div className="mt-4 space-y-2.5">
-                  <div className="flex items-baseline justify-between rounded-lg bg-[#F5F5F5] px-3.5 py-2">
+                <div className="mt-3.5 space-y-2.5">
+                  {/* Compact 3-Item Trust Strip */}
+                  <div className="flex items-center justify-between gap-1.5 rounded-lg border border-gray-100 bg-[#FAFAFA] px-2.5 py-1.5 text-[11.5px] font-semibold text-[#484848]">
+                    <span className="inline-flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" /> Kapıda Ödeme
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" /> 24 Ay Garanti
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" /> Gizli Paket
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between rounded-xl border border-orange-100 bg-orange-50/40 px-3.5 py-2.5">
                     <div>
-                      <span className="block text-[15px] text-[#9B9B9B] line-through">
+                      <span className="block text-[14px] text-[#9B9B9B] line-through">
                         {formatPrice(heroDeal.oldPrice)} TL
                       </span>
-                      <span className="text-[24px] leading-tight font-bold text-[#212121]">
+                      <span className="text-[25px] leading-tight font-extrabold text-[#212121]">
                         {formatPrice(heroDeal.price)}{" "}
                         <span className="text-[16px] font-bold">TL</span>
                       </span>
                     </div>
-                    <span className="rounded bg-[#EBF7E5] px-2 py-1 text-[13px] font-bold text-[#2E7D32]">
-                      Ücretsiz Kargo
-                    </span>
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="rounded bg-[#EBF7E5] px-2 py-0.5 text-[12px] font-bold text-[#2E7D32]">
+                        Ücretsiz Kargo
+                      </span>
+                      <span className="rounded bg-orange-100 px-2 py-0.5 text-[11.5px] font-bold text-[#e55500]">
+                        {formatPrice(heroDeal.oldPrice - heroDeal.price)} TL Kazanç
+                      </span>
+                    </div>
                   </div>
 
                   <Link
                     href={`/urun/${heroDeal.slug}#hizli-siparis`}
-                    className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#FF6000] py-2.5 text-[16px] font-bold text-white transition hover:bg-[#e55500]"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#FF6000] py-2.5 text-[16px] font-bold text-white shadow-md shadow-orange-500/25 transition hover:bg-[#e55500]"
                   >
                     <span>Hemen Sipariş Ver</span>
                     <ArrowRight className="h-4 w-4" />
                   </Link>
+
+                  <p className="text-center text-[11.5px] font-medium text-[#7B7B7B]">
+                    Önce teslim al, kapıda nakit veya kartla öde
+                  </p>
                 </div>
               </div>
             )}

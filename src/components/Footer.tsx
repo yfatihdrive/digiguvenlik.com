@@ -213,6 +213,11 @@ export default function Footer({ settings, categories }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="font-semibold text-[#212121] hover:text-[#FF6000]">
+                  Blog &amp; Teknik Rehberler
+                </Link>
+              </li>
+              <li>
                 <Link href="/kurumsal/hakkimizda" className="hover:text-[#FF6000]">
                   Hakkımızda
                 </Link>

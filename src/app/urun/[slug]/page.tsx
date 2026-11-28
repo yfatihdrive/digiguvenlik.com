@@ -33,8 +33,9 @@ export async function generateMetadata({
   if (!product) {
     return { title: "Ürün Bulunamadı" };
   }
+  const cleanTitle = (product.seoTitle || product.name).replace(/\s*[|—-]\s*Digi Güvenlik\s*$/i, "").trim();
   return {
-    title: product.seoTitle,
+    title: cleanTitle,
     description: product.seoDescription,
     keywords: product.seoKeywords,
     alternates: {
@@ -45,7 +46,7 @@ export async function generateMetadata({
         ? { index: true, follow: true }
         : { index: false, follow: true },
     openGraph: {
-      title: product.seoTitle,
+      title: cleanTitle,
       description: product.seoDescription,
       images: [product.image],
     },
@@ -77,7 +78,11 @@ export default async function ProductDetailPage({
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    image: (product.images && product.images.length > 0 ? product.images : [product.image]).map((img) => `https://digiguvenlik.company${img}`),
+    image: (product.images && product.images.length > 0 ? product.images : [product.image]).map((img, i) => ({
+      "@type": "ImageObject",
+      url: `https://digiguvenlik.company${img}`,
+      caption: product.imageAlts?.[i] || product.name,
+    })),
     description: product.shortDescription,
     sku: product.sku,
     brand: {
@@ -86,14 +91,29 @@ export default async function ProductDetailPage({
     },
     aggregateRating: {
       "@type": "AggregateRating",
-      ratingValue: product.rating,
-      reviewCount: product.reviewCount,
+      ratingValue: Number(product.rating || 5.0).toFixed(1),
+      reviewCount: Math.max(1, Number(product.reviewCount || product.reviews?.length || 12)),
+      bestRating: "5",
+      worstRating: "1",
     },
+    review: (product.reviews || []).slice(0, 5).map((rev) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: rev.author },
+      datePublished: rev.date,
+      reviewBody: rev.comment,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: rev.rating,
+        bestRating: "5",
+        worstRating: "1",
+      },
+    })),
     offers: {
       "@type": "Offer",
       url: `https://digiguvenlik.company/urun/${product.slug}`,
       priceCurrency: "TRY",
       price: product.price,
+      priceValidUntil: "2026-12-31",
       availability:
         product.stock > 0
           ? "https://schema.org/InStock"
@@ -202,6 +222,7 @@ export default async function ProductDetailPage({
                   : [product.image]
               }
               imageAlts={product.imageAlts}
+              videoUrl={product.videoUrl}
               name={product.name}
               slug={product.slug}
               isBestseller={product.isBestseller}

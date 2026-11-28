@@ -704,7 +704,7 @@ export default function AdminDashboardClient() {
                         price: 3950,
                         oldPrice: 6450,
                         stock: 25,
-                        image: "/uploads/products/uzaktan-ses-duyma-cihazi.png",
+                        image: "/uploads/products/uzaktan-ses-dinleme-cihazi/uzaktan-ses-dinleme-cihazi-1-ana-gorsel-v2.webp",
                         shortDescription: "",
                         isBestseller: true,
                       })

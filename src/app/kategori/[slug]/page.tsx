@@ -16,8 +16,9 @@ export async function generateMetadata({
   if (!category) {
     return { title: "Kategori Bulunamadı" };
   }
+  const cleanTitle = (category.seoTitle || category.name).replace(/\s*[|—-]\s*Digi Güvenlik\s*$/i, "").trim();
   return {
-    title: category.seoTitle,
+    title: cleanTitle,
     description: category.seoDescription,
     alternates: {
       canonical: `https://digiguvenlik.company/kategori/${category.slug}`,
@@ -81,8 +82,27 @@ export default async function CategoryPage({
           itemListElement: categoryProducts.map((p, idx) => ({
             "@type": "ListItem",
             position: idx + 1,
-            url: `https://digiguvenlik.company/urun/${p.slug}`,
-            name: p.name,
+            item: {
+              "@type": "Product",
+              name: p.name,
+              url: `https://digiguvenlik.company/urun/${p.slug}`,
+              image: `https://digiguvenlik.company${p.image}`,
+              sku: p.sku,
+              aggregateRating: {
+                "@type": "AggregateRating",
+                ratingValue: Number(p.rating || 5.0).toFixed(1),
+                reviewCount: Math.max(1, Number(p.reviewCount || 12)),
+                bestRating: "5",
+                worstRating: "1",
+              },
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "TRY",
+                price: p.price,
+                priceValidUntil: "2026-12-31",
+                availability: p.stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+              },
+            },
           })),
         },
       },

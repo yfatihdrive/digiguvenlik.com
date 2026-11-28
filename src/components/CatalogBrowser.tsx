@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import {
   Search,
@@ -10,10 +10,14 @@ import {
   ShieldCheck,
   Award,
   PackageCheck,
+  Loader2,
 } from "lucide-react";
 import { Category, Product } from "@/lib/types";
 import { normalizeTurkish } from "@/lib/text";
 import ProductCard from "./ProductCard";
+
+const INITIAL_COUNT = 36;
+const LOAD_STEP = 24;
 
 interface CatalogBrowserProps {
   products: Product[];
@@ -39,7 +43,8 @@ export default function CatalogBrowser({
     "recommended" | "bestseller" | "price_asc" | "price_desc" | "discount"
   >(initialFilter === "bestseller" ? "bestseller" : initialFilter === "super" ? "discount" : "recommended");
   const [priceRange, setPriceRange] = useState<"all" | "under3500" | "3500to4500" | "over4500">("all");
-  const [visibleCount, setVisibleCount] = useState(36);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
+  const loadMoreRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined" && products.length > 0) {
@@ -121,6 +126,44 @@ export default function CatalogBrowser({
   }, [products, categories, activeCategorySlug, search, priceRange, sortBy]);
 
   const displayedProducts = filteredProducts.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredProducts.length;
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => Math.min(prev + LOAD_STEP, filteredProducts.length));
+  }, [filteredProducts.length]);
+
+  useEffect(() => {
+    setVisibleCount(INITIAL_COUNT);
+  }, [activeCategorySlug]);
+
+  useEffect(() => {
+    if (!hasMore) return;
+    const el = loadMoreRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          loadMore();
+        }
+      },
+      { rootMargin: "600px 0px", threshold: 0 }
+    );
+
+    observer.observe(el);
+
+    const rafId = window.requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight + 600) {
+        loadMore();
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+      window.cancelAnimationFrame(rafId);
+    };
+  }, [hasMore, visibleCount, loadMore]);
 
   return (
     <div className="hb-container py-6">
@@ -258,7 +301,7 @@ export default function CatalogBrowser({
               value={search}
               onChange={(e) => {
                 setSearch(e.target.value);
-                setVisibleCount(36);
+                setVisibleCount(INITIAL_COUNT);
               }}
               placeholder="Sonuçlar içinde ara..."
               className="w-full rounded-lg border border-gray-200 bg-[#F5F5F5] py-2 pr-3 pl-9 text-[16px] font-normal text-[#212121] focus:border-[#FF6000] focus:bg-white focus:outline-none"
@@ -273,7 +316,7 @@ export default function CatalogBrowser({
               value={priceRange}
               onChange={(e) => {
                 setPriceRange(e.target.value as typeof priceRange);
-                setVisibleCount(36);
+                setVisibleCount(INITIAL_COUNT);
               }}
               className="w-full rounded-lg border border-gray-200 bg-[#F5F5F5] px-3 py-2 text-[16px] font-medium text-[#484848] focus:border-[#FF6000] focus:bg-white focus:outline-none"
             >
@@ -310,7 +353,7 @@ export default function CatalogBrowser({
             Aradığınız kriterlere uygun ürün bulunamadı.
           </p>
           <p className="mt-1 text-xs text-gray-500">
-            Filtreleri sıfırlayarak tüm 291 ürünümüzü inceleyebilirsiniz.
+            Filtreleri sıfırlayarak tüm {products.length} ürünümüzü inceleyebilirsiniz.
           </p>
           <button
             type="button"
@@ -332,17 +375,26 @@ export default function CatalogBrowser({
             ))}
           </div>
 
-          {/* Load More Pagination */}
-          {visibleCount < filteredProducts.length && (
-            <div className="mt-8 text-center">
+          {/* Infinite Scroll Sentinel */}
+          {hasMore ? (
+            <div ref={loadMoreRef} className="mt-8 flex flex-col items-center justify-center gap-2 py-4">
               <button
                 type="button"
-                onClick={() => setVisibleCount((prev) => prev + 36)}
-                className="cursor-pointer rounded-2xl border-2 border-[#FF6000] bg-white px-8 py-3.5 text-sm font-extrabold text-[#FF6000] shadow-sm transition hover:bg-[#FF6000] hover:text-white"
+                onClick={loadMore}
+                className="inline-flex cursor-pointer items-center gap-2 rounded-full border border-orange-200 bg-orange-50/70 px-5 py-2 text-[14px] font-semibold text-[#FF6000] transition hover:bg-[#FF6000] hover:text-white"
               >
-                DAHA FAZLA ÜRÜN GÖSTER ({filteredProducts.length - visibleCount} Ürün Kaldı)
+                <Loader2 className="h-4 w-4 animate-spin" />
+                <span>
+                  Diğer ürünler otomatik yükleniyor... ({filteredProducts.length - visibleCount} ürün kaldı)
+                </span>
               </button>
             </div>
+          ) : (
+            filteredProducts.length > INITIAL_COUNT && (
+              <p className="mt-8 text-center text-[13px] font-medium text-[#7B7B7B]">
+                Tüm {filteredProducts.length} ürün listelendi
+              </p>
+            )
           )}
         </>
       )}

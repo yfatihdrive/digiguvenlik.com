@@ -27,7 +27,17 @@ const isStagingNoindex =
 export const metadata: Metadata = {
     robots: isStagingNoindex
       ? { index: false, follow: false }
-      : { index: true, follow: true },
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
+        },
     verification: {
       google: process.env.GOOGLE_SITE_VERIFICATION || "_Rnrot5c6XbteumuxIJl2JZsXjnwYxD2gvvWO2rh34o",
       yandex: process.env.YANDEX_SITE_VERIFICATION || undefined,
@@ -40,7 +50,7 @@ export const metadata: Metadata = {
       template: "%s | Digi Güvenlik",
     },
     description:
-      "Digi Güvenlik ses dinleme cihazları ve dinleme cihazları, 30 gün ses kayıt cihazları, WiFi IP kameralar ve kompakt güvenlik çözümleri. Tüm Türkiye ücretsiz kargo, gizli paketleme ve kapıda ödeme kolaylığı.",
+      "Digi Güvenlik ses dinleme cihazları ve dinleme cihazları, 30 gün ses kayıt cihazları, WiFi IP kameralar ve kompakt gizli kamera çözümleri. Tüm Türkiye ücretsiz kargo, gizli paketleme ve kapıda ödeme kolaylığı.",
     keywords: [
       "ses dinleme cihazları ve dinleme cihazları",
       "ses kayıt cihazı",

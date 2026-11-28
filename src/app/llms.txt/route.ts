@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getCategories, getProducts } from "@/lib/db";
+import { getBlogPosts } from "@/lib/blog";
 import { SITE_CONFIG } from "@/config/site";
 
 export const dynamic = "force-dynamic";
@@ -7,6 +8,7 @@ export const dynamic = "force-dynamic";
 export async function GET() {
   const categories = getCategories();
   const products = getProducts();
+  const blogPosts = getBlogPosts().slice(0, 12);
   const inStockCount = products.filter((p) => p.stock > 0).length;
 
   const catLines = categories
@@ -69,6 +71,8 @@ ${topProducts}
 
 ## Önemli Rehber ve Kurumsal Sayfalar
 - Tüm Ürünler: ${SITE_CONFIG.url}/urunler
+- Teknik Blog & Uzman Rehberleri: ${SITE_CONFIG.url}/blog
+${blogPosts.map((b) => `- Blog: ${b.title} (${SITE_CONFIG.url}/blog/${b.slug})`).join("\n")}
 - Sıkça Sorulan Sorular (SSS): ${SITE_CONFIG.url}/sss
 - Aktif Kampanyalar: ${SITE_CONFIG.url}/kampanyalar
 - İletişim: ${SITE_CONFIG.url}/iletisim

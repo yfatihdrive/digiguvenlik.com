@@ -39,6 +39,7 @@ export interface Product {
   image: string;
   images: string[];
   imageAlts?: string[];
+  videoUrl?: string;
   isBestseller: boolean;
   isFeatured: boolean;
   isSuperDeal: boolean;
@@ -168,4 +169,37 @@ export interface DatabaseSchema {
   coupons: Coupon[];
   users: User[];
   orders: Order[];
+}
+
+export interface BlogImage {
+  url: string;
+  alt: string;
+  caption?: string;
+  width: number;
+  height: number;
+  isFeatured?: boolean;
+}
+
+export interface BlogPost {
+  slug: string;
+  title: string;
+  metaTitle: string;
+  metaDescription: string;
+  primaryKeyword: string;
+  secondaryKeywords: string[];
+  topicType: string;
+  categorySlug: string;
+  categoryName: string;
+  author: string;
+  publishedAt: string;
+  updatedAt?: string;
+  readingMinutes: number;
+  wordCount: number;
+  tldrSummary: string;
+  featuredImage?: BlogImage | null;
+  images: BlogImage[];
+  productSlugs: string[];
+  contentHtml: string;
+  faqs: ProductFaq[];
+  schemaJsonLd?: Record<string, unknown>;
 }

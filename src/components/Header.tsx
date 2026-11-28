@@ -444,6 +444,19 @@ export default function Header({ settings, categories }: HeaderProps) {
               </Link>
             );
           })}
+
+          <Link
+            href="/blog"
+            aria-current={pathname.startsWith("/blog") ? "page" : undefined}
+            onMouseEnter={() => setActiveParentDropdown(null)}
+            className={`shrink-0 rounded-lg px-3 py-2 text-[16px] font-bold transition ${
+              pathname.startsWith("/blog")
+                ? "bg-orange-50 text-[#FF6000]"
+                : "text-[#212121] hover:bg-orange-50 hover:text-[#FF6000]"
+            }`}
+          >
+            Blog
+          </Link>
         </div>
 
         {/* Subcategories Dropdown for Parent Category (e.g. Takip Cihazları, Gizli Kameralar) */}

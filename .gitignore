@@ -37,3 +37,8 @@ Thumbs.db
 /test-results/
 /playwright-report/
 /data/mail-logs/
+
+# Blog automation transient files (blog.db is tracked for GitHub Actions state)
+/blog_automation/logs/
+/blog_automation/dry_run_previews/
+/blog_automation/__pycache__/
